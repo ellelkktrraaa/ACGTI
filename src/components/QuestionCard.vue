@@ -1,7 +1,7 @@
 <template>
   <section class="question-card">
     <div class="question-content">
-      <h1 class="question-title">{{ question.prompt }}</h1>
+      <h1 class="question-title">{{ question.text ?? question.prompt ?? '（题干缺失）' }}</h1>
     </div>
 
     <div class="options-grid">

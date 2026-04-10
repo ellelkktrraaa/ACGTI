@@ -1,276 +1,720 @@
 <template>
-  <div class="home-page">
-    <!-- Hero Section -->
-    <section class="hero-section">
-      <h1 class="hero-quote">
-        "终于有人真正懂你了。"
-      </h1>
-      <p class="hero-subtitle">
-        只需 10 分钟，就能获得一个"极其准确"的描述，告诉你是什么样的人，以及你为什么会用这样的方式做事。
-      </p>
-      <RouterLink to="/quiz" class="hero-cta">开始测试</RouterLink>
-      <div class="hero-image-placeholder">
-        <svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" class="hero-image">
-          <!-- Background gradient -->
-          <defs>
-            <linearGradient id="skyGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" style="stop-color:#87CEEB;stop-opacity:1" />
-              <stop offset="100%" style="stop-color:#E0F6FF;stop-opacity:1" />
-            </linearGradient>
-          </defs>
-
-          <!-- Sky background -->
-          <rect width="800" height="400" fill="url(#skyGradient)"/>
-
-          <!-- Mountains -->
-          <polygon points="0,400 150,250 300,400" fill="#6B8E8E"/>
-          <polygon points="200,400 400,200 600,400" fill="#5A7A7A"/>
-          <polygon points="500,400 650,220 800,400" fill="#6B8E8E"/>
-
-          <!-- Ground -->
-          <rect x="0" y="350" width="800" height="50" fill="#4A6741"/>
-
-          <!-- Campfire -->
-          <ellipse cx="400" cy="370" rx="30" ry="8" fill="#8B7355"/>
-          <ellipse cx="400" cy="365" rx="20" ry="12" fill="#FF6B35"/>
-          <ellipse cx="400" cy="360" rx="12" ry="15" fill="#FF8C42"/>
-
-          <!-- People silhouettes sitting around campfire -->
-          <circle cx="350" cy="340" r="15" fill="#2C3E50"/>
-          <rect x="342" y="355" width="16" height="25" rx="8" fill="#2C3E50"/>
-
-          <circle cx="380" cy="335" r="15" fill="#34495E"/>
-          <rect x="372" y="350" width="16" height="25" rx="8" fill="#34495E"/>
-
-          <circle cx="420" cy="335" r="15" fill="#2C3E50"/>
-          <rect x="412" y="350" width="16" height="25" rx="8" fill="#2C3E50"/>
-
-          <circle cx="450" cy="340" r="15" fill="#34495E"/>
-          <rect x="442" y="355" width="16" height="25" rx="8" fill="#34495E"/>
-
-          <!-- Stars -->
-          <circle cx="100" cy="80" r="2" fill="#FFFFFF"/>
-          <circle cx="200" cy="120" r="2" fill="#FFFFFF"/>
-          <circle cx="700" cy="90" r="2" fill="#FFFFFF"/>
-          <circle cx="650" cy="150" r="2" fill="#FFFFFF"/>
-          <circle cx="150" cy="180" r="2" fill="#FFFFFF"/>
-          <circle cx="750" cy="200" r="2" fill="#FFFFFF"/>
-
-          <!-- Moon -->
-          <circle cx="680" cy="80" r="40" fill="#F5F5DC"/>
-        </svg>
-      </div>
-    </section>
-
-    <!-- Personality Types Section -->
-    <section class="feature-section">
-      <div class="section-header">
-        <span class="section-eyebrow">角色原型</span>
-        <h2 class="section-title">了解不同的角色类型</h2>
-        <p class="section-description">
-          在我们的角色原型描述中，你将了解真正驱动、激励和困扰不同性格类型的因素，帮助你建立更有意义的人际关系。
+  <div class="home">
+    <section class="hero">
+      <div class="container hero-inner">
+        <h1 class="hero-title">"终于有人把你看懂了。"</h1>
+        <p class="hero-subtitle">
+          仅需 10 分钟，获得一份高贴合度人格报告：核心四字母类型、维度倾向比例，以及对应二次元角色原型。
         </p>
+        <RouterLink to="/quiz" class="hero-button">开始测试 →</RouterLink>
       </div>
 
-      <div class="feature-grid">
-        <div class="feature-card">
-          <div class="feature-icon" style="background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%);">
-            🎭
-          </div>
-          <h3 class="feature-card-title">主角型</h3>
-          <p class="feature-card-text">
-            天生的领导者，富有魅力和自信，总是能够激励他人朝着共同的目标努力。
-          </p>
-        </div>
+      <div class="hero-wave"></div>
 
-        <div class="feature-card">
-          <div class="feature-icon" style="background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);">
-            💡
-          </div>
-          <h3 class="feature-card-title">智囊型</h3>
-          <p class="feature-card-text">
-            善于分析和思考的创新者，总是能够想出独特的解决方案来应对复杂问题。
-          </p>
-        </div>
+      <div class="hero-scene" aria-hidden="true">
+        <div class="tree tree-1"></div>
+        <div class="tree tree-2"></div>
+        <div class="tree tree-3"></div>
+        <div class="stone stone-1"></div>
+        <div class="stone stone-2"></div>
+        <div class="person person-1"></div>
+        <div class="person person-2"></div>
+        <div class="campfire"></div>
+        <div class="person person-3"></div>
+        <div class="person person-4"></div>
+      </div>
+    </section>
 
-        <div class="feature-card">
-          <div class="feature-icon" style="background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);">
-            ⚔️
-          </div>
-          <h3 class="feature-card-title">守护者型</h3>
-          <p class="feature-card-text">
-            务实可靠的守护者，重视传统和稳定，总是能够保护和支持身边的人。
-          </p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-icon" style="background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);">
-            🎨
-          </div>
-          <h3 class="feature-card-title">探险家型</h3>
-          <p class="feature-card-text">
-            充满好奇心的探险家，热爱自由和探索，总是渴望体验新事物和冒险。
-          </p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-icon" style="background: linear-gradient(135deg, #33a474 0%, #27ae60 100%);">
-            🌟
-          </div>
-          <h3 class="feature-card-title">治愈者型</h3>
-          <p class="feature-card-text">
-            温和善良的治愈者，总是能够理解和支持他人的情感需求。
-          </p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-icon" style="background: linear-gradient(135deg, #88619a 0%, #8e44ad 100%);">
-            🔮
-          </div>
-          <h3 class="feature-card-title">神秘主义者型</h3>
-          <p class="feature-card-text">
-            富有想象力的梦想家，总是能够看到事物背后更深层的含义。
-          </p>
+    <section class="stats">
+      <div class="container stat-grid">
+        <div v-for="item in stats" :key="item.label" class="stat-item">
+          <p class="stat-value" :style="{ color: item.color }">{{ item.value }}</p>
+          <p class="stat-label">{{ item.label }}</p>
         </div>
       </div>
     </section>
 
-    <!-- Teams Section -->
-    <section class="feature-section feature-section-alt">
-      <div class="split-section">
-        <div class="split-section-content">
-          <span class="section-eyebrow">团队合作</span>
-          <h2 class="split-section-title">更好地了解你的团队</h2>
-          <p class="split-section-text">
-            通过我们的团队评估工具，更好地了解你的团队。改善沟通，创造和谐，帮助团队成员发展个人优势。适用于各种规模的团队。
+    <section class="feature feature-light">
+      <div class="container feature-layout">
+        <article>
+          <p class="feature-tag tag-green">Personality Types</p>
+          <h2 class="feature-title">理解他人，也更理解自己</h2>
+          <p class="feature-copy">
+            我们以标准 MBTI 四字母编码为结果核心，并提供二次元角色原型解析，让你快速理解各类型的驱动力、压力点与关系风格。
           </p>
-          <RouterLink to="/quiz" class="button button-primary">开始团队评估</RouterLink>
-        </div>
-        <div class="split-section-image">
-          <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
-            <!-- Office background -->
-            <rect x="0" y="0" width="400" height="300" fill="#f8f9fa"/>
+          <div class="feature-actions">
+            <RouterLink to="/intro" class="btn btn-green">查看 16 型人格</RouterLink>
+            <RouterLink to="/intro" class="link-green">阅读理论 →</RouterLink>
+          </div>
+        </article>
+        <aside class="feature-illustration office-1" aria-hidden="true">
+          <div class="window"></div>
+          <div class="window"></div>
+          <div class="figure a"></div>
+          <div class="figure b"></div>
+          <div class="figure c"></div>
+          <div class="desk"></div>
+        </aside>
+      </div>
+    </section>
 
-            <!-- Desk -->
-            <rect x="50" y="200" width="300" height="10" fill="#8B7355"/>
-            <rect x="70" y="210" width="10" height="60" fill="#8B7355"/>
-            <rect x="320" y="210" width="10" height="60" fill="#8B7355"/>
+    <section class="feature feature-alt">
+      <div class="container feature-layout reverse">
+        <aside class="feature-illustration office-2" aria-hidden="true">
+          <div class="figure d"></div>
+          <div class="figure e"></div>
+          <div class="figure f"></div>
+          <div class="desk"></div>
+        </aside>
+        <article>
+          <p class="feature-tag tag-blue">Teams</p>
+          <h2 class="feature-title">帮助团队建立高质量协作</h2>
+          <p class="feature-copy">
+            团队版评估将成员的 MBTI 类型与偏好差异可视化，帮助团队在沟通、决策与分工中减少摩擦，突出每个人的优势。
+          </p>
+          <RouterLink to="/quiz" class="btn btn-blue">开始团队测评</RouterLink>
+        </article>
+      </div>
+    </section>
 
-            <!-- Person 1 - standing -->
-            <circle cx="120" cy="140" r="20" fill="#3498db"/>
-            <rect x="110" y="160" width="20" height="40" rx="5" fill="#3498db"/>
+    <section class="testimonials">
+      <div class="quote-badge">“</div>
+      <div class="container">
+        <p class="testimonial-tag">Testimonials</p>
+        <h2 class="testimonial-title">看看大家的测试反馈</h2>
 
-            <!-- Person 2 - sitting -->
-            <circle cx="200" cy="150" r="20" fill="#e74c3c"/>
-            <rect x="190" y="170" width="20" height="30" rx="5" fill="#e74c3c"/>
-
-            <!-- Person 3 - standing -->
-            <circle cx="280" cy="140" r="20" fill="#33a474"/>
-            <rect x="270" y="160" width="20" height="40" rx="5" fill="#33a474"/>
-
-            <!-- Speech bubble -->
-            <ellipse cx="160" cy="100" rx="40" ry="20" fill="#ffffff" stroke="#d0d0d0" stroke-width="2"/>
-            <polygon points="170,115 175,125 165,125" fill="#ffffff" stroke="#d0d0d0" stroke-width="2"/>
-
-            <!-- Speech bubble 2 -->
-            <ellipse cx="240" cy="90" rx="40" ry="20" fill="#ffffff" stroke="#d0d0d0" stroke-width="2"/>
-            <polygon points="230,105 235,115 225,115" fill="#ffffff" stroke="#d0d0d0" stroke-width="2"/>
-
-            <!-- Laptop -->
-            <rect x="180" y="190" width="40" height="5" fill="#2c3e50"/>
-            <rect x="185" y="195" width="30" height="3" fill="#34495e"/>
-          </svg>
+        <div class="testimonial-track">
+          <article v-for="item in testimonials" :key="item.name" class="testimonial-card">
+            <div class="card-top" :style="{ backgroundColor: item.color }"></div>
+            <div class="card-body">
+              <div class="profile-row">
+                <div class="avatar" :style="{ background: item.avatar }"></div>
+                <div>
+                  <h3>{{ item.name }}</h3>
+                  <p :style="{ color: item.color }">{{ item.role }} ({{ item.type }})</p>
+                </div>
+              </div>
+              <p class="quote">{{ item.quote }}</p>
+            </div>
+          </article>
         </div>
       </div>
     </section>
 
-    <!-- Testimonials Section -->
-    <section class="testimonials-section">
-      <div class="section-header">
-        <span class="section-eyebrow">用户评价</span>
-        <h2 class="section-title">看看大家怎么说</h2>
+    <section class="cta">
+      <div class="cta-top-wave"></div>
+      <div class="container cta-inner">
+        <h2>想知道你的四字母类型会是哪一个？</h2>
+        <RouterLink to="/quiz" class="hero-button">立即开始测试 →</RouterLink>
       </div>
-
-      <div class="testimonials-grid">
-        <div class="testimonial-card">
-          <div class="testimonial-avatar"></div>
-          <p class="testimonial-text">
-            "这个测试太准了！它完全理解了我在二次元世界中的真实性格，让我知道了自己属于哪种角色类型。"
-          </p>
-          <p class="testimonial-author">动漫爱好者</p>
-          <p class="testimonial-type">主角型 (ENFJ)</p>
-        </div>
-
-        <div class="testimonial-card">
-          <div class="testimonial-avatar" style="background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);"></div>
-          <p class="testimonial-text">
-            "终于有一个专门为二次元爱好者设计的性格测试了！结果非常准确，推荐给所有喜欢动漫的朋友。"
-          </p>
-          <p class="testimonial-author">资深宅男</p>
-          <p class="testimonial-type">智囊型 (INTP)</p>
-        </div>
-
-        <div class="testimonial-card">
-          <div class="testimonial-avatar" style="background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);"></div>
-          <p class="testimonial-text">
-            "测试过程很有趣，结果也很有趣。发现自己原来是最像某个动漫角色的类型，太神奇了！"
-          </p>
-          <p class="testimonial-author">cosplay 爱好者</p>
-          <p class="testimonial-type">探险家型 (ISFP)</p>
-        </div>
-
-        <div class="testimonial-card">
-          <div class="testimonial-avatar" style="background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%);"></div>
-          <p class="testimonial-text">
-            "作为一个长期看动漫的人，这个测试真的很懂我！它抓住了我内心深处的角色原型。"
-          </p>
-          <p class="testimonial-author">动画专业学生</p>
-          <p class="testimonial-type">神秘主义者型 (INFJ)</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Final CTA Section -->
-    <section class="feature-section">
-      <div class="section-header">
-        <h2 class="section-title">好奇我们有多了解你？</h2>
-        <p class="section-description" style="margin-top: 16px;">
-          加入成千上万的二次元爱好者，发现你的角色原型
-        </p>
-        <div style="margin-top: 32px;">
-          <RouterLink to="/quiz" class="hero-cta">立即开始测试</RouterLink>
-        </div>
-      </div>
+      <div class="cta-bottom-wave"></div>
     </section>
   </div>
 </template>
 
 <script setup lang="ts">
-// Home page component - 16Personalities style layout
+const stats = [
+  { value: "286K+", label: "今日完成测试", color: "#4899a3" },
+  { value: "6M+", label: "中文用户累计", color: "#e5b540" },
+  { value: "1.52B+", label: "全球累计测评", color: "#5ca173" },
+  { value: "91.2%", label: "结果认可度", color: "#9474a4" },
+]
+
+const testimonials = [
+  {
+    name: "Benny",
+    role: "ARCHITECT",
+    type: "INTJ-A",
+    color: "#8a609d",
+    avatar: "linear-gradient(135deg, #f7b2b2 0%, #f3d3d3 100%)",
+    quote: "结果非常细，像拿着镜子把我的习惯和思考方式都照了出来。",
+  },
+  {
+    name: "Nicole",
+    role: "ADVOCATE",
+    type: "INFJ-T",
+    color: "#3ba17c",
+    avatar: "linear-gradient(135deg, #b8d7ff 0%, #d6e6ff 100%)",
+    quote: "终于有一个结果把我解释清楚了，不再觉得自己和别人不一样。",
+  },
+  {
+    name: "Caroline",
+    role: "DEFENDER",
+    type: "ISFJ-A",
+    color: "#4298b4",
+    avatar: "linear-gradient(135deg, #bdebc9 0%, #dff5e6 100%)",
+    quote: "优势和盲点写得很准确，尤其是关系与工作场景建议，实用度很高。",
+  },
+  {
+    name: "Marta",
+    role: "COMMANDER",
+    type: "ENTJ-A",
+    color: "#8a609d",
+    avatar: "linear-gradient(135deg, #ffe6a8 0%, #fff1cb 100%)",
+    quote: "我原本只想随便测测，没想到结论和我现实状态高度一致。",
+  },
+]
 </script>
 
 <style scoped>
-.home-page {
-  width: 100%;
+.home {
+  background: #fff;
+  color: #333;
 }
 
-.hero-image-placeholder {
-  margin-top: 48px;
-  max-width: 900px;
-  margin-left: auto;
-  margin-right: auto;
+.container {
+  width: min(1200px, calc(100% - 2rem));
+  margin: 0 auto;
 }
 
-.hero-image {
-  width: 100%;
-  height: auto;
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-lg);
+.hero {
+  position: relative;
+  padding: 5.5rem 0 14rem;
+  background: #4899a3;
+  overflow: hidden;
+}
+
+.hero-inner {
+  text-align: center;
+  position: relative;
+  z-index: 3;
+  color: #fff;
+}
+
+.hero-title {
+  margin: 0;
+  font-size: clamp(2.2rem, 5.5vw, 3.5rem);
+  line-height: 1.15;
+  font-weight: 800;
+}
+
+.hero-subtitle {
+  max-width: 760px;
+  margin: 1.4rem auto 2.2rem;
+  font-size: clamp(1rem, 2.4vw, 1.35rem);
+  opacity: 0.95;
+}
+
+.hero-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 54px;
+  padding: 0 2rem;
+  border-radius: 999px;
+  background: #9474a4;
+  color: #fff;
+  font-weight: 700;
+  box-shadow: 0 12px 26px rgba(89, 58, 104, 0.28);
+  transition: transform 0.2s ease;
+}
+
+.hero-button:hover {
+  transform: translateY(-2px);
+}
+
+.hero-wave {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 160px;
+  background: #fff;
+  clip-path: polygon(0 35%, 12% 25%, 50% 58%, 82% 18%, 100% 32%, 100% 100%, 0 100%);
+  z-index: 2;
+}
+
+.hero-scene {
+  position: absolute;
+  left: 50%;
+  bottom: 22px;
+  transform: translateX(-50%);
+  width: min(1180px, 92vw);
+  height: 240px;
+  z-index: 1;
+}
+
+.tree {
+  position: absolute;
+  bottom: 40px;
+  width: 0;
+  height: 0;
+  border-left: 24px solid transparent;
+  border-right: 24px solid transparent;
+  border-bottom: 72px solid #4f9e6c;
+}
+
+.tree-1 { left: 12%; }
+.tree-2 {
+  left: 22%;
+  border-left-width: 34px;
+  border-right-width: 34px;
+  border-bottom-width: 96px;
+  border-bottom-color: #3b7a52;
+}
+.tree-3 {
+  right: 14%;
+  border-left-width: 36px;
+  border-right-width: 36px;
+  border-bottom-width: 104px;
+}
+
+.stone {
+  position: absolute;
+  bottom: 24px;
+  background: #9fa6ad;
+  border-radius: 16px 16px 8px 8px;
+}
+
+.stone-1 {
+  left: 29%;
+  width: 54px;
+  height: 38px;
+  transform: skewX(-12deg);
+}
+
+.stone-2 {
+  right: 24%;
+  width: 64px;
+  height: 44px;
+  transform: skewX(12deg);
+}
+
+.person {
+  position: absolute;
+  bottom: 34px;
+  width: 26px;
+  height: 26px;
+  border-radius: 8px;
+}
+
+.person::after {
+  content: "";
+  position: absolute;
+  top: 31px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 38px;
+  height: 64px;
+  border-radius: 16px 16px 10px 10px;
+  background: currentColor;
+}
+
+.person-1 {
+  left: 33%;
+  color: #68b6ce;
+  background: #4298b4;
+}
+
+.person-2 {
+  left: 42%;
+  color: #5aa273;
+  background: #d5dbe3;
+}
+
+.person-3 {
+  left: 59%;
+  color: #e1c152;
+  background: #57616f;
+}
+
+.person-4 {
+  left: 70%;
+  color: #a683b5;
+  background: #8a609d;
+}
+
+.campfire {
+  position: absolute;
+  left: 50%;
+  bottom: 48px;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 56px;
+  background: #f2c244;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+.campfire::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -10px;
+  transform: translateX(-50%);
+  width: 58px;
+  height: 10px;
+  border-radius: 999px;
+  background: #7e3c28;
+}
+
+.stats {
+  padding: 4.5rem 0;
+}
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+  text-align: center;
+}
+
+.stat-value {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1;
+  font-weight: 800;
+}
+
+.stat-label {
+  margin: 0.7rem 0 0;
+  font-size: 0.95rem;
+  color: #64717b;
+}
+
+.feature {
+  position: relative;
+  padding: 5.5rem 0;
+  overflow: hidden;
+}
+
+.feature::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(170deg, #f7f8f9 0%, #fff 55%);
+  z-index: 0;
+}
+
+.feature-alt::before {
+  background: linear-gradient(192deg, #f7f8f9 0%, #fff 58%);
+}
+
+.feature-layout {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+.reverse {
+  grid-template-columns: 1fr 1fr;
+}
+
+.feature-tag {
+  margin: 0 0 1rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.13em;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.tag-green { color: #3ba17c; }
+.tag-blue { color: #4298b4; }
+
+.feature-title {
+  margin: 0;
+  font-size: clamp(2rem, 4.5vw, 2.7rem);
+  line-height: 1.2;
+}
+
+.feature-copy {
+  margin: 1.3rem 0 1.8rem;
+  color: #54616c;
+  font-size: 1.08rem;
+  line-height: 1.75;
+}
+
+.feature-actions {
+  display: flex;
+  gap: 1.1rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50px;
+  border-radius: 999px;
+  padding: 0 1.6rem;
+  color: #fff;
+  font-weight: 700;
+}
+
+.btn-green { background: #3ba17c; }
+.btn-blue { background: #4298b4; }
+.link-green {
+  color: #3ba17c;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.85rem;
+}
+
+.feature-illustration {
+  height: 390px;
+  border-radius: 18px;
+  border: 1px solid #e7ebee;
+  background: #fff;
+  box-shadow: 0 20px 50px rgba(20, 33, 45, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+.feature-illustration::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(246, 248, 249, 0.8);
+  clip-path: polygon(0 0, 100% 6%, 100% 96%, 0 100%);
+}
+
+.office-1 .window {
+  position: absolute;
+  top: 42px;
+  width: 36%;
+  height: 96px;
+  background: #d7e7ef;
+  border-radius: 8px;
+}
+
+.office-1 .window:first-child { left: 8%; }
+.office-1 .window:last-child { right: 8%; }
+
+.figure {
+  position: absolute;
+  bottom: 52px;
+  width: 58px;
+  border-radius: 12px 12px 6px 6px;
+}
+
+.office-1 .a {
+  left: 24%;
+  height: 170px;
+  background: #5aa273;
+}
+
+.office-1 .b {
+  left: 44%;
+  height: 136px;
+  background: #8a609d;
+}
+
+.office-1 .c {
+  left: 63%;
+  height: 154px;
+  background: #68b6ce;
+}
+
+.office-2 .d {
+  left: 26%;
+  height: 132px;
+  background: #8a609d;
+}
+
+.office-2 .e {
+  left: 48%;
+  height: 176px;
+  background: #5aa273;
+}
+
+.office-2 .f {
+  left: 68%;
+  height: 156px;
+  background: #e5b540;
+}
+
+.desk {
+  position: absolute;
+  bottom: 26px;
+  left: 10%;
+  width: 80%;
+  height: 16px;
+  border-radius: 8px;
+  background: #51575f;
+}
+
+.testimonials {
+  padding: 5.5rem 0;
+  position: relative;
+}
+
+.quote-badge {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%) rotate(12deg);
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  background: #e5b540;
+  color: #fff;
+  font-size: 3rem;
+  font-family: Georgia, serif;
+  line-height: 1.3;
+  text-align: center;
+  box-shadow: 0 10px 24px rgba(131, 96, 17, 0.28);
+}
+
+.testimonial-tag {
+  text-align: center;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #e5b540;
+  font-weight: 800;
+  font-size: 0.75rem;
+  margin: 1.6rem 0 0;
+}
+
+.testimonial-title {
+  text-align: center;
+  margin: 0.6rem 0 2.6rem;
+  font-size: clamp(1.9rem, 4.5vw, 2.8rem);
+}
+
+.testimonial-track {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(280px, 360px);
+  gap: 1.2rem;
+  overflow-x: auto;
+  padding: 0.4rem 0.2rem 1.2rem;
+  scroll-snap-type: x mandatory;
+}
+
+.testimonial-card {
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 10px 30px rgba(32, 38, 46, 0.1);
+  overflow: hidden;
+  scroll-snap-align: center;
+}
+
+.card-top {
+  height: 6px;
+}
+
+.card-body {
+  padding: 1.4rem;
+}
+
+.profile-row {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 999px;
+}
+
+.profile-row h3 {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.profile-row p {
+  margin: 0.25rem 0 0;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.quote {
+  margin: 1rem 0 0;
+  color: #4f5e6b;
+  line-height: 1.7;
+  font-size: 0.95rem;
+}
+
+.cta {
+  margin-top: 1rem;
+  position: relative;
+  background: #46a27e;
+  padding: 8rem 0;
+  overflow: hidden;
+}
+
+.cta-top-wave,
+.cta-bottom-wave {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 84px;
+  background: #fff;
+}
+
+.cta-top-wave {
+  top: 0;
+  clip-path: polygon(0 0, 100% 0, 100% 12%, 48% 100%, 0 42%);
+}
+
+.cta-bottom-wave {
+  bottom: 0;
+  clip-path: polygon(0 78%, 52% 22%, 100% 90%, 100% 100%, 0 100%);
+}
+
+.cta-inner {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: #fff;
+}
+
+.cta-inner h2 {
+  margin: 0 0 2rem;
+  font-size: clamp(2rem, 4.5vw, 3rem);
+  line-height: 1.2;
+}
+
+@media (max-width: 1024px) {
+  .stat-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 1.8rem;
+  }
+
+  .feature-layout,
+  .reverse {
+    grid-template-columns: 1fr;
+  }
+
+  .feature-illustration {
+    height: 320px;
+  }
 }
 
 @media (max-width: 768px) {
-  .hero-image-placeholder {
-    margin-top: 32px;
+  .hero {
+    padding-top: 4.2rem;
+    padding-bottom: 11.5rem;
+  }
+
+  .hero-scene {
+    height: 170px;
+  }
+
+  .person::after {
+    width: 28px;
+    height: 48px;
+    top: 28px;
+  }
+
+  .tree,
+  .stone,
+  .person-4 {
+    display: none;
+  }
+
+  .testimonial-track {
+    grid-auto-columns: minmax(260px, 86vw);
+  }
+
+  .cta {
+    padding: 7rem 0;
   }
 }
 </style>

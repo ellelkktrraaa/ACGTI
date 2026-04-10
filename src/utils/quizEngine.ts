@@ -7,6 +7,25 @@ const DIMENSION_LETTERS: Record<DimensionPair, [MBTILetter, MBTILetter]> = {
   'J_P': ['J', 'P']
 }
 
+const TYPE_TO_ARCHETYPE: Record<string, ArchetypeId> = {
+  INTJ: 'shadow-strategist',
+  INTP: 'icebound-observer',
+  ENTJ: 'oathbound-captain',
+  ENTP: 'trickster-orbit',
+  INFJ: 'gentle-healer',
+  INFP: 'moonlit-guardian',
+  ENFJ: 'luminous-lead',
+  ENFP: 'trickster-orbit',
+  ISTJ: 'moonlit-guardian',
+  ISFJ: 'gentle-healer',
+  ESTJ: 'oathbound-captain',
+  ESFJ: 'luminous-lead',
+  ISTP: 'icebound-observer',
+  ISFP: 'moonlit-guardian',
+  ESTP: 'chaos-spark',
+  ESFP: 'chaos-spark',
+}
+
 // 16personalities 风格的维度标签配置
 export const TRAIT_CONFIG = {
   'E_I': {
@@ -99,7 +118,7 @@ export function calculateQuizResult({
     if (typeof val !== 'number') return
 
     const { dimension, sign } = question
-    maxScores[dimension] += 3
+    maxScores[dimension] += Math.abs(sign) * 3
     rawScores[dimension] += val * sign
   })
 
@@ -127,7 +146,9 @@ export function calculateQuizResult({
     finalCode += dominant
   }
 
-  const matchedArchetype: Archetype = archetypes.find((a: Archetype) => a.id.toUpperCase() === finalCode) || {
+  const matchedArchetypeId = TYPE_TO_ARCHETYPE[finalCode]
+
+  const matchedArchetype: Archetype = archetypes.find((a: Archetype) => a.id === matchedArchetypeId) || {
     id: 'luminous-lead' as ArchetypeId,
     name: '异格旅行者',
     subtitle: '无法被定义的观测者',
@@ -142,18 +163,21 @@ export function calculateQuizResult({
     vector: { expression: 0, temperature: 0, judgement: 0, order: 0, agency: 0, aura: 0 }
   }
 
-  const charMatches = characters.filter((c: CharacterMatch) => c.archetypeId.toUpperCase() === finalCode).slice(0, 5)
+  const charMatches = characters.filter((c: CharacterMatch) => c.matchCode.toUpperCase() === finalCode).slice(0, 5)
+  const featuredCharacter = charMatches[0] ?? null
 
   // 计算匹配度（基于与原型向量的相似度）
   const matchScore = Math.round(50 + Math.random() * 40)
 
   return {
-    code: finalCode,
+    code: featuredCharacter?.code ?? finalCode,
+    mbtiCode: finalCode,
     scores,
     archetype: matchedArchetype,
     tags: [matchedArchetype.narrativeRole, ...matchedArchetype.tags].slice(0, 6),
     matchScore,
     characterMatches: charMatches,
+    featuredCharacter,
   }
 }
 

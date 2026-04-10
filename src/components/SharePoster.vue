@@ -18,9 +18,9 @@ defineExpose({
   <section ref="rootEl" class="share-poster" :style="{ '--poster-accent': result.archetype.accent }">
     <div class="share-poster__header">
       <div>
-        <p class="share-poster__kicker">ACGTI 角色匹配结果</p>
-        <h2 class="share-poster__title">{{ result.archetype.name }}</h2>
-        <p class="share-poster__subtitle">{{ result.archetype.subtitle }}</p>
+        <p class="share-poster__kicker">ACGTI 角色匹配结果 · {{ result.code }}-T · {{ result.archetype.name }}</p>
+        <h2 class="share-poster__title">{{ result.characterMatches[0]?.name || result.archetype.name }}</h2>
+        <p class="share-poster__subtitle">{{ result.characterMatches[0]?.title || result.archetype.subtitle }}</p>
       </div>
       <div class="share-poster__score">
         <span>命中感</span>
@@ -29,7 +29,7 @@ defineExpose({
     </div>
 
     <div class="share-poster__tags">
-      <span v-for="tag in result.tags.length ? result.tags : result.archetype.tags" :key="tag">{{ tag }}</span>
+      <span v-for="tag in (result.characterMatches[0]?.tags || (result.tags.length ? result.tags : result.archetype.tags)).slice(0, 4)" :key="tag">{{ tag }}</span>
     </div>
 
     <div class="share-poster__body">
@@ -42,9 +42,9 @@ defineExpose({
         <p>{{ result.archetype.spotlight }}</p>
       </div>
       <div class="share-poster__block">
-        <span>像你的角色</span>
+        <span>相似同位体</span>
         <p>
-          {{ result.characterMatches.slice(0, 3).map((item) => `${item.name} / ${item.series}`).join(' · ') }}
+          {{ result.characterMatches.slice(1, 4).map((item) => `${item.name} / ${item.series}`).join(' · ') }}
         </p>
       </div>
     </div>

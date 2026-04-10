@@ -20,6 +20,16 @@ export type DimensionPair = 'E_I' | 'S_N' | 'T_F' | 'J_P'
 
 export type MBTILetter = 'E' | 'I' | 'S' | 'N' | 'T' | 'F' | 'J' | 'P'
 
+export type QuestionArchetypeWeightId =
+  | 'hero'
+  | 'strategist'
+  | 'guardian'
+  | 'lonewolf'
+  | 'healer'
+  | 'berserker'
+  | 'trickster'
+  | 'ruler'
+
 export interface QuestionOption {
   id: string
   label: string
@@ -29,11 +39,13 @@ export interface QuestionOption {
 
 export interface Question {
   id: string
-  prompt: string
+  text?: string
+  prompt?: string
   scene: string
-  options: QuestionOption[]
+  options?: QuestionOption[]
+  weights?: Partial<Record<QuestionArchetypeWeightId, number>>
   dimension: DimensionPair
-  sign: 1 | -1
+  sign: 1 | 0 | -1
 }
 
 export interface Archetype {
@@ -55,6 +67,10 @@ export interface CharacterMatch {
   id: string
   name: string
   series: string
+  image?: string
+  matchCode: string
+  code: string
+  title?: string
   archetypeId: ArchetypeId
   tags: string[]
   note: string
@@ -76,11 +92,13 @@ export interface QuizRecord {
 
 export interface QuizResult {
   code: string
+  mbtiCode: string
   archetype: Archetype
   scores: Record<DimensionPair, DimensionScore>
   tags: string[]
   matchScore: number
   characterMatches: CharacterMatch[]
+  featuredCharacter: CharacterMatch | null
 }
 
 // 16personalities 风格的额外类型

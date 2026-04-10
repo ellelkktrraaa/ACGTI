@@ -3,20 +3,21 @@
     <!-- 16Personalities-style Header -->
     <header v-if="$route.path !== '/quiz'" class="site-header">
       <RouterLink class="brand-lockup" to="/">
-        <div class="brand-logo">AC</div>
+        <div class="brand-logo" aria-hidden="true">
+          <span class="dot dot-1"></span>
+          <span class="dot dot-2"></span>
+          <span class="dot dot-3"></span>
+          <span class="dot dot-4"></span>
+        </div>
         <span class="brand-name">ACGTI</span>
       </RouterLink>
 
       <nav class="site-nav">
-        <RouterLink to="/">首页</RouterLink>
-        <RouterLink to="/intro">测试说明</RouterLink>
-        <RouterLink to="/about">关于</RouterLink>
-        <div class="nav-divider"></div>
-        <RouterLink to="/quiz" class="button button-primary" style="padding: 8px 20px; min-height: 40px;">开始测试</RouterLink>
-        <div class="nav-social">
-          <a href="#" class="social-icon" title="GitHub">GH</a>
-          <a href="#" class="social-icon" title="Email">✉</a>
-        </div>
+        <RouterLink to="/quiz">Personality Test</RouterLink>
+        <RouterLink to="/intro">Personality Types</RouterLink>
+        <RouterLink to="/about">Resources</RouterLink>
+        <a href="#">Log In</a>
+        <RouterLink to="/quiz" class="button button-primary nav-cta">Take the Test</RouterLink>
       </nav>
     </header>
 
@@ -29,36 +30,37 @@
     <footer v-if="$route.path !== '/quiz'" class="site-footer">
       <div class="footer-content">
         <div class="footer-section">
-          <h3 class="footer-title">产品</h3>
-          <a href="/quiz" class="footer-link">性格测试</a>
-          <a href="/intro" class="footer-link">测试说明</a>
-          <a href="#" class="footer-link">角色原型</a>
+          <h3 class="footer-title">Products</h3>
+          <a href="/quiz" class="footer-link">Premium Career Suite</a>
+          <a href="/quiz" class="footer-link">Team Assessments</a>
+          <a href="/intro" class="footer-link">Personality Types</a>
         </div>
         <div class="footer-section">
-          <h3 class="footer-title">资源</h3>
-          <a href="/about" class="footer-link">关于我们</a>
-          <a href="#" class="footer-link">常见问题</a>
-          <a href="#" class="footer-link">开发文档</a>
+          <h3 class="footer-title">Resources</h3>
+          <a href="/quiz" class="footer-link">Personality Test</a>
+          <a href="/intro" class="footer-link">Our Framework</a>
+          <a href="/about" class="footer-link">Articles</a>
         </div>
         <div class="footer-section">
-          <h3 class="footer-title">社区</h3>
-          <a href="#" class="footer-link">GitHub</a>
-          <a href="#" class="footer-link">反馈建议</a>
-          <a href="#" class="footer-link">贡献指南</a>
+          <h3 class="footer-title">Help</h3>
+          <a href="/about" class="footer-link">Contact Us</a>
+          <a href="/about" class="footer-link">FAQ</a>
+          <a href="/about" class="footer-link">Report an Issue</a>
         </div>
         <div class="footer-section">
-          <h3 class="footer-title">法律</h3>
-          <a href="#" class="footer-link">隐私政策</a>
-          <a href="#" class="footer-link">使用条款</a>
-          <a href="#" class="footer-link">许可证</a>
+          <h3 class="footer-title">Our Creations</h3>
+          <a href="#" class="footer-link">NPQE</a>
+          <a href="#" class="footer-link">MindTrackers</a>
+          <a href="#" class="footer-link">Leadership by ACGTI</a>
         </div>
       </div>
       <div class="footer-bottom">
-        <p class="footer-copyright">© 2024 ACGTI. 基于 MIT 许可证开源</p>
+        <p class="footer-copyright">©2011-2026 ACGTI Analytics Limited</p>
         <div class="footer-social">
-          <a href="#" title="GitHub">GH</a>
-          <a href="#" title="Email">✉</a>
-          <a href="#" title="Weibo">WB</a>
+          <a href="#" title="Bookmark">BK</a>
+          <a href="#" title="Facebook">FB</a>
+          <a href="#" title="Instagram">IG</a>
+          <a href="#" title="Twitter">TW</a>
         </div>
       </div>
     </footer>
