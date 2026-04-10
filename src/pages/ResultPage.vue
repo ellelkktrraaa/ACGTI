@@ -3,7 +3,6 @@ import { computed, onMounted, ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 
 import AppIcon from '../components/AppIcon.vue'
-import SharePoster from '../components/SharePoster.vue'
 import { useShare } from '../composables/useShare'
 import { useQuiz } from '../composables/useQuiz'
 import { normalizeMbtiCode } from '../utils/quizEngine'
@@ -13,7 +12,6 @@ const router = useRouter()
 const quiz = useQuiz()
 const activeDebugResult = ref<ReturnType<typeof quiz.createDebugResult>>(null)
 const result = computed(() => activeDebugResult.value ?? quiz.latestResult.value)
-const posterRef = ref<{ rootEl: HTMLElement | null } | null>(null)
 const isCharacterImageBroken = ref(false)
 const share = useShare()
 
@@ -40,13 +38,6 @@ watch(
 function retry() {
   quiz.resetQuiz()
   void router.push('/quiz')
-}
-
-function exportPoster() {
-  if (!result.value) {
-    return
-  }
-  void share.exportPoster(posterRef.value?.rootEl ?? null, result.value)
 }
 
 function copyText() {
@@ -168,10 +159,6 @@ function getDominantTraitLabel(traitId: TraitDimension, leftCode: string, leftLa
             <button class="action-btn light" @click="copyText">
               <AppIcon name="copy" />
               复制文案
-            </button>
-            <button class="action-btn" :disabled="share.isExporting.value" @click="exportPoster">
-              <AppIcon :name="share.isExporting.value ? 'spinner' : 'download'" :class="share.isExporting.value ? 'spin' : ''" />
-              {{ share.isExporting.value ? '导出中...' : '导出海报' }}
             </button>
             <button class="action-btn ghost" @click="retry">
               <AppIcon name="refresh" />
@@ -308,10 +295,6 @@ function getDominantTraitLabel(traitId: TraitDimension, leftCode: string, leftLa
             <AppIcon name="copy" />
             分享结果
           </button>
-          <button @click="exportPoster">
-            <AppIcon name="download" />
-            导出图片
-          </button>
         </div>
 
         <div class="sidebar-card project-card">
@@ -325,10 +308,6 @@ function getDominantTraitLabel(traitId: TraitDimension, leftCode: string, leftLa
           <p class="project-cta">欢迎 Star / Fork / PR</p>
         </div>
       </aside>
-    </div>
-
-    <div class="poster-hidden">
-      <SharePoster ref="posterRef" :result="result" />
     </div>
   </div>
 </template>
@@ -417,15 +396,6 @@ function getDominantTraitLabel(traitId: TraitDimension, leftCode: string, leftLa
 
 .action-btn.ghost {
   background: transparent;
-}
-
-.action-btn:disabled {
-  opacity: 0.7;
-  cursor: not-allowed;
-}
-
-.spin {
-  animation: spin 900ms linear infinite;
 }
 
 .hero-feedback {
@@ -794,10 +764,6 @@ function getDominantTraitLabel(traitId: TraitDimension, leftCode: string, leftLa
   font-weight: 600;
 }
 
-.poster-hidden {
-  display: none;
-}
-
 @media (min-width: 960px) {
   .result-hero-inner {
     grid-template-columns: 58% 42%;
@@ -1003,13 +969,4 @@ function getDominantTraitLabel(traitId: TraitDimension, leftCode: string, leftLa
   }
 }
 
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
-}
 </style>
