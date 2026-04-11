@@ -79,6 +79,11 @@ export interface CharacterMatch {
   vector: Record<DimensionId, number>
   signature?: {
     uniqueAxes?: Partial<Record<DimensionId, number>>
+    questionAffinity?: Array<{
+      questionId: string
+      expected: 'agree' | 'disagree' | 'neutral'
+      weight?: number
+    }>
   }
 }
 

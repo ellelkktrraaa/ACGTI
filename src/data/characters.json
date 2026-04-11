@@ -75,7 +75,13 @@
     "note": "神社穷得养蚊子，但她人气养活了整个东方圈。你以为她在摆烂，其实她只是把「赢」字写在了懒狗皮下面。名言：「没钱？那就把惹事的揍一顿」。属于「穷得理直气壮」的典范。",
     "vector": { "expression": 1, "temperature": 1, "judgement": 1, "order": 0, "agency": 3, "aura": 2 },
     "signature": {
-      "uniqueAxes": { "agency": 3, "order": 0, "temperature": 1 }
+      "uniqueAxes": { "agency": 3, "order": 0, "temperature": 1 },
+      "questionAffinity": [
+        { "questionId": "q2", "expected": "agree", "weight": 1.3 },
+        { "questionId": "q4", "expected": "agree", "weight": 1.2 },
+        { "questionId": "q14", "expected": "disagree", "weight": 1.1 },
+        { "questionId": "q38", "expected": "disagree", "weight": 1.2 }
+      ]
     }
   },
   {
@@ -161,7 +167,13 @@
     "note": "你以为她是高调Diva，后来发现她是独自演了五百年独角戏的苦逼打工人。她最狠的不是演技，是明明快碎了还要端着红酒杯说「一切都在我计划之中」。建议颁发「原神最佳表演奖」和「最惨打工人奖」。",
     "vector": { "expression": 3, "temperature": 2, "judgement": 1, "order": 1, "agency": 2, "aura": 3 },
     "signature": {
-      "uniqueAxes": { "expression": 3, "aura": 3, "temperature": 2 }
+      "uniqueAxes": { "expression": 3, "aura": 3, "temperature": 2 },
+      "questionAffinity": [
+        { "questionId": "q12", "expected": "agree", "weight": 1.1 },
+        { "questionId": "q22", "expected": "agree", "weight": 1.4 },
+        { "questionId": "q28", "expected": "disagree", "weight": 1.1 },
+        { "questionId": "q39", "expected": "agree", "weight": 1.2 }
+      ]
     }
   },
   {
@@ -176,7 +188,12 @@
     "note": "你不是在说话，你是在往空气里投掷散文诗。你最大的特点不是脆弱，是脆弱得特别有文学性——别人哭是伤心，你哭是艺术行为。MyGO团内指定「情感ATM」，取款请轻按。",
     "vector": { "expression": -1, "temperature": 2, "judgement": 1, "order": 0, "agency": 0, "aura": 2 },
     "signature": {
-      "uniqueAxes": { "temperature": 2, "expression": -1, "aura": 2 }
+      "uniqueAxes": { "temperature": 2, "expression": -1, "aura": 2 },
+      "questionAffinity": [
+        { "questionId": "q9", "expected": "agree", "weight": 1.2 },
+        { "questionId": "q17", "expected": "disagree", "weight": 1.3 },
+        { "questionId": "q19", "expected": "agree", "weight": 1.4 }
+      ]
     }
   },
   {
@@ -221,7 +238,12 @@
     "note": "你看起来最会照顾人，其实最会把话说得让人后劲很大。她没骂你，但你已经跪在键盘前反思人生——属于「笑面虎中的战术大师」。建议交往前先买好保险。",
     "vector": { "expression": 0, "temperature": 1, "judgement": 3, "order": 2, "agency": 1, "aura": 2 },
     "signature": {
-      "uniqueAxes": { "judgement": 3, "order": 2, "temperature": 1 }
+      "uniqueAxes": { "judgement": 3, "order": 2, "temperature": 1 },
+      "questionAffinity": [
+        { "questionId": "q11", "expected": "disagree", "weight": 1.2 },
+        { "questionId": "q20", "expected": "neutral", "weight": 1.3 },
+        { "questionId": "q34", "expected": "agree", "weight": 1.2 }
+      ]
     }
   },
   {
@@ -263,7 +285,12 @@
     "note": "你不是情绪少，你是情绪都藏在别人看不懂的地方。平时像背景板，却总在关键节点露出让人不安的执拗和迟钝感——属于「安静得过头，反而让人不敢移开视线」的类型。",
     "vector": { "expression": -3, "temperature": -2, "judgement": 3, "order": 2, "agency": 2, "aura": 3 },
     "signature": {
-      "uniqueAxes": { "expression": -3, "judgement": 3, "aura": 3 }
+      "uniqueAxes": { "expression": -3, "judgement": 3, "aura": 3 },
+      "questionAffinity": [
+        { "questionId": "q11", "expected": "agree", "weight": 1.1 },
+        { "questionId": "q23", "expected": "neutral", "weight": 1.3 },
+        { "questionId": "q32", "expected": "agree", "weight": 1.2 }
+      ]
     }
   },
   {
@@ -278,7 +305,12 @@
     "note": "这不是单纯的安静，而是像把真实情绪锁进另一个舞台壳里。你给人的感觉更像一个随时会改写氛围的变量，克制、陌生，而且带着明确的攻击性轮廓。",
     "vector": { "expression": -2, "temperature": -2, "judgement": 3, "order": 1, "agency": 3, "aura": 3 },
     "signature": {
-      "uniqueAxes": { "agency": 3, "aura": 3, "temperature": -2 }
+      "uniqueAxes": { "agency": 3, "aura": 3, "temperature": -2 },
+      "questionAffinity": [
+        { "questionId": "q20", "expected": "disagree", "weight": 1.2 },
+        { "questionId": "q34", "expected": "agree", "weight": 1.1 },
+        { "questionId": "q39", "expected": "disagree", "weight": 1.2 }
+      ]
     }
   },
   {
@@ -293,7 +325,12 @@
     "note": "你给人的第一印象是「应该很好相处」，但真正危险的地方在于：你自己也未必完全知道自己下一步会做什么——属于「温柔型不定时炸弹」。建议远离，除非你享受被炸的刺激。",
     "vector": { "expression": 0, "temperature": 1, "judgement": 1, "order": 0, "agency": 2, "aura": 3 },
     "signature": {
-      "uniqueAxes": { "aura": 3, "agency": 2, "temperature": 1 }
+      "uniqueAxes": { "aura": 3, "agency": 2, "temperature": 1 },
+      "questionAffinity": [
+        { "questionId": "q9", "expected": "neutral", "weight": 1.1 },
+        { "questionId": "q19", "expected": "neutral", "weight": 1.2 },
+        { "questionId": "q35", "expected": "agree", "weight": 1.2 }
+      ]
     }
   },
   {

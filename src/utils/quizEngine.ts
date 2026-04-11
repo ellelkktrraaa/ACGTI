@@ -215,6 +215,7 @@ export function calculateQuizResult({
     characters,
     archetypeRaw,
     userVector,
+    answers,
   })
   const leadingMatches = collectLeadingMatches(characterRankings)
   const featuredCharacter = leadingMatches[0]?.character ?? null
@@ -330,18 +331,20 @@ function rankCharactersByProfile({
   characters,
   archetypeRaw,
   userVector,
+  answers,
 }: {
   scores: Record<DimensionPair, DimensionScore>
   characters: CharacterMatch[]
   archetypeRaw: ArchetypeAccumulator
   userVector: UserVector
+  answers: number[]
 }) {
   return [...characters]
     .map((character) => {
       const mbti = scoreFlexibleMbti(character, scores)
       const archetype = scoreArchetype(character.archetypeId, archetypeRaw)
       const vector = scoreVector(userVector, character.vector)
-      const specific = scoreCharacterSpecific(userVector, character)
+      const specific = scoreCharacterSpecific(userVector, character, answers)
       const total =
         MBTI_WEIGHT * mbti +
         ARCHETYPE_WEIGHT * archetype +
@@ -435,12 +438,27 @@ function scoreVector(
 function scoreCharacterSpecific(
   userVector: UserVector,
   character: CharacterMatch,
+  answers: number[],
 ) {
   const uniqueAxes = character.signature?.uniqueAxes
-  if (!uniqueAxes || !Object.keys(uniqueAxes).length) {
-    return scoreVector(userVector, character.vector)
+  const questionAffinity = character.signature?.questionAffinity ?? []
+
+  const axisScore = !uniqueAxes || !Object.keys(uniqueAxes).length
+    ? scoreVector(userVector, character.vector)
+    : scoreUniqueAxes(userVector, uniqueAxes)
+
+  if (!questionAffinity.length) {
+    return axisScore
   }
 
+  const affinityScore = scoreQuestionAffinity(questionAffinity, answers)
+  return axisScore * 0.45 + affinityScore * 0.55
+}
+
+function scoreUniqueAxes(
+  userVector: UserVector,
+  uniqueAxes: Partial<Record<DimensionId, number>>,
+) {
   let weightedScore = 0
   let weightTotal = 0
 
@@ -454,11 +472,49 @@ function scoreCharacterSpecific(
     weightTotal += axisWeight
   }
 
-  if (!weightTotal) {
-    return 0.5
+  return weightTotal ? weightedScore / weightTotal : 0.5
+}
+
+function scoreQuestionAffinity(
+  affinities: NonNullable<NonNullable<CharacterMatch['signature']>['questionAffinity']>,
+  answers: number[],
+) {
+  let weightedScore = 0
+  let weightTotal = 0
+
+  for (const affinity of affinities) {
+    const questionIndex = getQuestionIndexById(affinity.questionId)
+    if (questionIndex < 0) {
+      continue
+    }
+
+    const answer = answers[questionIndex]
+    if (!isAnsweredValue(answer)) {
+      continue
+    }
+
+    const weight = affinity.weight ?? 1
+    weightedScore += evaluateAffinity(answer, affinity.expected) * weight
+    weightTotal += weight
   }
 
-  return weightedScore / weightTotal
+  return weightTotal ? weightedScore / weightTotal : 0.5
+}
+
+function evaluateAffinity(answer: number, expected: 'agree' | 'disagree' | 'neutral') {
+  if (expected === 'agree') {
+    return Math.max(0, (answer + 3) / 6)
+  }
+
+  if (expected === 'disagree') {
+    return Math.max(0, (3 - answer) / 6)
+  }
+
+  return Math.max(0, 1 - Math.abs(answer) / 3)
+}
+
+function getQuestionIndexById(questionId: string) {
+  return Number.parseInt(questionId.replace(/^q/i, ''), 10) - 1
 }
 
 function collectLeadingMatches(rankings: RankedCharacter[]) {
@@ -580,6 +636,7 @@ export function rankCharactersForMbti({
     characters,
     archetypeRaw: emptyArchetypeRaw,
     userVector: createEmptyUserVector(),
+    answers: [],
   }).map((item) => item.character)
 
   const preferredId = preferredCharacterId?.trim().toLowerCase()
