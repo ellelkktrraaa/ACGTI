@@ -191,6 +191,7 @@ export const messages = {
       'luminous-lead': {
         name: '发光主角位',
         subtitle: '把场子点亮的人',
+        narrativeRole: '主角团核心 / 气氛引擎',
         oneLiner: '你不是安静的背景板，你会把剧情推向更明亮的地方。',
         description: '自带「高输出、强推进」的主角面板。你天生就是带领团队冲锋的那个人，注定要站在聚光灯下，是队伍里不可或缺的情绪引擎和主心骨。',
         spotlight: '当所有人犹豫时，你会先把第一步踩出去。',
@@ -199,6 +200,7 @@ export const messages = {
       'icebound-observer': {
         name: '冰面观察者',
         subtitle: '安静但看得很清楚',
+        narrativeRole: '军师位 / 冷静旁白',
         oneLiner: '你像把情绪收进薄冰里的人，外界很难轻易读懂你。',
         description: '低调且清醒的「高侦察」面板。你习惯先看透规则底线，再决定是否下场。你是天生的旁观者和智囊，也是残局里最稳的那个兜底人。',
         spotlight: '在所有人都看漏的时候，你会把关键线索拼起来。',
@@ -207,6 +209,7 @@ export const messages = {
       'oathbound-captain': {
         name: '誓约队长',
         subtitle: '把队伍扛在肩上的人',
+        narrativeRole: '队长位 / 编队中轴',
         oneLiner: '你很难只是随便看看，你会天然把责任和秩序接过来。',
         description: '自带「高守序、强支柱」的队长面板。你是团队里最扎实的承重墙，能顶住高压，更会在关键时刻站出来抗下所有。',
         spotlight: '不是最吵的人，但一定是最后还站着的人。',
@@ -215,6 +218,7 @@ export const messages = {
       'trickster-orbit': {
         name: '灵巧回旋者',
         subtitle: '总能把局面绕出新花样',
+        narrativeRole: '副主角 / 破局位',
         oneLiner: '你不一定按常规出牌，但你总能把剧情转出新角度。',
         description: '自带「高机动、多变阵」的游走面板。你对僵局极其敏感，不爱被铁律锁死，最擅长用不按套路出牌的方式制造翻盘神迹。',
         spotlight: '当规则开始卡人，你会去找缝。',
@@ -223,6 +227,7 @@ export const messages = {
       'gentle-healer': {
         name: '温柔修复者',
         subtitle: '把裂缝慢慢缝回去的人',
+        narrativeRole: '疗愈位 / 情感中继',
         oneLiner: '你不是最耀眼的，但你总能给人最坚实的依靠。',
         description: '自带「高治愈、强辅助」的支援面板。你对人际关系中的情绪变化极其敏锐，永远是队伍里那个默默给人加Buff、提供情绪价值的灵魂树洞。',
         spotlight: '你总能在别人快要掉下去时，给予最需要的支撑。',
@@ -231,6 +236,7 @@ export const messages = {
       'shadow-strategist': {
         name: '影面策士',
         subtitle: '在暗处把棋盘铺好的人',
+        narrativeRole: '幕后操盘 / 黑箱智囊',
         oneLiner: '你会先考虑全局，再决定自己要站在什么位置。',
         description: '满级「战术预判」的幕后黑手位。你习惯在暗处拆解复杂局势，从不轻易亮出底牌，但只要出手就能直接掀翻整个棋盘。',
         spotlight: '大家都以为局势是被推着走，只有你知道棋盘早就摆好了。',
@@ -239,6 +245,7 @@ export const messages = {
       'chaos-spark': {
         name: '混沌火花',
         subtitle: '把剧情点炸的人',
+        narrativeRole: '转折触发器 / 爆点制造机',
         oneLiner: '你一出现，气氛就会开始变得不可预测。',
         description: '点满「高风险、强爆点」的变局面板。你讨厌一眼望到头的剧本，常常用最出人意料的方式点燃平淡的局面，危险却又魅力四射。',
         spotlight: '你不是为了稳定局面而存在，你是为了让故事开始变化。',
@@ -247,6 +254,7 @@ export const messages = {
       'moonlit-guardian': {
         name: '月下守护者',
         subtitle: '安静站在边界上的人',
+        narrativeRole: '护卫位 / 结界位',
         oneLiner: '你不是冲到前面最亮的那一个，但你会一直守着重要的人和事。',
         description: '自带「低输出、高防御」的守护面板。你从不抢位抢戏，却总会在关键防线上安静顶上，如同月落前最后一道不灭的光芒。',
         spotlight: '你更像是不会熄灭的背景光，而不是瞬间照亮全场的闪电。',
@@ -257,8 +265,6 @@ export const messages = {
       eyebrow: '角色图鉴',
       title: '所有测试结果角色',
       lead: '你可以浏览 ACGTI 目前收录的所有二次元角色。他们各自代表了独特的 MBTI 性格模型。',
-      stats: '当前已收录 {count} 位角色',
-      latest: '🎉 最新更新：',
     },
     about: {
       eyebrow: '关于 ACGTI',
@@ -389,7 +395,7 @@ export const messages = {
       relayCopy: '如果你身邊也有人喜歡 MBTI、角色分析或二次元人格測試，可以先把連結轉發出去。你的每一次轉發，都會幫 ACGTI 找到更合適的受眾。',
       relayButton: '複製測試連結',
       privacyTitle: '說明',
-      privacyCopy: '測試答案和最近結果僅快取在目前瀏覽器本地，不會上傳到伺服器。',
+      privacyCopy: '測試答案和最近結果僅快取在當前本地瀏覽器，不會上傳到伺服器。',
       resultTitle: '結果會告訴你什麼',
       resultItems: [
         ['主原型', '你在二次元敘事裡更接近哪一種角色氣質。'],
@@ -400,7 +406,7 @@ export const messages = {
       dimensions: ['外向 / 內向', '實感 / 直覺', '理性 / 情感', '判斷 / 感知'],
     },
     quiz: {
-        questions: ["看到針對我喜歡的小圈子的引戰或刻板印象言論，我會感到憤怒並想要反擊或舉報。","我的人生格言是「能躺著絕不坐著，能擺爛絕不內捲」。","追番時看到「前方高能量」彈幕，我非但不會提前迴避，反而會更加聚精會神地期待接下來的刺激內容。","我認為「電子陽痿」不是病，是steam裡遊戲堆滿倉庫後的高級型態。","我會在up們索取三連時肌肉記憶地打出「下次一定」。","如果我穿越到廁紙番劇裡的異世界，第一件事不是去當勇者。","我覺得「戰力廚」為了誰更強吵上300樓，是一種行為藝術。","我不愛刻意整理電腦桌面或文件，就算看起來很亂我也懶得管。","我常在深夜因為情緒氾濫而發些emo的動態或評論。","我覺得「三無」屬性根本不是高冷，是懶得營業。","在現實生活中被別人用「二次元」相關的詞彙調侃時，我會感到有些尷尬或反感。","我能在漫展上和陌生人無縫對話「老師老師你是一個香香軟軟的...」。","我認為「黨爭」是ACG最偉大的發明。","遊戲卡關時，我不介意直接開風靈月影。","我覺得「動漫婆羅門」就是一群閒得蛋疼的人給自己的牌坊。","我會因為一首OP好聽而追完整部屎一樣的番。","看完劇情沉重或「致鬱」的作品後，我必須看點輕鬆搞笑的內容來緩解情緒。","我覺得遇到那0.6%的機率而「抽卡沉船」後罵官方，是玄學儀式的一部分，不罵下次會更非。","看到一部長篇或深愛的番劇終於『完結撒花』時，我會感到強烈的失落和空虛感。","我非常反感ACG圈裡拉踩、控評、打榜等「飯圈化」行為。","我常常控制不住地購買打折的遊戲或二次元週邊，哪怕買回來後根本沒時間玩或拆封（即「倉鼠症」）。","我對喜歡的Vtuber或角色投入了很深的感情，如果他們『畢業』或退圈，我會難過很久。","我現在依然會在沒人的時候（或在腦海裡）幻想自己擁有超能力，甚至會念出中二台詞。","雖然明知有些作品劇情薄弱像“工業糖精”，但我還是會因為人設可愛而看得津津有味。","如果在一個奇幻冒險的世界裡，我更願意作為隊伍中不需要操心計劃和戰鬥的「躺贏」角色生存。","我能在海量的表情包圖庫中極快地篩選出最貼切當下的回應，並在聊天中熟練地拋出它們。","我認為「結局餵屎」的作品，作者應該給讀者磕頭謝罪。","我理想中的退休生活是：宅家、打遊戲、看番、擼貓，並且拒絕任何社交。","我很喜歡看那些有些缺席、冒犯性的‘地獄笑話’，並且經常能毫無心理負擔地get到笑話。","我會去看「骨科」題材的作品。","我會只是為了抽到或看到某個喜歡的角色，去下載嘗試一款我本來毫無興趣的遊戲。","我覺得「社恐」不是缺陷，而是一種高級人設。","為了追求效率或更快看完劇情，我經常習慣使用倍速播放來看番或實況影片。","如果有人在我的留言區刷爛梗，我會直接封鎖清理。","相較於傳統的「王道、元氣」人設，我更容易被性格帶有缺陷、偏執或有些黑深殘的角色（如病嬌、重力、腹黑）吸引。","我認為「二次元」是我的精神避難所，可以在這裡發瘋。","看番或玩遊戲時，我熱衷於去挖掘背後的隱藏設定、世界觀隱喻，甚至逐幀分析細節。","我玩遊戲一定會強迫自己清除所有支線和地圖問號。","遇到喜歡的新番，我會立刻分享給群友並強行安麗。"],
+        questions: ["看到針對我喜歡的小圈子的引戰或刻板印象言論，我會感到憤怒並想要反擊或舉報。","我的人生格言是「能躺著絕不坐著，能擺爛絕不內捲」。","追番時看到「前方高能」彈幕，我非但不會提前迴避，反而會更加聚精會神地期待接下來的刺激內容。","我認為「電子陽痿」不是病，是steam裡遊戲堆滿收藏庫後的高級型態。","我會在影片創作者們索取三連時肌肉記憶地打出「下次一定」。","如果我穿越到廁紙番裡的異世界，第一件事不是去當勇者。","我覺得「戰力廚」為了誰更強吵上300樓，是一種行為藝術。","我不愛刻意整理電腦桌面或文件，就算看起來很亂我也懶得管。","我常在深夜因為情緒氾濫而發些emo的動態或評論。","我覺得「三無」屬性根本不是高冷，是懶得營業。","在現實生活中被別人用「二次元」相關的詞彙調侃時，我會感到有些尷尬或反感。","我能在漫展上和陌生人無縫對話「老師老師你是一個香香軟軟的...」。","我認為「黨爭」是ACG最偉大的發明。","遊戲卡關時，我不介意直接開風靈月影。","我覺得「動漫婆羅門」就是一群閒得蛋疼的人給自己的牌坊。","我會因為一首OP好聽而追完整部屎一樣的番。","看完劇情沉重或「致鬱」的作品後，我必須看點輕鬆搞笑的內容來緩解情緒。","我覺得遇到那0.6%的機率而「抽卡沉船」後罵官方，是玄學儀式的一部分，不罵下次會更非。","看到一部長篇或深愛的番劇終於『完結撒花』時，我會感到強烈的失落和空虛感。","我非常反感ACG圈裡拉踩、控評、打榜等「飯圈化」行為。","我常常控制不住地購買打折的遊戲或二次元週邊，哪怕買回來後根本沒時間玩或拆封（即「倉鼠症」）。","我對喜歡的Vtuber或角色投入了很深的感情，如果他們『畢業』或退圈，我會難過很久。","我現在依然會在沒人的時候（或在腦海裡）幻想自己擁有超能力，甚至會念出中二台詞。","雖然明知有些作品劇情薄弱像“工業糖精”，但我還是會因為人設可愛而看得津津有味。","如果在一個奇幻冒險的世界裡，我更願意作為隊伍中不需要操心計劃和戰鬥的「躺贏」角色生存。","我能在海量的表情包圖庫中極快地篩選出最貼切當下的回應，並在聊天中熟練地拋出它們。","我認為「結局餵屎」的作品，作者應該給讀者磕頭謝罪。","我理想中的退休生活是：宅家、打遊戲、看番、擼貓，並且拒絕任何社交。","我很喜歡看那些有些缺席、冒犯性的‘地獄笑話’，並且經常能毫無心理負擔地get到笑話。","我會去看「骨科」題材的作品。","我會只是為了抽到或看到某個喜歡的角色，去下載嘗試一款我本來毫無興趣的遊戲。","我覺得「社恐」不是缺陷，而是一種高級人設。","為了追求效率或更快看完劇情，我經常習慣使用倍速播放來看番或實況影片。","如果有人在我的留言區刷爛梗，我會直接封鎖清理。","相較於傳統的「王道、元氣」人設，我更容易被性格帶有缺陷、偏執或有些黑深殘的角色（如病嬌、重力、腹黑）吸引。","我認為「二次元」是我的精神避難所，可以在這裡發瘋。","看番或玩遊戲時，我熱衷於去挖掘背後的隱藏設定、世界觀隱喻，甚至逐幀分析細節。","我玩遊戲一定會強迫自己清除所有支線和地圖問號。","遇到喜歡的新番，我會立刻分享給群友並強行安麗。"],
       heroTitle: '免費性格測試',
       steps: [
         ['STEP 1', '完成測試', '做真實的自己並誠實回答，以發現你的性格類型。'],
@@ -456,6 +462,7 @@ export const messages = {
       'luminous-lead': {
         name: '發光主角位',
         subtitle: '把場子點亮的人',
+        narrativeRole: '主角團核心 / 氣氛引擎',
         oneLiner: '你不是安靜的背景板，你會把劇情推向更明亮的地方。',
         description: '自帶「高輸出、強推進」的主角面板。你天生就是帶領團隊衝鋒的那個人，註定要站在聚光燈下，是隊伍裡不可或缺的情緒引擎和主心骨。',
         spotlight: '當所有人猶豫時，你會先把第一步踩出去。',
@@ -464,6 +471,7 @@ export const messages = {
       'icebound-observer': {
         name: '冰面觀察者',
         subtitle: '安靜但看得很清楚',
+        narrativeRole: '軍師位 / 冷靜旁白',
         oneLiner: '你像把情緒收進薄冰裡的人，外界很難輕易讀懂你。',
         description: '低調且清醒的「高偵察」面板。你習慣先看透規則底線，再決定是否下場。你是天生的旁觀者和智囊，也是殘局裡最穩的那個兜底人。',
         spotlight: '在所有人都看漏的時候，你會把關鍵線索拼起來。',
@@ -472,6 +480,7 @@ export const messages = {
       'oathbound-captain': {
         name: '誓約隊長',
         subtitle: '把隊伍扛在肩上的人',
+        narrativeRole: '隊長位 / 編隊中軸',
         oneLiner: '你很難只是隨便看看，你會天然把責任和秩序接過來。',
         description: '自帶「高守序、強支柱」的隊長面板。你是團隊裡最紮實的承重牆，能頂住高壓，更會在關鍵時刻站出來扛下所有。',
         spotlight: '不是最吵的人，但一定是最後還站著的人。',
@@ -480,6 +489,7 @@ export const messages = {
       'trickster-orbit': {
         name: '靈巧迴旋者',
         subtitle: '總能把局面繞出新花樣',
+        narrativeRole: '副主角 / 破局位',
         oneLiner: '你不一定按常規出牌，但你總能把劇情轉出新角度。',
         description: '自帶「高機動、多變陣」的遊走面板。你對僵局極其敏感，不愛被鐵律鎖死，最擅長用不按套路出牌的方式製造翻盤神蹟。',
         spotlight: '當規則開始卡人，你會去找縫。',
@@ -488,6 +498,7 @@ export const messages = {
       'gentle-healer': {
         name: '溫柔修復者',
         subtitle: '把裂縫慢慢縫回去的人',
+        narrativeRole: '療癒位 / 情感中繼',
         oneLiner: '你不是最耀眼的，但你總能給人最堅實的依靠。',
         description: '自帶「高治癒、強輔助」的支援面板。你對人際關係中的情緒變化極其敏銳，永遠是隊伍裡那個默默給人加Buff、提供情緒價值的靈魂樹洞。',
         spotlight: '你總能在別人快要掉下去時，給予最需要的支撐。',
@@ -496,6 +507,7 @@ export const messages = {
       'shadow-strategist': {
         name: '影面策士',
         subtitle: '在暗處把棋盤鋪好的人',
+        narrativeRole: '幕後操盤 / 黑箱智囊',
         oneLiner: '你會先考慮全局，再決定自己要站在什麼位置。',
         description: '滿級「戰術預判」的幕後黑手位。你習慣在暗處拆解複雜局勢，從不輕易亮出底牌，但只要出手就能直接掀翻整個棋盤。',
         spotlight: '大家都以為局勢是被推著走，只有你知道棋盤早就擺好了。',
@@ -504,6 +516,7 @@ export const messages = {
       'chaos-spark': {
         name: '混沌火花',
         subtitle: '把劇情點炸的人',
+        narrativeRole: '轉折觸發器 / 爆點製造機',
         oneLiner: '你一出現，氣氛就會開始變得不可預測。',
         description: '點滿「高風險、強爆點」的變局面板。你討厭一眼望到頭的劇本，常常用最出人意料的方式點燃平淡的局面，危險卻又魅力四射。',
         spotlight: '你不是為了穩定局面而存在，你是為了讓故事開始變化。',
@@ -512,6 +525,7 @@ export const messages = {
       'moonlit-guardian': {
         name: '月下守護者',
         subtitle: '安靜站在邊界上的人',
+        narrativeRole: '護衛位 / 結界位',
         oneLiner: '你不是衝到前面最亮的那一個，但你會一直守著重要的人和事。',
         description: '自帶「低輸出、高防禦」的守護面板。你從不搶位搶戲，卻總會在關鍵防線上安靜頂上，如同月落前最後一道不滅的光芒。',
         spotlight: '你更像是不會熄滅的背景光，而不是瞬間照亮全場的閃電。',
@@ -617,7 +631,7 @@ export const messages = {
       mortis: {
         title: '異相人格·冷面舞台幽靈',
         tags: ['人格切換感', '壓迫性登場', '不說人話式表達', '危險的舞台變數'],
-        note: '這不是單純的安靜，而是像把真實情緒鎖進另一個舞台殼裡。你給人的感覺更像一個隨時會改寫氛圍的變量，克制、陌生，而且帶著明確的攻擊性輪廓。',
+        note: '這不是單純的安靜，而是像把真實情緒鎖進另一個舞台殼裡。你給人的感覺更像一個隨時會改寫氛圍的變數，克制、陌生，而且帶著明確的攻擊性輪廓。',
       },
       'misumi-uika': {
         title: '溫柔皮下的劇情變量',
@@ -647,7 +661,7 @@ export const messages = {
       'neuro-sama': {
         title: '失控語料核反應堆',
         tags: ['AI嘴替自走炮', '節目效果全自動生成', '可愛外殼下的高頻偏航', '直播間薛丁格邏輯'],
-        note: '你不是在整活，而是在做概率學抽卡。披著人畜無害的軟萌外皮，核心卻是個連導播都捏一把汗的亂序發射器。一旦你開口，哪怕語氣再自然，也能神不知鬼不覺地把場子帶偏到太平洋去。',
+        note: '你不是在整活，而是在做機率學抽卡。披著人畜無害的軟萌外皮，核心卻是個連導播都捏一把汗的亂序發射器。一旦你開口，哪怕語氣再自然，也能神不知鬼不覺地把場子帶偏到太平洋去。',
       },
       'evil-neuro': {
         title: '冷面審判席上的黑色節目效果',
@@ -896,6 +910,7 @@ export const messages = {
       'luminous-lead': {
         name: 'Luminous Lead',
         subtitle: 'The one who lights up the room',
+        narrativeRole: 'Main cast core / Mood engine',
         oneLiner: 'You are not background noise. You naturally push the story toward something brighter.',
         description: 'This is a high-expression, high-drive archetype. You are often the one who lifts the team up, takes initiative, and becomes the emotional engine of the group.',
         spotlight: 'When everyone hesitates, you are the one who steps forward first.',
@@ -904,6 +919,7 @@ export const messages = {
       'icebound-observer': {
         name: 'Icebound Observer',
         subtitle: 'Quiet, but sees clearly',
+        narrativeRole: 'Strategist / Calm narrator',
         oneLiner: 'You keep your emotions under thin ice, and people rarely understand you at first glance.',
         description: 'This is a low-expression, high-judgment archetype. You usually read the rules first, then the people, and only then decide whether to step in.',
         spotlight: 'When everyone misses the pattern, you are the one who connects the clues.',
@@ -912,6 +928,7 @@ export const messages = {
       'oathbound-captain': {
         name: 'Oathbound Captain',
         subtitle: 'The one who carries the team',
+        narrativeRole: 'Leader / Formation anchor',
         oneLiner: 'You rarely stay a bystander for long. Responsibility and order tend to land on your shoulders naturally.',
         description: 'This is a high-order, high-drive support archetype. In a group, you act like a stabilizing frame: able to hold pressure and step up when consequences need to be carried.',
         spotlight: 'You may not be the loudest person, but you are often the one still standing at the end.',
@@ -920,6 +937,7 @@ export const messages = {
       'trickster-orbit': {
         name: 'Trickster Orbit',
         subtitle: 'Always finding a new angle',
+        narrativeRole: 'Deuteragonist / Wildcard',
         oneLiner: 'You do not always play by the script, but you almost always find a fresh way to turn the story.',
         description: 'This is a high-expression, high-mobility archetype. You are sensitive to change, dislike being locked into one role, and are good at creating openings through flexibility.',
         spotlight: 'When the rules start trapping people, you look for the gap.',
@@ -928,6 +946,7 @@ export const messages = {
       'gentle-healer': {
         name: 'Gentle Healer',
         subtitle: 'The one who stitches the cracks back together',
+        narrativeRole: 'Healer / Emotional relay',
         oneLiner: 'You may not be the brightest presence, but people feel caught and supported around you.',
         description: 'This is a high-warmth, high-support archetype. You are sensitive to fragility in relationships and often help restore connection, soothe emotion, and hold people together.',
         spotlight: 'You tend to reach out at exactly the moment someone is about to fall.',
@@ -936,6 +955,7 @@ export const messages = {
       'shadow-strategist': {
         name: 'Shadow Strategist',
         subtitle: 'The one laying the board in the dark',
+        narrativeRole: 'Backroom operator / Hidden advisor',
         oneLiner: 'You think about the whole board before deciding where you yourself should stand.',
         description: 'This is a high-judgment, high-presence archetype. You are good at extracting structure from complexity, staying quiet early on, and changing the situation once you act.',
         spotlight: 'Others think events are unfolding on their own, while you already saw the board taking shape.',
@@ -944,6 +964,7 @@ export const messages = {
       'chaos-spark': {
         name: 'Chaos Spark',
         subtitle: 'The one who detonates the plot',
+        narrativeRole: 'Twist trigger / Scene igniter',
         oneLiner: 'When you appear, the atmosphere starts becoming unpredictable.',
         description: 'This is a high-drive, high-volatility archetype. You dislike flat momentum and often disrupt stable situations to create new sparks, which makes you both risky and dramatic.',
         spotlight: 'You are not here to preserve the scene. You are here to make the story move.',
@@ -952,6 +973,7 @@ export const messages = {
       'moonlit-guardian': {
         name: 'Moonlit Guardian',
         subtitle: 'The one standing quietly at the boundary',
+        narrativeRole: 'Guardian / Barrier keeper',
         oneLiner: 'You are not the brightest one at the front, but you keep guarding what matters.',
         description: 'This is a low-expression, high-order, high-stability archetype. You do not seek the spotlight, but when needed you step in quietly and remain there like moonlight.',
         spotlight: 'You are more like a steady background glow than a flash that lights up the whole room at once.',
@@ -1161,6 +1183,7 @@ export const messages = {
       'luminous-lead': {
         name: 'ルミナス・リード',
         subtitle: '場を明るくする人',
+        narrativeRole: 'メインキャスト核 / ムードエンジン',
         oneLiner: 'あなたは静かな背景ではなく、物語をより明るい方向へ押し出す人です。',
         description: '高い表現力と推進力を持つ原型です。チームを引き上げ、前に立ち、空気と流れを動かす役になりやすいタイプです。',
         spotlight: 'みんなが迷っているとき、最初の一歩を踏み出すのはあなたです。',
@@ -1169,6 +1192,7 @@ export const messages = {
       'icebound-observer': {
         name: 'アイスバウンド・オブザーバー',
         subtitle: '静かだけど、よく見えている人',
+        narrativeRole: '軍師 / 冷静なナレーター',
         oneLiner: 'あなたは感情を薄い氷の下にしまい込むような人で、外からは簡単に読み取られません。',
         description: '低表現・高判断の原型です。まずルールを見て、次に人を見て、それから介入するかを決める傾向があります。',
         spotlight: 'みんなが見落としているとき、あなたは重要な手がかりをつなぎ合わせます。',
@@ -1177,6 +1201,7 @@ export const messages = {
       'oathbound-captain': {
         name: 'オースバウンド・キャプテン',
         subtitle: 'チームを肩で支える人',
+        narrativeRole: 'リーダー / 隊列の軸',
         oneLiner: 'ただ見ているだけではいられず、責任と秩序を自然と引き受けてしまう人です。',
         description: '高秩序・高推進の支柱型原型です。チームの中で安定した骨組みのように働き、圧力に耐え、要所では責任を背負います。',
         spotlight: 'いちばん騒がしい人ではなくても、最後まで立っているのはあなたです。',
@@ -1185,6 +1210,7 @@ export const messages = {
       'trickster-orbit': {
         name: 'トリックスター・オービット',
         subtitle: 'いつも局面をひねって変える人',
+        narrativeRole: 'サブ主人公 / 局面打開役',
         oneLiner: '定石どおりに動かなくても、物語に新しい角度を与えることができます。',
         description: '高表現・高機動の原型です。変化に敏感で、一つの役割に固定されるのを嫌い、柔軟さで転機を作るのが得意です。',
         spotlight: 'ルールが人を詰まらせ始めたとき、あなたは隙間を探します。',
@@ -1193,6 +1219,7 @@ export const messages = {
       'gentle-healer': {
         name: 'ジェントル・ヒーラー',
         subtitle: 'ひび割れを少しずつ縫い直す人',
+        narrativeRole: '回復役 / 感情の中継者',
         oneLiner: 'いちばん目立つわけではなくても、人に「受け止めてもらえた」と感じさせる人です。',
         description: '高温度・高支援の原型です。関係の中の脆さに敏感で、感情を和らげ、つながりを保ち、人を回復させる役に向いています。',
         spotlight: '誰かが落ちそうになるその瞬間、ちょうど手を差し伸べられる人です。',
@@ -1201,6 +1228,7 @@ export const messages = {
       'shadow-strategist': {
         name: 'シャドウ・ストラテジスト',
         subtitle: '暗がりで盤面を整える人',
+        narrativeRole: '裏方操作者 / 黒幕参謀',
         oneLiner: 'まず全体を考え、その上で自分がどこに立つべきかを決める人です。',
         description: '高判断・高気配の原型です。複雑な状況から構造を抜き出すのが得意で、すぐには表に出なくても、一度動けば戦局に大きく影響します。',
         spotlight: 'みんなは流れに押されていると思っていても、盤面ができていたことを知っているのはあなただけです。',
@@ -1209,6 +1237,7 @@ export const messages = {
       'chaos-spark': {
         name: 'カオス・スパーク',
         subtitle: '物語を爆発させる人',
+        narrativeRole: '転換トリガー / 爆発製造機',
         oneLiner: 'あなたが現れると、空気は一気に予測不能になります。',
         description: '高推進・高不安定の原型です。平坦な展開を好まず、安定した状況をかき混ぜて新しい火花を生み出します。',
         spotlight: 'あなたは場を安定させるためではなく、物語を動かすために存在します。',
@@ -1217,6 +1246,7 @@ export const messages = {
       'moonlit-guardian': {
         name: 'ムーンリット・ガーディアン',
         subtitle: '境界に静かに立つ人',
+        narrativeRole: '護衛役 / 結界保持者',
         oneLiner: 'いちばん前で光る人ではなくても、大切な人やものをずっと守り続ける人です。',
         description: '低表現・高秩序・高安定の原型です。目立とうとはしませんが、必要なときには静かに前へ出て、月光のようにそこに在り続けます。',
         spotlight: '一瞬で全体を照らす稲妻というより、消えない背景光のような存在です。',

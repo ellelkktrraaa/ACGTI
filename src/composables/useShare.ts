@@ -20,9 +20,9 @@ function createShareText(result: QuizResult) {
       : t('app.common.shareUnknown'),
     t('app.common.shareProbability', { prob: result.matchProbability }),
     t('app.common.shareProbabilityDesc'),
-    t('app.common.shareArchetype', { name: result.archetype.name }),
-    result.archetype.subtitle,
-    t('app.common.shareRole', { role: result.archetype.narrativeRole }),
+    t('app.common.shareArchetype', { name: t(`archetypes.${result.archetype.id}.name`) }),
+    t(`archetypes.${result.archetype.id}.subtitle`),
+    t('app.common.shareRole', { role: t(`archetypes.${result.archetype.id}.narrativeRole`) }),
   ].join('\n')
 }
 
