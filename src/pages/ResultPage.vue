@@ -166,7 +166,7 @@ function getDominantTraitLabel(traitId: TraitDimension, leftCode: string, leftLa
               <strong>{{ result.matchScore }}%</strong>
             </div>
           </div>
-          <p class="hero-quote">“{{ t('archetypes.' + result.archetype.id + '.oneLiner', undefined, result.archetype.oneLiner) }}”</p>
+          <p class="hero-quote">{{ t('archetypes.' + result.archetype.id + '.oneLiner', undefined, result.archetype.oneLiner) }}</p>
 
           <div class="hero-actions">
             <button class="action-btn light" @click="copyText">
@@ -414,13 +414,16 @@ function getDominantTraitLabel(traitId: TraitDimension, leftCode: string, leftLa
 }
 
 .hero-quote {
-  margin: 24px 0 0;
-  max-width: 600px;
-  font-size: 20px;
-  line-height: 1.6;
-  font-weight: 500;
-  font-style: italic;
-  opacity: 0.95;
+  margin: 28px 0 0;
+  max-width: 640px;
+  font-size: clamp(20px, 3.5vw, 24px);
+  line-height: 1.65;
+  font-weight: 600;
+  font-style: normal;
+  letter-spacing: 0.5px;
+  color: #fff;
+  opacity: 0.96;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
 }
 
 .hero-metrics {
