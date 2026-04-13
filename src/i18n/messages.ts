@@ -268,7 +268,7 @@ export const messages = {
       eyebrow: '角色图鉴',
       title: '所有测试结果角色',
       lead: '你可以浏览 ACGTI 目前收录的所有二次元角色。他们各自代表了独特的 MBTI 性格模型。',
-      stats: '角色统计',
+      stats: '当前已收录 {count} 位角色',
       latest: '最新收录',
     },
     about: {

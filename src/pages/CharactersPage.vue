@@ -21,7 +21,7 @@ const latestCharacters = computed(() => {
 })
 
 const localizedStatsText = computed(() => {
-  return t('characters.stats')?.replace('{count}', String(visibleCharacters.value.length)) || ''
+  return t('characters.stats', { count: visibleCharacters.value.length })
 })
 </script>
 
