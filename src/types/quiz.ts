@@ -77,6 +77,7 @@ export interface CharacterMatch {
   name: string
   hidden?: boolean
   series: string
+  addedAt?: string
   image?: string
   thumb?: string
   accent?: string

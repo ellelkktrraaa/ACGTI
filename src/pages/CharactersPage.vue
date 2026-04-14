@@ -30,8 +30,28 @@ const orderedCharacters = computed(() => {
 })
 
 const latestCharacters = computed(() => {
-  // Use last 3 of visible characters as the latest additions
-  return [...visibleCharacters.value].slice(-3).reverse()
+  return [...visibleCharacters.value]
+    .map((character, index) => ({
+      character,
+      index,
+      timestamp: Date.parse(character.addedAt ?? ''),
+    }))
+    .sort((left, right) => {
+      const leftHasDate = Number.isFinite(left.timestamp)
+      const rightHasDate = Number.isFinite(right.timestamp)
+
+      if (leftHasDate && rightHasDate && left.timestamp !== right.timestamp) {
+        return right.timestamp - left.timestamp
+      }
+
+      if (leftHasDate !== rightHasDate) {
+        return leftHasDate ? -1 : 1
+      }
+
+      return right.index - left.index
+    })
+    .slice(0, 3)
+    .map(({ character }) => character)
 })
 
 const localizedStatsText = computed(() => {
