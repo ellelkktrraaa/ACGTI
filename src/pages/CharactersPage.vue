@@ -258,36 +258,57 @@ const localizedStatsText = computed(() => {
 
 .card-tags {
   display: flex;
+  flex-wrap: wrap;
+  align-items: center;
   gap: 0.5rem;
   margin-bottom: 0.75rem;
 }
 
 .card-code {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2rem;
   font-weight: 800;
   font-size: 0.85rem;
+  line-height: 1.2;
   color: var(--accent-color, #42b883);
   background: color-mix(in srgb, var(--accent-color, #42b883) 15%, transparent);
   padding: 0.2rem 0.6rem;
   border-radius: 100px;
+  white-space: nowrap;
 }
 
 .card-mbti {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2rem;
   font-weight: 700;
   font-size: 0.85rem;
+  line-height: 1.2;
   color: #6c757d;
   background: #e9ecef;
   padding: 0.2rem 0.6rem;
   border-radius: 100px;
+  white-space: nowrap;
 }
 
 .card-fandom-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2rem;
   font-weight: 700;
   font-size: 0.75rem;
+  line-height: 1.35;
+  text-align: center;
   color: #8a6d1f;
   background: #fef3cd;
   border: 1px solid #f0e2b0;
   padding: 0.15rem 0.5rem;
   border-radius: 100px;
+  max-width: 100%;
 }
 
 .card-name {
