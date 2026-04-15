@@ -313,5 +313,70 @@
     "image": "/images/characters/白井黑子.webp",
     "thumb": "/images/characters/thumbs/白井黑子.webp",
     "accent": "#d86b84"
+  },
+  "shinomiya-kaguya": {
+    "image": "/images/characters/四宫辉夜.webp",
+    "thumb": "/images/characters/thumbs/四宫辉夜.webp",
+    "accent": "#B81D29"
+  },
+  "kato-megumi": {
+    "image": "/images/characters/加藤惠.webp",
+    "thumb": "/images/characters/thumbs/加藤惠.webp",
+    "accent": "#F2C9D8"
+  },
+  "rem": {
+    "image": "/images/characters/蕾姆.webp",
+    "thumb": "/images/characters/thumbs/蕾姆.webp",
+    "accent": "#62B1E8"
+  },
+  "kita-ikuyo": {
+    "image": "/images/characters/喜多郁代.webp",
+    "thumb": "/images/characters/thumbs/喜多郁代.webp",
+    "accent": "#E65252"
+  },
+  "yamada-ryo": {
+    "image": "/images/characters/山田凉.webp",
+    "thumb": "/images/characters/thumbs/山田凉.webp",
+    "accent": "#4868A8"
+  },
+  "hirasawa-yui": {
+    "image": "/images/characters/平泽唯.png",
+    "accent": "#EF82A0"
+  },
+  "emilia": {
+    "image": "/images/characters/爱蜜莉雅.png",
+    "accent": "#B2C8DF"
+  },
+  "yukinoshita-yukino": {
+    "image": "/images/characters/雪之下雪乃.png",
+    "accent": "#1C305C"
+  },
+  "sakurajima-mai": {
+    "image": "/images/characters/樱岛麻衣.png",
+    "accent": "#6A3A4C"
+  },
+  "akiyama-mio": {
+    "image": "/images/characters/秋山澪.png",
+    "accent": "#2B2E4A"
+  },
+  "takanashi-rikka": {
+    "image": "/images/characters/小鸟游六花.png",
+    "accent": "#6D327B"
+  },
+  "kousaka-kirino": {
+    "image": "/images/characters/高坂桐乃.png",
+    "accent": "#F5A159"
+  },
+  "amiya": {
+    "image": "/images/characters/阿米娅.png",
+    "accent": "#E6A23C"
+  },
+  "phoebe": {
+    "image": "/images/characters/菲比.png",
+    "accent": "#4A6E91"
+  },
+  "kitashirakawa-tamako": {
+    "image": "/images/characters/北白川玉子.png",
+    "accent": "#EF838D"
   }
 }
