@@ -2519,5 +2519,45 @@
         "aura": 2
       }
     }
-  }
+  },
+  {
+    "id": "vertin",
+    "name": "维尔汀",
+    "series": "重返未来:1999",
+    "image": "/images/characters/维尔汀.webp",
+    "matchCode": "INTP",
+    "matchCodeFlex": ["INTJ", "ISTP"],
+    "code": "VRTN",
+    "title": "暴雨中梭巡的司辰",
+    "archetypeId": "icebound-observer",
+    "tags": [
+        "时间管理大师",
+        "暴雨免疫体质",
+        "手提箱移动堡垒",
+        "万雌王",
+        "理智的叛逆者"
+    ],
+    "note": "从活泼少女到沉静的引路人隶属于圣洛夫基金会的“司辰”，不是最强的战士却是不可替代的“钥匙”，冷静沉稳的少女她没有多少可以相信的人。因为自有记忆起，我便很清楚自己是独自一人",
+    "vector": {
+        "expression": -1,
+        "temperature": -1,
+        "judgement": 2,
+        "order": -1,
+        "agency": 3,
+        "aura": 2
+    },
+    "signature": {
+        "uniqueAxes": {
+            "judgement": 2,
+            "agency": 3,
+            "aura": 2
+        }
+    },
+    "personaBasis": {
+        "type": "fandom-impression",
+        "label": "圈层印象映射",
+        "confidence": "low",
+        "summary": "基于游戏内角色设定、剧情表现及玩家社群常见讨论，非官方唯一人格结论。"
+    }
+}
 ]

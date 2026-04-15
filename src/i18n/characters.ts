@@ -393,7 +393,13 @@ const characterNameI18n: Record<string, LocalizedText> = {
     'zh-TW': '桃金娘',
     en: 'Myrtle',
     ja: 'テンニンカ',
-  }
+  },
+  'vertin': {
+    'zh-CN': '维尔汀',
+    'zh-TW': '維爾汀',
+    en: 'Vertin',
+    ja: 'ヴェルティ',
+  },
 }
 
 const seriesI18n: Record<string, LocalizedText> = {
@@ -630,6 +636,12 @@ const seriesI18n: Record<string, LocalizedText> = {
     'zh-TW': '緣之空',
     en: 'Yosuga no Sora',
     ja: 'ヨスガノソラ',
+  },
+  '重返未来:1999': {
+    'zh-CN': '重返未来:1999',
+    'zh-TW': '重返未來:1999',
+    en: 'Reverse:1999',
+    ja: 'リバース:1999',
   },
 }
 

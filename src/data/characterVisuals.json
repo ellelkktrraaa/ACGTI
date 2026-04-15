@@ -303,5 +303,10 @@
 			"image": "/images/characters/桃金娘.webp",
 			"thumb": "/images/characters/thumbs/桃金娘.webp",
 			"accent": "#E9B44C"
+		},
+		"new-character-id": {
+  			"image": "/images/characters/维尔汀.webp",
+  			"thumb": "/images/characters/thumbs/维尔汀.webp",
+  			"accent": "#C2AE79"
 		}
 	}
