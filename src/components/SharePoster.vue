@@ -210,8 +210,14 @@ const raritySummaryLabel = computed(() => {
           </div>
 
           <div class="share-poster__footer">
-            <div class="footer-logo">ACGTI</div>
-            <div class="footer-desc">{{ t('result.testNote', undefined, '你的社交白皮书') }}</div>
+            <div class="footer-left">
+              <div class="footer-logo">ACGTI</div>
+              <div class="footer-desc">{{ t('result.testNote', undefined, '你的社交白皮书') }}</div>
+            </div>
+            <div class="footer-links">
+              <span class="footer-link-item">github.com/tianxingleo/ACGTI</span>
+              <span class="footer-link-item">acgti.tianxingleo.top</span>
+            </div>
           </div>
         </div>
 
@@ -457,7 +463,7 @@ const raritySummaryLabel = computed(() => {
 .share-poster__footer {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
   border-top: 1px dashed rgba(95, 137, 159, 0.22);
   padding-top: 16px;
   margin-top: 24px;
@@ -474,6 +480,21 @@ const raritySummaryLabel = computed(() => {
   font-size: 12px;
   color: #8c9ba5;
   font-weight: 700;
+  margin-top: 2px;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+}
+
+.footer-link-item {
+  font-size: 11px;
+  color: #8c9ba5;
+  font-weight: 600;
+  letter-spacing: 0.01em;
 }
 
 .share-poster__visual {

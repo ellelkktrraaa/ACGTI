@@ -16,6 +16,7 @@ function createShareText(result: QuizResult) {
     ? t(`result.rarityTiers.${rarityMeta.tier}`, undefined, rarityMeta.tier)
     : '--'
   const displayProbability = formatCharacterProbability(result.matchProbability)
+  const siteUrl = 'https://acgti.tianxingleo.top'
 
   return [
     t('app.common.shareCode', { code: result.code }),
@@ -37,7 +38,11 @@ function createShareText(result: QuizResult) {
     t('app.common.shareArchetype', { name: t(`archetypes.${result.archetype.id}.name`) }),
     t(`archetypes.${result.archetype.id}.subtitle`),
     t('app.common.shareRole', { role: t(`archetypes.${result.archetype.id}.narrativeRole`) }),
-  ].filter(Boolean).join('\n')
+    '',
+    t('app.common.shareFooterProject'),
+    t('app.common.shareFooterStar'),
+    t('app.common.shareFooterCta', { url: siteUrl }),
+  ].filter(line => line !== null).join('\n')
 }
 
 export function useShare() {
