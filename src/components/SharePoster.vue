@@ -243,8 +243,8 @@ const raritySummaryLabel = computed(() => {
 
 .share-poster {
   position: relative;
-  width: 1120px;
-  min-height: 630px;
+  width: 980px;
+  min-height: 560px;
   background:
     radial-gradient(circle at top left, rgba(255, 255, 255, 0.4), transparent 34%),
     linear-gradient(135deg, color-mix(in srgb, var(--poster-accent) 18%, #f5fbfd) 0%, #ffffff 42%, #f7fbfc 100%);
@@ -274,9 +274,9 @@ const raritySummaryLabel = computed(() => {
 .share-poster__inner {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.72fr);
-  gap: 26px;
-  padding: 34px 36px 32px;
+  grid-template-columns: minmax(0, 1.28fr) minmax(300px, 0.9fr);
+  gap: 22px;
+  padding: 28px 30px 26px;
   align-items: stretch;
 }
 
@@ -326,7 +326,7 @@ const raritySummaryLabel = computed(() => {
 }
 
 .share-poster__title {
-  font-size: 46px;
+  font-size: 40px;
   font-weight: 900;
   line-height: 1.04;
   margin: 0 0 8px;
@@ -336,7 +336,7 @@ const raritySummaryLabel = computed(() => {
 }
 
 .share-poster__subtitle {
-  font-size: 16px;
+  font-size: 15px;
   color: #5f6b75;
   margin: 0;
   font-weight: 600;
@@ -351,8 +351,8 @@ const raritySummaryLabel = computed(() => {
   backdrop-filter: blur(10px);
   border: 1px solid rgba(95, 137, 159, 0.12);
   border-radius: 18px;
-  padding: 16px 18px;
-  margin-bottom: 18px;
+  padding: 14px 16px;
+  margin-bottom: 16px;
 }
 
 .share-poster__metric {
@@ -408,7 +408,7 @@ const raritySummaryLabel = computed(() => {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  margin-bottom: 22px;
+  margin-bottom: 18px;
 }
 
 .tag-pill {
@@ -432,7 +432,7 @@ const raritySummaryLabel = computed(() => {
   border-top: 4px solid var(--poster-accent);
   padding: 16px 18px 18px;
   border-radius: 16px;
-  min-height: 140px;
+  min-height: 126px;
 }
 
 .block-label {
@@ -486,7 +486,7 @@ const raritySummaryLabel = computed(() => {
   flex-direction: column;
   width: 100%;
   min-height: 100%;
-  padding: 22px 22px 0;
+  padding: 18px 18px 0;
   border-radius: 26px;
   background: linear-gradient(180deg, color-mix(in srgb, var(--poster-accent) 14%, #ffffff) 0%, rgba(255, 255, 255, 0.96) 34%, rgba(255, 255, 255, 0.98) 100%);
   border: 1px solid rgba(95, 137, 159, 0.16);
@@ -522,7 +522,7 @@ const raritySummaryLabel = computed(() => {
   position: relative;
   z-index: 1;
   margin: 16px 0 4px;
-  font-size: 30px;
+  font-size: 28px;
   line-height: 1.1;
   font-weight: 900;
   color: #333e49;
@@ -541,19 +541,19 @@ const raritySummaryLabel = computed(() => {
   position: relative;
   z-index: 1;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: center;
   flex: 1;
-  min-height: 400px;
-  margin-top: 10px;
+  min-height: 320px;
+  margin-top: 8px;
 }
 
 .visual-image {
   width: 100%;
-  max-width: 350px;
-  max-height: 500px;
+  max-width: 320px;
+  max-height: 390px;
   object-fit: contain;
-  object-position: center bottom;
+  object-position: center center;
   filter: drop-shadow(0 26px 32px rgba(58, 79, 96, 0.22));
 }
 

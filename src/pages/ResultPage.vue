@@ -1869,7 +1869,8 @@ function viewMatchedCharacter(characterId: string) {
   position: absolute;
   top: -9999px;
   left: -9999px;
-  width: 440px;
+  width: max-content;
+  height: max-content;
   pointer-events: none;
   z-index: -9999;
 }
