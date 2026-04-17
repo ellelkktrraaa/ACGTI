@@ -137,45 +137,45 @@ const creatorLinks = computed(() => ([
     id: 'xiaohongshu',
     label: t('result.creatorLinks.items.xiaohongshu'),
     href: 'http://xhslink.com/o/23CXgQXWL85',
-    iconPaths: [
-      'M7 7.5c0-1.38 1.12-2.5 2.5-2.5h5A2.5 2.5 0 0 1 17 9.5v5A2.5 2.5 0 0 1 14.5 17h-5A2.5 2.5 0 0 1 7 14.5z',
-      'M9.2 10.2c.9-1.6 2.5-2.6 4.4-2.7',
-      'M9.1 13.9c1.1.7 2.4.9 3.7.5 1.2-.4 2.2-1.2 2.8-2.3',
-      'M14.7 7.4h2.1',
-      'M13.6 9.2h3.2',
-    ],
+    badge: 'XHS',
+    badgeStyle: {
+      background: '#fff1f3',
+      color: '#cb4d6d',
+      borderColor: '#f3c9d3',
+    },
   },
   {
     id: 'threads',
     label: t('result.creatorLinks.items.threads'),
     href: 'https://www.threads.com/@tmxk39/post/DXMWAolETft?xmt=AQF0FQvz-R6ZtizfBRGlitwi5hRbV72jUSAnRctBOuPsF-Fm-nhZfUmRdPB4F-LBtxQb80AY&slof=1',
-    iconPaths: [
-      'M12 5.2c3.8 0 6.2 2.1 6.2 5.4 0 3.6-2.8 6.2-6.3 6.2S5.8 14.4 5.8 11',
-      'M9.2 9.4c.7-1 1.8-1.6 3.2-1.6 2 0 3.5 1.1 3.5 3 0 2.1-1.7 3.2-3.8 3.2-1.9 0-3-.8-3-2.1 0-1.2.9-2 2.5-2h5',
-    ],
+    badge: '@',
+    badgeStyle: {
+      background: '#f4f5f6',
+      color: '#49515a',
+      borderColor: '#d7dde2',
+    },
   },
   {
     id: 'douyin',
     label: t('result.creatorLinks.items.douyin'),
     href: 'https://v.douyin.com/SCrImBFJouI/',
-    iconPaths: [
-      'M13.2 5.5v7.2a3.8 3.8 0 1 1-3.8-3.8',
-      'M13.2 7c1 .9 2.2 1.5 3.6 1.6',
-      'M13.2 5.5c.2 1.4 1.5 2.8 3.6 3.1',
-    ],
+    badge: 'DY',
+    badgeStyle: {
+      background: '#eef8fb',
+      color: '#3c7f92',
+      borderColor: '#c6e4ec',
+    },
   },
   {
     id: 'bilibili',
     label: t('result.creatorLinks.items.bilibili'),
     href: 'https://b23.tv/rdaQkwA',
-    iconPaths: [
-      'M8.5 8 6 5.8',
-      'M15.5 8 18 5.8',
-      'M7.5 8h9A2.5 2.5 0 0 1 19 10.5v5A2.5 2.5 0 0 1 16.5 18h-9A2.5 2.5 0 0 1 5 15.5v-5A2.5 2.5 0 0 1 7.5 8z',
-      'M9.5 12.2h.01',
-      'M14.5 12.2h.01',
-      'M9 15c1 .7 2 .9 3 .9s2-.2 3-.9',
-    ],
+    badge: 'B',
+    badgeStyle: {
+      background: '#f1f3ff',
+      color: '#5a69bf',
+      borderColor: '#d5daf6',
+    },
   },
 ]))
 function hexToRgb(hex: string) {
@@ -694,10 +694,8 @@ function viewMatchedCharacter(characterId: string) {
               class="creator-link"
             >
               <span class="creator-link-main">
-                <span class="creator-link-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.85">
-                    <path v-for="path in item.iconPaths" :key="path" :d="path" />
-                  </svg>
+                <span class="creator-link-icon" :style="item.badgeStyle" aria-hidden="true">
+                  {{ item.badge }}
                 </span>
                 <span class="creator-link-label">{{ item.label }}</span>
               </span>
@@ -1670,21 +1668,18 @@ function viewMatchedCharacter(characterId: string) {
 }
 
 .creator-link-icon {
-  width: 34px;
+  min-width: 34px;
   height: 34px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   border-radius: 11px;
-  background: #f3f8f5;
-  color: #3b4b46;
+  padding: 0 9px;
   border: 1px solid #dce7e0;
   flex: none;
-}
-
-.creator-link-icon svg {
-  width: 18px;
-  height: 18px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
 }
 
 .creator-link-label {
