@@ -279,6 +279,14 @@ const rarityTierStyle = computed(() => {
     }
   }
 })
+
+const rarityFontSizeStyle = computed(() => {
+  const len = rarityTierLabel.value.length
+  if (len > 12) return { fontSize: '13px' }
+  if (len > 8) return { fontSize: '14px' }
+  if (len > 5) return { fontSize: '15px' }
+  return { fontSize: '18px' }
+})
 const rarityRankLabel = computed(() => {
   if (!rarityMeta.value) {
     return ''
@@ -407,7 +415,7 @@ function viewMatchedCharacter(characterId: string) {
           <div class="hero-metrics">
             <div class="hero-metric">
               <span>{{ t('result.rarity') }}</span>
-              <strong class="rarity-pill" :style="rarityTierStyle">{{ rarityTierLabel }}</strong>
+              <strong class="rarity-pill" :style="[rarityTierStyle, rarityFontSizeStyle]">{{ rarityTierLabel }}</strong>
             </div>
             <div class="hero-metric">
               <span>{{ t('result.match') }}</span>
@@ -504,6 +512,8 @@ function viewMatchedCharacter(characterId: string) {
             <div class="section-index">1</div>
             <h2 class="section-title">{{ t('result.traitsTitle') }}</h2>
           </div>
+
+          <p class="traits-disclaimer">{{ t('result.traitsDisclaimer') }}</p>
 
           <div class="traits-card">
             <div class="traits-list">
@@ -620,7 +630,7 @@ function viewMatchedCharacter(characterId: string) {
           <p v-if="primaryCharacter && isHiddenCharacter(primaryCharacter)" class="profile-hidden-flag">{{ getHiddenCharacterTitle(locale, primaryCharacter) }}</p>
           <p class="profile-code">{{ displayCode }}</p>
           <p class="profile-rarity">
-            <span class="rarity-pill rarity-pill--sidebar" :style="rarityTierStyle">{{ rarityTierLabel }}</span>
+            <span class="rarity-pill rarity-pill--sidebar" :style="[rarityTierStyle, rarityFontSizeStyle]">{{ rarityTierLabel }}</span>
           </p>
           <p class="profile-probability">{{ raritySummaryLabel }}</p>
           <p class="profile-probability">{{ rarityRankLabel }}</p>
@@ -789,6 +799,7 @@ function viewMatchedCharacter(characterId: string) {
   font-size: 13px;
   font-weight: 800;
   letter-spacing: 0.04em;
+  white-space: nowrap;
 }
 
 .hero-badge-wrap {
@@ -864,6 +875,9 @@ function viewMatchedCharacter(characterId: string) {
   font-weight: 800;
   letter-spacing: 0.04em;
   box-shadow: var(--hero-pill-shadow);
+  white-space: nowrap;
+  line-height: 1;
+  box-sizing: border-box;
 }
 
 .hero-metric small {
@@ -1162,6 +1176,15 @@ function viewMatchedCharacter(characterId: string) {
   color: #6c7780;
   font-size: 13px;
   font-weight: 600;
+}
+
+.traits-disclaimer {
+  margin: 0;
+  padding: 10px 24px;
+  font-size: 12px;
+  line-height: 1.6;
+  color: #9aa3ab;
+  font-weight: 500;
 }
 
 .traits-highlight {
@@ -1516,6 +1539,7 @@ function viewMatchedCharacter(characterId: string) {
   font-weight: 800;
   letter-spacing: 0.05em;
   text-transform: uppercase;
+  white-space: nowrap;
 }
 
 .profile-card h3 {
@@ -1528,6 +1552,7 @@ function viewMatchedCharacter(characterId: string) {
   color: #e4ae3a;
   font-size: 24px;
   font-weight: 800;
+  white-space: nowrap;
 }
 
 .profile-hidden-flag {
@@ -1537,6 +1562,7 @@ function viewMatchedCharacter(characterId: string) {
   font-weight: 800;
   letter-spacing: 0.04em;
   text-transform: uppercase;
+  white-space: nowrap;
 }
 
 .profile-rarity {
@@ -1547,6 +1573,8 @@ function viewMatchedCharacter(characterId: string) {
   min-height: 34px;
   font-size: 16px;
   border-radius: 999px;
+  line-height: 1;
+  padding-bottom: 7px; /* Fine-tune visual vertical center due to uppercase english letter metrics */
 }
 
 .profile-probability {
@@ -1554,6 +1582,7 @@ function viewMatchedCharacter(characterId: string) {
   color: #5f6b75;
   font-size: 14px;
   font-weight: 700;
+  white-space: nowrap;
 }
 
 .nav-card {

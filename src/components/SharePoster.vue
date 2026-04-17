@@ -151,6 +151,16 @@ const rarityTierStyle = computed(() => {
     }
   }
 })
+
+// Compute dynamic font size for the rarity text
+const rarityFontSizeStyle = computed(() => {
+  const len = rarityTierLabel.value.length
+  if (len > 12) return { fontSize: '13px' }
+  if (len > 8) return { fontSize: '14px' }
+  if (len > 5) return { fontSize: '15px' }
+  return { fontSize: '18px' } // Default size
+})
+
 const raritySummaryLabel = computed(() => {
   if (!rarityMeta.value) {
     return ''
@@ -195,7 +205,7 @@ const raritySummaryLabel = computed(() => {
             <div class="share-poster__metric-divider"></div>
             <div class="share-poster__metric">
               <span class="metric-label">{{ t('result.rarity') }}</span>
-              <strong class="metric-value metric-value--rarity" :style="rarityTierStyle">{{ rarityTierLabel }}</strong>
+              <strong class="metric-value metric-value--rarity" :style="[rarityTierStyle, rarityFontSizeStyle]">{{ rarityTierLabel }}</strong>
               <span class="metric-subvalue">{{ raritySummaryLabel }}</span>
             </div>
           </div>
@@ -333,6 +343,7 @@ const raritySummaryLabel = computed(() => {
   font-size: 14px;
   font-weight: 800;
   letter-spacing: 0.08em;
+  white-space: nowrap;
 }
 
 .share-poster__basis-tip {
@@ -383,6 +394,7 @@ const raritySummaryLabel = computed(() => {
   font-weight: 700;
   margin-bottom: 4px;
   text-transform: uppercase;
+  white-space: nowrap;
 }
 
 .metric-value {
@@ -398,11 +410,14 @@ const raritySummaryLabel = computed(() => {
   align-items: center;
   justify-content: center;
   min-height: 34px;
-  padding: 6px 12px;
+  padding: 6px 12px 7px; /* bottom padding tuned for visual centering of inner text */
   border-radius: 999px;
   border: 1px solid transparent;
   font-size: 18px;
   letter-spacing: 0.04em;
+  word-break: keep-all;
+  line-height: 1;
+  box-sizing: border-box;
 }
 
 .metric-subvalue {
@@ -412,6 +427,7 @@ const raritySummaryLabel = computed(() => {
   line-height: 1.4;
   color: #7b8892;
   font-weight: 700;
+  white-space: nowrap;
 }
 
 .share-poster__metric-divider {
@@ -434,6 +450,7 @@ const raritySummaryLabel = computed(() => {
   font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.03em;
+  white-space: nowrap;
 }
 
 .share-poster__body {
@@ -444,9 +461,8 @@ const raritySummaryLabel = computed(() => {
 }
 
 .share-poster__block {
-  background: rgba(255, 255, 255, 0.94);
-  border: 1px solid rgba(95, 137, 159, 0.12);
-  border-top: 4px solid var(--poster-accent);
+  background: linear-gradient(180deg, #ffffff, #fafdff);
+  border: 1px solid rgba(95, 137, 159, 0.15);
   padding: 16px 18px 18px;
   border-radius: 16px;
   min-height: 126px;
@@ -462,6 +478,7 @@ const raritySummaryLabel = computed(() => {
   gap: 6px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  white-space: nowrap;
 }
 
 .block-content {
@@ -548,6 +565,7 @@ const raritySummaryLabel = computed(() => {
   font-size: 12px;
   font-weight: 800;
   letter-spacing: 0.05em;
+  white-space: nowrap;
 }
 
 .visual-name {

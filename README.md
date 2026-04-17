@@ -11,7 +11,7 @@ ACG Type Indicator
 <p align="center">
   <a href="https://acgti.tianxingleo.top/"><img src="https://img.shields.io/badge/Deploy-Cloudflare_Pages-F38020?style=flat-square&logo=cloudflare" alt="Deploy to Cloudflare Pages" /></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-Apache--2.0-blue.svg?style=flat-square" alt="License" /></a>
-  <img src="https://img.shields.io/badge/Hits-5.0M+-green.svg?style=flat-square" alt="Hits" />
+  <img src="https://img.shields.io/badge/Hits-5.5M+-green.svg?style=flat-square" alt="Hits" />
 </p>
 
 [**✨ 立即体验**](https://acgti.tianxingleo.top/) | [**📖 阅读文档**](#️-架构与原理) | [**🤝 参与贡献**](#-贡献)
@@ -39,7 +39,7 @@ ACG Type Indicator
 
 - **MBTI 四维判定**：基于 E/I、S/N、T/F、J/P 四大维度构建严谨的底层框架。
 - **8 种专属原型**：发光主角位 · 冰面观察者 · 誓约队长 · 灵巧回旋者 · 温柔修复者 · 影面策士 · 混沌火花 · 月下守护者。
-- **91 位角色库**：当前包含 91 位角色，涵盖 VOCALOID、EVA、名侦探柯南、东方、孤独摇滚、MyGO、原神等热门作品，持续扩充中。
+- **105 位角色库**：当前包含 105 位角色，涵盖 60+ 部热门作品，包括 BanG Dream!（Ave Mujica / MyGO）、孤独摇滚！、鸣潮、明日方舟、轻音少女、我推的孩子、Re:从零开始的异世界生活、败犬女主太多了！、辉夜大小姐想让我告白、青春猪头少年、魔法少女小圆、某科学的超电磁炮、名侦探柯南、EVA、东方Project、VOCALOID、原神、崩坏：星穹铁道、紫罗兰永恒花园、四月是你的谎言、葬送的芙丽莲、间谍过家家、刀剑神域、Fate/stay night、电锯人、少女乐队的呐喊等，持续扩充中。
 - **可视化交互**：16personalities 风格的交互式倾向滑块，直观展现你的思维倾向。
 - **一键分享**：精美的结果图报表，支持一键导出 PNG 海报分享给同好。
 - **纯前端架构**：无后端、无注册、无数据收集，测算过程全部在本地浏览器完成，极致极速且保护隐私。
@@ -127,7 +127,7 @@ src/
 |:-----|:-----|
 | `src/data/questions.json` | 39 道情境式题目 — 维度、原型权重、场景标签 |
 | `src/data/archetypes.json` | 8 个角色原型 — 名称、描述、亮点、短板 |
-| `src/data/characters.json` | 42 个角色条目（含 2 个隐藏角色）— 角色代码、MBTI 映射、标签、六维向量 |
+| `src/data/characters.json` | 105 个角色条目 — 角色代码、MBTI 映射、标签、六维向量 |
 | `src/data/characterVisuals.json` | 角色视觉配置 — 立绘、色彩、主题 |
 | `src/data/characterProbabilities.json` | 角色命中概率 — 基于人群统计的先验分布 |
 
@@ -135,14 +135,16 @@ src/
 
 ## 📰 时间线
 
-- **2026.4.15 15:00:** GitHub 仓库 ⭐ 数量达到 400
+- **2026.4.18 12:00:** GitHub 仓库 ⭐ 数量达到 500，访问量达到550W
 - **2026.4.14 15:00:** [网站](https://acgti.tianxingleo.top/)访问量超过 400 万，
   发布 blog：[【复盘】从一晚上一米工位到3天400w+浏览量的网站，我做了什么](https://tianxingleo.top/2026/04/12/%E4%BB%8E%E4%B8%80%E6%99%9A%E4%B8%8A%E4%B8%80%E7%B1%B3%E5%B7%A5%E4%BD%8D%E5%88%B02%E5%A4%A968w%E4%BA%BA%E8%AE%BF%E9%97%AE%E7%9A%84%E7%BD%91%E7%AB%99%EF%BC%8C%E6%88%91%E5%81%9A%E4%BA%86%E4%BB%80%E4%B9%88/)
 - **2026.4.13 21:00:** [网站](https://acgti.tianxingleo.top/)访问人数达到 100 万，仓库Star 数达到 300
 - **2026.4.12 8:00:** 访问人数达到 50 万
-- **2026.4.11 23:00:** 进入 [**永雏塔菲**](https://www.bilibili.com/video/BV11FDyBZEN1/?spm_id_from=333.337.search-card.all.click) 直播间
+- **2026.4.11 23:00:** 进入 [永雏塔菲](https://www.bilibili.com/video/BV11FDyBZEN1/?spm_id_from=333.337.search-card.all.click) 直播间
 - **2026.4.11 12:00:** 在校内 100 人 BanG Dream 群测试，首次公开
 - **2026.4.10:** 创建仓库
+
+![](https://pub-f8d3afa0c3274f1e943ee2f8c45dff96.r2.dev/26_04_3c08ace01a3cd872ecf541636c6f8bbd.webp)
 
 ## 🚀 本地开发
 
