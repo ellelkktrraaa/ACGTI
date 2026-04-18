@@ -1,27 +1,30 @@
-// /api/stats/overview — 总提交数、今日提交数、24h 提交数
+// /api/stats/overview — 从快照表读取总提交数、今日提交数、24h 提交数
+// 快照表由 Cron Worker 每 5 分钟更新一次
 
 export async function onRequestGet(context: any) {
   const { DB } = context.env as { DB: D1Database }
 
   try {
-    const total = await DB.prepare('SELECT COUNT(*) AS cnt FROM submissions').first<{ cnt: number }>()
+    const snapshot = await DB.prepare(
+      'SELECT value_json, updated_at FROM stats_snapshot WHERE key = ?'
+    ).bind('overview').first<{ value_json: string; updated_at: string }>()
 
-    const today = new Date().toISOString().slice(0, 10)
-    const todayResult = await DB.prepare(
-      'SELECT COUNT(*) AS cnt FROM submissions WHERE created_at >= ?'
-    ).bind(today + 'T00:00:00Z').first<{ cnt: number }>()
+    if (!snapshot) {
+      // 快照表尚未初始化，返回零值
+      return new Response(JSON.stringify({
+        totalSubmissions: 0,
+        todaySubmissions: 0,
+        last24hSubmissions: 0,
+      }), {
+        headers: {
+          'Content-Type': 'application/json',
+          'Cache-Control': 'public, max-age=60',
+        },
+      })
+    }
 
-    const now = Date.now()
-    const h24ago = new Date(now - 86400000).toISOString()
-    const h24Result = await DB.prepare(
-      'SELECT COUNT(*) AS cnt FROM submissions WHERE created_at >= ?'
-    ).bind(h24ago).first<{ cnt: number }>()
-
-    return new Response(JSON.stringify({
-      totalSubmissions: total?.cnt ?? 0,
-      todaySubmissions: todayResult?.cnt ?? 0,
-      last24hSubmissions: h24Result?.cnt ?? 0,
-    }), {
+    const data = JSON.parse(snapshot.value_json)
+    return new Response(JSON.stringify(data), {
       headers: {
         'Content-Type': 'application/json',
         'Cache-Control': 'public, max-age=60',
