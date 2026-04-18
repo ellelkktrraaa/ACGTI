@@ -11,17 +11,6 @@ interface Env {
   DB: D1Database
 }
 
-// 排行榜数据快照
-interface StatsSnapshot {
-  overview: {
-    totalSubmissions: number
-    todaySubmissions: number
-    last24hSubmissions: number
-  }
-  archetypes: Array<{ archetype_code: string; cnt: number }>
-  characters: Array<{ character_code: string; cnt: number }>
-}
-
 /**
  * 定时触发：计算并更新所有排行榜快照
  */
@@ -35,11 +24,11 @@ export default {
       await updateSnapshot(env.DB, 'overview', overview)
 
       // 2. 计算原型排行榜
-      const archetypes = await calculateArchetypeStats(env.DB)
+      const archetypes = await calculateArchetypeStats(env.DB, overview.totalSubmissions)
       await updateSnapshot(env.DB, 'archetypes', archetypes)
 
       // 3. 计算角色排行榜（top 100）
-      const characters = await calculateCharacterStats(env.DB)
+      const characters = await calculateCharacterStats(env.DB, overview.totalSubmissions)
       await updateSnapshot(env.DB, 'characters', characters)
 
       console.log(`[CRON] Successfully updated all snapshots`)
@@ -56,10 +45,10 @@ export default {
         const overview = await calculateOverview(env.DB)
         await updateSnapshot(env.DB, 'overview', overview)
 
-        const archetypes = await calculateArchetypeStats(env.DB)
+        const archetypes = await calculateArchetypeStats(env.DB, overview.totalSubmissions)
         await updateSnapshot(env.DB, 'archetypes', archetypes)
 
-        const characters = await calculateCharacterStats(env.DB)
+        const characters = await calculateCharacterStats(env.DB, overview.totalSubmissions)
         await updateSnapshot(env.DB, 'characters', characters)
 
         return new Response(JSON.stringify({ success: true, message: 'Snapshots updated manually' }), {
@@ -98,9 +87,9 @@ async function calculateOverview(db: D1Database) {
 }
 
 /**
- * 计算原型排行榜
+ * 计算原型排行榜（含占比）
  */
-async function calculateArchetypeStats(db: D1Database) {
+async function calculateArchetypeStats(db: D1Database, total: number) {
   const result = await db
     .prepare(
       `SELECT archetype_code, COUNT(*) AS cnt
@@ -110,13 +99,19 @@ async function calculateArchetypeStats(db: D1Database) {
     )
     .all<{ archetype_code: string; cnt: number }>()
 
-  return result.results ?? []
+  const items = (result.results ?? []).map((r) => ({
+    code: r.archetype_code,
+    count: r.cnt,
+    percent: total > 0 ? Math.round((r.cnt / total) * 10000) / 100 : 0,
+  }))
+
+  return { items }
 }
 
 /**
- * 计算角色排行榜（top 100）
+ * 计算角色排行榜（top 100，含占比）
  */
-async function calculateCharacterStats(db: D1Database) {
+async function calculateCharacterStats(db: D1Database, total: number) {
   const result = await db
     .prepare(
       `SELECT character_code, COUNT(*) AS cnt
@@ -127,7 +122,13 @@ async function calculateCharacterStats(db: D1Database) {
     )
     .all<{ character_code: string; cnt: number }>()
 
-  return result.results ?? []
+  const items = (result.results ?? []).map((r) => ({
+    code: r.character_code,
+    count: r.cnt,
+    percent: total > 0 ? Math.round((r.cnt / total) * 10000) / 100 : 0,
+  }))
+
+  return { items }
 }
 
 /**

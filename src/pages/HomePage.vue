@@ -49,6 +49,19 @@
 
     <TestimonialsSection />
 
+    <!-- Stats / Leaderboard entry -->
+    <section class="feature feature-light text-center" style="padding-top: 4rem; padding-bottom: 4rem;" v-reveal>
+      <div class="container">
+        <p class="feature-copy" style="max-width: 500px; margin: 0 auto 1.5rem; color: #666;">
+          {{ t('home.statsLink').replace(' →', '') }}
+        </p>
+        <RouterLink to="/stats" class="btn btn-green" style="display: inline-flex; align-items: center; gap: 0.5rem;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 1.1rem; height: 1.1rem;"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
+          {{ t('home.statsLink') }}
+        </RouterLink>
+      </div>
+    </section>
+
     <section v-if="homeAdSlot" class="ad-section">
       <div class="container">
         <AdsenseSlot :slot="homeAdSlot" :label="t('app.common.sponsored')" />

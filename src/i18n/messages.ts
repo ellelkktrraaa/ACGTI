@@ -134,6 +134,7 @@ export const messages = {
       ossIssue: 'Issue',
       ctaTitle: '想知道你会命中哪一个角色代码？',
       ctaButton: '开始测试 / 重新测试 →',
+      statsLink: '查看全网人格分布 →',
     },
     intro: {
       eyebrow: '测试说明',
@@ -441,6 +442,37 @@ export const messages = {
       saveImage: '生成并分享次元身份卡',
     },
   },
+
+  stats: {
+    title: '全网人格分布',
+    subtitle: '基于所有匿名测试结果的实时统计',
+    overview: {
+      total: '总测试次数',
+      today: '今日测试',
+      last24h: '近 24 小时',
+    },
+    archetypes: {
+      title: '原型排行榜',
+      subtitle: '8 大角色原型的命中分布',
+      rank: '排名',
+      name: '原型',
+      count: '命中次数',
+      percent: '占比',
+    },
+    characters: {
+      title: '角色命中榜',
+      subtitle: '最常被命中的二次元角色',
+      rank: '排名',
+      name: '角色',
+      count: '命中次数',
+      percent: '占比',
+    },
+    footer: {
+      note: '以上数据为匿名统计聚合，不代表真实人格学结论，仅供娱乐参考。',
+      updateFreq: '数据每 15 分钟更新一次',
+      lastUpdate: '最后更新：{time}',
+    },
+  },
   'zh-TW': {
     app: {
       nav: {
@@ -546,6 +578,7 @@ export const messages = {
       ossIssue: 'Issue',
       ctaTitle: '想知道你會命中哪一個角色代碼？',
       ctaButton: '開始測試 / 重新測試 →',
+      statsLink: '查看全網人格分佈 →',
     },
     intro: {
       eyebrow: '測試說明',
@@ -1153,6 +1186,37 @@ export const messages = {
       saveImage: '生成並分享次元身份卡',
     },
   },
+
+  stats: {
+    title: '全網人格分佈',
+    subtitle: '基於所有匿名測試結果的即時統計',
+    overview: {
+      total: '總測試次數',
+      today: '今日測試',
+      last24h: '近 24 小時',
+    },
+    archetypes: {
+      title: '原型排行榜',
+      subtitle: '8 大角色原型的命中分佈',
+      rank: '排名',
+      name: '原型',
+      count: '命中次數',
+      percent: '佔比',
+    },
+    characters: {
+      title: '角色命中榜',
+      subtitle: '最常被命中的二次元角色',
+      rank: '排名',
+      name: '角色',
+      count: '命中次數',
+      percent: '佔比',
+    },
+    footer: {
+      note: '以上數據為匿名統計聚合，不代表真實人格學結論，僅供娛樂參考。',
+      updateFreq: '數據每 15 分鐘更新一次',
+      lastUpdate: '最後更新：{time}',
+    },
+  },
   en: {
     app: {
       nav: {
@@ -1258,6 +1322,7 @@ export const messages = {
       ossIssue: 'issue',
       ctaTitle: 'Want to know which character code you hit?',
       ctaButton: 'Start / Retake the quiz →',
+      statsLink: 'View global personality distribution →',
     },
     intro: {
       eyebrow: 'How It Works',
@@ -1745,6 +1810,37 @@ export const messages = {
       saveImage: 'Generate & Share Identity Card',
     },
   },
+
+  stats: {
+    title: 'Global Personality Distribution',
+    subtitle: 'Real-time statistics based on all anonymous test results',
+    overview: {
+      total: 'Total Tests',
+      today: 'Today',
+      last24h: 'Last 24 Hours',
+    },
+    archetypes: {
+      title: 'Archetype Rankings',
+      subtitle: 'Distribution across 8 character archetypes',
+      rank: 'Rank',
+      name: 'Archetype',
+      count: 'Matches',
+      percent: 'Share',
+    },
+    characters: {
+      title: 'Character Match Rankings',
+      subtitle: 'Most frequently matched characters',
+      rank: 'Rank',
+      name: 'Character',
+      count: 'Matches',
+      percent: 'Share',
+    },
+    footer: {
+      note: 'Data shown is anonymized aggregate statistics. Not a scientific personality assessment. For entertainment purposes only.',
+      updateFreq: 'Data updates every 15 minutes',
+      lastUpdate: 'Last updated: {time}',
+    },
+  },
   ja: {
     app: {
       nav: {
@@ -1850,6 +1946,7 @@ export const messages = {
       ossIssue: 'Issue',
       ctaTitle: '自分がどのキャラコードに当たるか知りたい？',
       ctaButton: 'テスト開始 / 再診断 →',
+      statsLink: '全世界の性格分布を見る →',
     },
     intro: {
       eyebrow: 'テスト概要',
@@ -2335,6 +2432,37 @@ export const messages = {
     common: {
       generating: '生成中...',
       saveImage: 'アイデンティティカードを生成・シェア',
+    },
+  },
+
+  stats: {
+    title: '全世界の性格分佈',
+    subtitle: 'すべての匿名テスト結果に基づくリアルタイム統計',
+    overview: {
+      total: '総テスト数',
+      today: '今日のテスト',
+      last24h: '過去24時間',
+    },
+    archetypes: {
+      title: 'アーキタイプランキング',
+      subtitle: '8つのキャラアーキタイプの分布',
+      rank: '順位',
+      name: 'アーキタイプ',
+      count: 'マッチ数',
+      percent: '割合',
+    },
+    characters: {
+      title: 'キャラマッチランキング',
+      subtitle: '最もマッチしやすいキャラクター',
+      rank: '順位',
+      name: 'キャラクター',
+      count: 'マッチ数',
+      percent: '割合',
+    },
+    footer: {
+      note: 'データは匿名統計集計です。科学的な性格診断ではありません。娯楽目的のみ。',
+      updateFreq: 'データは15分ごとに更新されます',
+      lastUpdate: '最終更新：{time}',
     },
   },
 } as const

@@ -1,5 +1,5 @@
 // /api/stats/archetypes — 从快照表读取原型排行榜
-// 快照表由 Cron Worker 每 5 分钟更新一次
+// 快照表由 Cron Worker 每 15 分钟更新一次
 
 export async function onRequestGet(context: any) {
   const { DB } = context.env as { DB: D1Database }
@@ -10,8 +10,10 @@ export async function onRequestGet(context: any) {
     ).bind('archetypes').first<{ value_json: string; updated_at: string }>()
 
     if (!snapshot) {
-      // 快照表尚未初始化
-      return new Response(JSON.stringify({ archetypes: [] }), {
+      return new Response(JSON.stringify({
+        data: { items: [] },
+        updatedAt: null,
+      }), {
         headers: {
           'Content-Type': 'application/json',
           'Cache-Control': 'public, max-age=120',
@@ -20,7 +22,10 @@ export async function onRequestGet(context: any) {
     }
 
     const data = JSON.parse(snapshot.value_json)
-    return new Response(JSON.stringify({ archetypes: data }), {
+    return new Response(JSON.stringify({
+      data,
+      updatedAt: snapshot.updated_at,
+    }), {
       headers: {
         'Content-Type': 'application/json',
         'Cache-Control': 'public, max-age=120',

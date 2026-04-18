@@ -8,6 +8,7 @@ const router = createRouter({
     { path: '/result', name: 'result', component: () => import('../pages/ResultPage.vue') },
     { path: '/characters', name: 'characters', component: () => import('../pages/CharactersPage.vue') },
     { path: '/about', name: 'about', component: () => import('../pages/AboutPage.vue') },
+    { path: '/stats', name: 'stats', component: () => import('../pages/StatsPage.vue') },
     { path: '/:pathMatch(.*)*', redirect: '/' },
   ],
   scrollBehavior() {
