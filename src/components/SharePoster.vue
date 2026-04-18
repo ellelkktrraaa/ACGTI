@@ -105,15 +105,14 @@ const rarityTierStyle = computed(() => {
   const base = hexToRgb(resultThemeColor.value)
   const white = { r: 255, g: 255, b: 255 }
   const dark = { r: 47, g: 58, b: 69 }
-  const hiddenBase = { r: 122, g: 92, b: 255 }
 
   switch (rarityMeta.value?.tier) {
     case 'ex': {
-      const text = mixRgb(hiddenBase, white, 0.08)
+      const text = mixRgb(base, dark, 0.15)
       return {
         color: toRgbString(text),
-        background: 'linear-gradient(135deg, rgba(122, 92, 255, 0.16), rgba(255, 123, 172, 0.18))',
-        borderColor: 'rgba(122, 92, 255, 0.35)',
+        background: `linear-gradient(135deg, ${toRgbString(base, 0.2)}, ${toRgbString(base, 0.35)})`,
+        borderColor: toRgbString(base, 0.45),
       }
     }
     case 'ur': {

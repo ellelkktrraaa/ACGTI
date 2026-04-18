@@ -52,7 +52,7 @@ export interface Archetype {
   id: ArchetypeId
   name: string
   subtitle: string
-  oneLiner: string
+  oneLiners: string[]
   description: string
   tags: string[]
   narrativeRole: string
