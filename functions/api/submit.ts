@@ -26,6 +26,8 @@ export async function onRequestPost(context: any) {
     return new Response('Invalid JSON', { status: 400 })
   }
 
+  console.log('📊 Submit payload received:', JSON.stringify(raw, null, 2))
+
   // 白名单提取字段
   const submissionId = str(raw.submissionId, 64)
   const appVersion = str(raw.appVersion, 16)
@@ -37,19 +39,24 @@ export async function onRequestPost(context: any) {
 
   // 必填校验
   if (!submissionId || !appVersion || !archetypeCode || !characterCode) {
+    console.error('❌ Missing required fields:', { submissionId, appVersion, archetypeCode, characterCode })
     return new Response('Missing required fields', { status: 400 })
   }
   if (!isValidUuid(submissionId)) {
+    console.error('❌ Invalid submissionId format:', submissionId)
     return new Response('Invalid submissionId', { status: 400 })
   }
   if (!isValidCode(archetypeCode) || !isValidCode(characterCode)) {
+    console.error('❌ Invalid code format:', { archetypeCode, characterCode })
     return new Response('Invalid code format', { status: 400 })
   }
   if (predictedMbti && !isValidMbti(predictedMbti)) {
+    console.error('❌ Invalid predictedMbti format:', predictedMbti)
     return new Response('Invalid predictedMbti', { status: 400 })
   }
   // duration_ms < 3s 的请求几乎不可能是真人
   if (durationMs === null) {
+    console.error('❌ Invalid durationMs:', raw.durationMs)
     return new Response('Invalid durationMs', { status: 400 })
   }
 
@@ -60,6 +67,12 @@ export async function onRequestPost(context: any) {
   const tf = num(ds?.tf, 0, 100)
   const jp = num(ds?.jp, 0, 100)
   if (ei === null || sn === null || tf === null || jp === null) {
+    console.error('❌ Invalid dimensionScores:', { 
+      ei: [raw.dimensionScores?.ei, 'validated to', ei],
+      sn: [raw.dimensionScores?.sn, 'validated to', sn],
+      tf: [raw.dimensionScores?.tf, 'validated to', tf],
+      jp: [raw.dimensionScores?.jp, 'validated to', jp],
+    })
     return new Response('Invalid dimensionScores', { status: 400 })
   }
 

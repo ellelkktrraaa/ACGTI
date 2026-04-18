@@ -35,11 +35,14 @@ export interface FeedbackPayload {
 export function reportResultInBackground(payload: Omit<SubmitPayload, 'appVersion'>) {
   const body = JSON.stringify({ ...payload, appVersion: APP_VERSION })
 
+  console.log('📤 Sending submit payload:', { ...payload, appVersion: APP_VERSION })
+
   setTimeout(() => {
     try {
       if (navigator.sendBeacon) {
         const blob = new Blob([body], { type: 'application/json' })
         const queued = navigator.sendBeacon('/api/submit', blob)
+        console.log('📨 sendBeacon queued:', queued)
         if (queued) return
       }
 
@@ -49,11 +52,13 @@ export function reportResultInBackground(payload: Omit<SubmitPayload, 'appVersio
         headers: { 'Content-Type': 'application/json' },
         body,
         keepalive: true,
-      }).catch(() => {
-        // 静默失败
+      }).then(res => {
+        console.log('📡 /api/submit response:', res.status, res.statusText)
+      }).catch((err) => {
+        console.error('❌ /api/submit error:', err)
       })
-    } catch {
-      // 静默失败
+    } catch (err) {
+      console.error('❌ reportResultInBackground error:', err)
     }
   }, 0)
 }
