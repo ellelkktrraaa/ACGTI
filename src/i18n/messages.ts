@@ -76,8 +76,8 @@ export const messages = {
     },
     home: {
       updateBadge: {
-        tag: '4.17 重大更新',
-        title: '角色库扩充到原来的 400%',
+        tag: '角色数量更新',
+        title: '角色数量已达到 110 位',
         text: '欢迎回来再测一次。最近新增了很多角色，这次命中的角色代码可能和你之前完全不同。',
         link: '开始测试 / 重新测试',
         dismiss: '关闭更新公告',
@@ -484,6 +484,15 @@ export const messages = {
         about: '專案說明',
         result: '最近結果',
         cta: '立即測試',
+      },
+      home: {
+        updateBadge: {
+          tag: '角色數量更新',
+          title: '角色數量已達到 110 位',
+          text: '歡迎回來再測一次。最近新增了很多角色，這次命中的角色代碼可能和你之前完全不同。',
+          link: '開始測試 / 重新測試',
+          dismiss: '關閉更新公告',
+        },
       },
       footer: {
         sections: { test: '測試入口', project: '專案內容', reminders: '使用提醒', status: '目前狀態', openSource: '開源社群', friendlyLinks: '友情連結', authorSocial: '作者社群媒體' },
