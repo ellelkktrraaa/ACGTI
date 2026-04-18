@@ -31,10 +31,14 @@ build/
 coverage/
 out/
 
+# Wrangler local state
+.wrangler/
+
 # Environment files
 .env
 .env.*
 !.env.example
+.dev.vars
 
 # Temporary files
 tmp/

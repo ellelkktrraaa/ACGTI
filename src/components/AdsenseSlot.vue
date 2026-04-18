@@ -48,6 +48,7 @@ onMounted(() => {
   border-radius: 8px;
   background: #ffffff;
   padding: 12px;
+  min-height: 144px;
 }
 
 .adsense-head {
@@ -64,5 +65,6 @@ onMounted(() => {
 
 .adsense-slot {
   min-height: 120px;
+  max-height: 280px;
 }
 </style>

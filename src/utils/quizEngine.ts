@@ -344,7 +344,7 @@ function pickMatchedArchetype(
       id: 'luminous-lead' as ArchetypeId,
       name: '异格旅行者',
       subtitle: '无法被定义的观测者',
-      oneLiner: '世界之外，唯有真实的自我。',
+      oneLiners: ['世界之外，唯有真实的自我。'],
       description: '游离于传统分类之外的特殊存在',
       tags: ['神秘判定', '罕见'],
       narrativeRole: '旁观者',
