@@ -476,7 +476,7 @@ export const messages = {
         domain: '域名续费',
         database: 'Cloudflare D1',
         cdn: 'CDN 流量',
-        ai: 'AI 辅助费用',
+        ai: 'AI 费用',
       },
       methodsEyebrow: '赞助方式',
       methodsTitle: '扫码支持',
