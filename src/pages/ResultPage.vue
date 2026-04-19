@@ -12,7 +12,7 @@ import { getHiddenCharacterNote, getHiddenCharacterTags, getHiddenCharacterTitle
 import { getCharacterRarityMeta } from '../utils/characterRarity'
 import { formatCharacterProbability } from '../utils/characterProbability'
 import { normalizeMbtiCode } from '../utils/quizEngine'
-import { reportResultInBackground, submitFeedback } from '../utils/statsReporter'
+import { reportResultInBackground, submitFeedback, fetchResultStats, type ResultStats } from '../utils/statsReporter'
 
 // SharePoster 只在用户点击"导出图片"时才加载和挂载
 const SharePosterAsync = defineAsyncComponent(() => import('../components/SharePoster.vue'))
@@ -28,6 +28,14 @@ const posterRef = ref<{ rootEl: HTMLElement | null } | null>(null)
 const shouldMountPoster = ref(false)
 const { locale, t, tm } = useI18n()
 const resultAdSlot = String(import.meta.env.VITE_ADSENSE_SLOT_RESULT ?? '').trim()
+const liveStats = ref<ResultStats | null>(null)
+
+function formatCount(n: number): string {
+  if (n >= 10000) {
+    return n.toLocaleString()
+  }
+  return String(n)
+}
 
 const heroQuote = computed(() => {
   if (!result.value) return ''
@@ -64,6 +72,15 @@ onMounted(async () => {
   if (!result.value) {
     void router.replace('/quiz')
     return
+  }
+
+  // 获取站内真实统计数据（fire-and-forget）
+  const charCode = result.value.code || result.value.mbtiCode || ''
+  const archCode = result.value.archetype?.id || ''
+  if (charCode || archCode) {
+    fetchResultStats(charCode, archCode).then((data) => {
+      if (data) liveStats.value = data
+    })
   }
 
   // Turnstile temporarily disabled.
@@ -715,6 +732,50 @@ async function handleFeedbackSubmit() {
           </div>
         </section>
 
+        <section class="live-stats-section" v-reveal>
+          <div class="section-title-wrap">
+            <div class="section-index">★</div>
+            <h2 class="section-title">{{ t('result.liveStats.title') }}</h2>
+          </div>
+          <div v-if="liveStats && (liveStats.sameCharacterCount > 0 || liveStats.sameArchetypeCount > 0)" class="live-stats-card">
+            <div class="live-stats-grid">
+              <div v-if="liveStats.sameCharacterCount > 0" class="live-stat-item">
+                <span class="live-stat-value">{{ formatCount(liveStats.sameCharacterCount) }}</span>
+                <span class="live-stat-label">{{ t('result.liveStats.sameCharacter', { count: formatCount(liveStats.sameCharacterCount) }) }}</span>
+              </div>
+              <div v-if="liveStats.sameArchetypeCount > 0" class="live-stat-item">
+                <span class="live-stat-value">{{ formatCount(liveStats.sameArchetypeCount) }}</span>
+                <span class="live-stat-label">{{ t('result.liveStats.sameArchetype', { count: formatCount(liveStats.sameArchetypeCount) }) }}</span>
+              </div>
+              <div v-if="liveStats.sameCharacterPercent > 0" class="live-stat-item">
+                <span class="live-stat-value">{{ liveStats.sameCharacterPercent }}%</span>
+                <span class="live-stat-label">{{ t('result.liveStats.sitePercent', { percent: liveStats.sameCharacterPercent }) }}</span>
+              </div>
+              <div v-if="liveStats.characterRank" class="live-stat-item live-stat-item--rank">
+                <span class="live-stat-value">#{{ liveStats.characterRank }}</span>
+                <span class="live-stat-label">{{ t('result.liveStats.characterRank', { rank: liveStats.characterRank }) }}</span>
+              </div>
+            </div>
+            <p class="live-stats-hint">{{ t('result.liveStats.updateHint') }}</p>
+          </div>
+          <div v-else class="live-stats-card live-stats-card--loading">
+            <div class="live-stats-grid">
+              <div class="live-stat-item live-stat-item--skeleton">
+                <span class="live-stat-value">--</span>
+                <span class="live-stat-label">{{ t('result.liveStats.sameCharacter', { count: '--' }) }}</span>
+              </div>
+              <div class="live-stat-item live-stat-item--skeleton">
+                <span class="live-stat-value">--</span>
+                <span class="live-stat-label">{{ t('result.liveStats.sameArchetype', { count: '--' }) }}</span>
+              </div>
+              <div class="live-stat-item live-stat-item--skeleton">
+                <span class="live-stat-value">--%</span>
+                <span class="live-stat-label">{{ t('result.liveStats.sitePercent', { percent: '--' }) }}</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <a
           class="public-service-card public-service-card-link"
           href="https://www.dlut.edu.cn/"
@@ -920,6 +981,23 @@ async function handleFeedbackSubmit() {
           </div>
         </section>
 
+        <!-- Discussion CTA -->
+        <section class="discussion-section" v-reveal>
+          <div class="discussion-card">
+            <h3 class="discussion-title">{{ t('result.discussionTitle') }}</h3>
+            <p class="discussion-copy">{{ t('result.discussionCopy') }}</p>
+            <a
+              href="https://github.com/tianxingleo/ACGTI/discussions"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="discussion-button"
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 18px; height: 18px;"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+              {{ t('result.discussionButton') }}
+            </a>
+          </div>
+        </section>
+
         <section v-if="resultAdSlot" class="result-ad-section">
           <AdsenseSlot :slot="resultAdSlot" :label="t('app.common.sponsored')" />
         </section>
@@ -937,7 +1015,23 @@ async function handleFeedbackSubmit() {
           <p class="profile-probability">{{ raritySummaryLabel }}</p>
           <p class="profile-probability">{{ rarityRankLabel }}</p>
           <p class="profile-probability">{{ probabilityLabel }}</p>
-          
+
+          <div v-if="liveStats && liveStats.sameCharacterCount > 0" class="sidebar-live-stats">
+            <div class="sidebar-live-stat">
+              <span class="sidebar-live-stat-dot"></span>
+              <span>{{ t('result.liveStats.sameCharacter', { count: formatCount(liveStats.sameCharacterCount) }) }}</span>
+            </div>
+            <div v-if="liveStats.sameArchetypeCount > 0" class="sidebar-live-stat">
+              <span class="sidebar-live-stat-dot"></span>
+              <span>{{ t('result.liveStats.sameArchetype', { count: formatCount(liveStats.sameArchetypeCount) }) }}</span>
+            </div>
+            <div v-if="liveStats.characterRank" class="sidebar-live-stat">
+              <span class="sidebar-live-stat-dot"></span>
+              <span>{{ t('result.liveStats.characterRank', { rank: liveStats.characterRank }) }}</span>
+            </div>
+            <p class="sidebar-live-hint">{{ t('result.liveStats.updateHint') }}</p>
+          </div>
+
           <div v-if="primaryCharacter && displayTags.length" class="sidebar-tags-wrap" style="margin-top: 16px;">
             <span v-for="tag in displayTags" :key="tag"># {{ tag }}</span>
           </div>
@@ -2641,6 +2735,196 @@ async function handleFeedbackSubmit() {
   .feedback-card {
     padding: 16px;
     border-radius: 14px;
+  }
+}
+
+/* ── Live Stats ── */
+.live-stats-section {
+  margin-top: 32px;
+  scroll-margin-top: 88px;
+}
+
+.live-stats-card {
+  background: linear-gradient(180deg, #ffffff, #fbfdfb);
+  border: 1px solid #e8ecef;
+  border-radius: 18px;
+  padding: 24px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+
+.live-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.live-stat-item {
+  text-align: center;
+  padding: 16px 12px;
+  border-radius: 12px;
+  background: #f8f9fa;
+  border: 1px solid #edf0f2;
+}
+
+.live-stat-item--rank {
+  background: linear-gradient(135deg, #fffdf5 0%, #ffffff 100%);
+  border-color: #f0e2b0;
+}
+
+.live-stat-value {
+  display: block;
+  font-size: 28px;
+  font-weight: 800;
+  color: #33a474;
+  line-height: 1.2;
+}
+
+.live-stat-item--rank .live-stat-value {
+  color: #e4ae3a;
+}
+
+.live-stat-label {
+  display: block;
+  margin-top: 8px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #5f6b75;
+  font-weight: 600;
+}
+
+.live-stats-hint {
+  margin: 16px 0 0;
+  text-align: right;
+  font-size: 11px;
+  color: #9aa3ab;
+  font-weight: 500;
+}
+
+.live-stats-card--loading {
+  opacity: 0.6;
+}
+
+.live-stat-item--skeleton .live-stat-value {
+  color: #cdd4d9;
+}
+
+.sidebar-live-stats {
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid #eef0f2;
+  display: grid;
+  gap: 10px;
+}
+
+.sidebar-live-stat {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #5f6b75;
+  font-weight: 600;
+}
+
+.sidebar-live-stat-dot {
+  flex-shrink: 0;
+  width: 6px;
+  height: 6px;
+  margin-top: 6px;
+  border-radius: 50%;
+  background: #33a474;
+}
+
+.sidebar-live-hint {
+  margin: 4px 0 0;
+  font-size: 11px;
+  color: #9aa3ab;
+  font-weight: 500;
+}
+
+@media (max-width: 520px) {
+  .live-stats-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .live-stat-value {
+    font-size: 22px;
+  }
+
+  .live-stat-label {
+    font-size: 12px;
+  }
+
+  .live-stats-card {
+    padding: 16px;
+    border-radius: 14px;
+  }
+}
+
+/* ── Discussion CTA ── */
+.discussion-section {
+  margin-top: 32px;
+}
+
+.discussion-card {
+  background: linear-gradient(135deg, #f3fbf7 0%, #ffffff 100%);
+  border: 1px solid #d9ece4;
+  border-radius: 18px;
+  padding: 28px;
+  text-align: center;
+  box-shadow: 0 10px 22px rgba(59, 161, 124, 0.07);
+}
+
+.discussion-title {
+  margin: 0 0 8px;
+  font-size: 22px;
+  font-weight: 800;
+  color: #2f3a45;
+}
+
+.discussion-copy {
+  margin: 0 0 20px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #5f6b75;
+}
+
+.discussion-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 24px;
+  border-radius: 999px;
+  background: #3ba17c;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 8px 20px rgba(59, 161, 124, 0.22);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+}
+
+.discussion-button:hover {
+  background: #2e9469;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(59, 161, 124, 0.28);
+}
+
+@media (max-width: 520px) {
+  .discussion-card {
+    padding: 20px 16px;
+    border-radius: 14px;
+  }
+
+  .discussion-title {
+    font-size: 19px;
+  }
+
+  .discussion-copy {
+    font-size: 14px;
   }
 }
 </style>

@@ -25,6 +25,7 @@ export const messages = {
         about: '项目说明',
         result: '最近结果',
         cta: '立即测评',
+        community: '讨论区',
       },
       footer: {
         sections: {
@@ -136,6 +137,14 @@ export const messages = {
       ctaTitle: '想知道你会命中哪一个角色代码？',
       ctaButton: '开始测试 / 重新测试 →',
       statsLink: '查看全网人格分布 →',
+      communityTitle: '社区互动',
+      communityCards: [
+        { title: '角色提名', desc: '告诉我们你想加入谁', icon: 'nominate' },
+        { title: '问题反馈', desc: '提交 Bug 和异常结果', icon: 'bug' },
+        { title: '更新公告', desc: '查看 ACGTI 最近更新', icon: 'announce' },
+        { title: '结果分享', desc: '来讨论你的测试结果', icon: 'share' },
+      ],
+      communityButton: '进入讨论区',
     },
     intro: {
       eyebrow: '测试说明',
@@ -246,6 +255,9 @@ export const messages = {
       ossButton: '去给个 ⭐ 支持！',
       ossHint: '希望新增角色，或对题目、现有角色和结果解析有改进意见？欢迎提',
       ossIssue: 'Issue',
+      discussionTitle: '想聊聊这个结果？',
+      discussionCopy: '对这个结果不服？想提名新角色？来讨论区和大家一起聊。',
+      discussionButton: '去讨论区分享',
       feedbackTitle: '帮助我们校准',
       feedbackDesc: '知道自己更接近哪个真实 MBTI 吗？欢迎匿名反馈，帮助我们校准题目与角色映射。',
       feedbackMbtiLabel: '我的真实 MBTI',
@@ -266,6 +278,16 @@ export const messages = {
       feedbackSubmitting: '提交中...',
       feedbackDone: '感谢反馈！你的数据将帮助我们校准题目与角色映射。',
       feedbackError: '提交失败，请稍后再试',
+      liveStats: {
+        title: '站内实况',
+        sameCharacter: '已有 {count} 人和你测出同一角色',
+        sameArchetype: '另有 {count} 人与你同属这一原型',
+        sitePercent: '约占站内全部记录的 {percent}%',
+        characterRank: '角色热度排名 #{rank}',
+        archetypeRank: '原型热度排名 #{rank}',
+        totalSubmissions: '站内累计 {count} 次测评',
+        updateHint: '统计每 15 分钟更新 · 起始 2026.4.18 18:00',
+      },
       dimensions: {
         E_I: ['外向', '内向'],
         S_N: ['实感', '直觉'],
@@ -466,6 +488,7 @@ export const messages = {
       count: '命中次数',
       percent: '占比',
     },
+    startNote: '统计数据从 2026.4.18 18:00 开始记录',
     footer: {
       note: '以上数据为匿名统计聚合，不代表真实人格学结论，仅供娱乐参考。',
       updateFreq: '数据每 15 分钟更新一次',
@@ -486,6 +509,7 @@ export const messages = {
         about: '專案說明',
         result: '最近結果',
         cta: '立即測試',
+        community: '討論區',
       },
       home: {
         updateBadge: {
@@ -590,6 +614,14 @@ export const messages = {
       ctaTitle: '想知道你會命中哪一個角色代碼？',
       ctaButton: '開始測試 / 重新測試 →',
       statsLink: '查看全網人格分佈 →',
+      communityTitle: '社群互動',
+      communityCards: [
+        { title: '角色提名', desc: '告訴我們你想加入誰', icon: 'nominate' },
+        { title: '問題回饋', desc: '提交 Bug 和異常結果', icon: 'bug' },
+        { title: '更新公告', desc: '查看 ACGTI 最近更新', icon: 'announce' },
+        { title: '結果分享', desc: '來討論你的測試結果', icon: 'share' },
+      ],
+      communityButton: '進入討論區',
     },
     intro: {
       eyebrow: '測試說明',
@@ -700,6 +732,9 @@ export const messages = {
       ossButton: '去給個 ⭐ 支持！',
       ossHint: '希望新增角色，或對題目、現有角色和結果解析有改進意見？歡迎提',
       ossIssue: 'Issue',
+      discussionTitle: '想聊聊這個結果？',
+      discussionCopy: '對這個結果不服？想提名新角色？來討論區和大家一起聊。',
+      discussionButton: '去討論區分享',
       feedbackTitle: '幫助我們校準',
       feedbackDesc: '知道自己更接近哪個真實 MBTI 嗎？歡迎匿名回饋，幫助我們校準題目與角色映射。',
       feedbackMbtiLabel: '我的真實 MBTI',
@@ -720,6 +755,16 @@ export const messages = {
       feedbackSubmitting: '提交中...',
       feedbackDone: '感謝回饋！你的資料將幫助我們校準題目與角色映射。',
       feedbackError: '提交失敗，請稍後再試',
+      liveStats: {
+        title: '站內實況',
+        sameCharacter: '已有 {count} 人和你測出同一角色',
+        sameArchetype: '另有 {count} 人與你同屬這一原型',
+        sitePercent: '約占站內全部記錄的 {percent}%',
+        characterRank: '角色熱度排名 #{rank}',
+        archetypeRank: '原型熱度排名 #{rank}',
+        totalSubmissions: '站內累計 {count} 次測評',
+        updateHint: '統計每 15 分鐘更新 · 起始 2026.4.18 18:00',
+      },
       dimensions: {
         E_I: ['外向', '內向'],
         S_N: ['實感', '直覺'],
@@ -1220,6 +1265,7 @@ export const messages = {
       count: '命中次數',
       percent: '佔比',
     },
+    startNote: '統計數據從 2026.4.18 18:00 開始記錄',
     footer: {
       note: '以上數據為匿名統計聚合，不代表真實人格學結論，僅供娛樂參考。',
       updateFreq: '數據每 15 分鐘更新一次',
@@ -1236,9 +1282,11 @@ export const messages = {
         quiz: 'Take Quiz',
         intro: 'Types',
         characters: 'Characters',
+        stats: 'Global Stats',
         about: 'About',
         result: 'Latest Result',
         cta: 'Start Now',
+        community: 'Community',
       },
       footer: {
         sections: { test: 'Quiz', project: 'Project', reminders: 'Notes', status: 'Status', openSource: 'Open Source', friendlyLinks: 'Links', authorSocial: "Author's Social" },
@@ -1334,6 +1382,14 @@ export const messages = {
       ctaTitle: 'Want to know which character code you hit?',
       ctaButton: 'Start / Retake the quiz →',
       statsLink: 'View global personality distribution →',
+      communityTitle: 'Community',
+      communityCards: [
+        { title: 'Nominate a Character', desc: 'Tell us who you want added', icon: 'nominate' },
+        { title: 'Report a Bug', desc: 'Submit bugs and wrong results', icon: 'bug' },
+        { title: 'Changelog', desc: 'See what\'s new in ACGTI', icon: 'announce' },
+        { title: 'Share Results', desc: 'Discuss your test results', icon: 'share' },
+      ],
+      communityButton: 'Join the Discussion',
     },
     intro: {
       eyebrow: 'How It Works',
@@ -1444,6 +1500,9 @@ export const messages = {
       ossButton: 'Give it a ⭐',
       ossHint: 'Want new characters, or improvements to the questions, current characters, or result writeups? Open an',
       ossIssue: 'issue',
+      discussionTitle: 'Want to talk about this result?',
+      discussionCopy: 'Disagree with your result? Want to nominate a new character? Join the discussion.',
+      discussionButton: 'Share in Community',
       feedbackTitle: 'Help us calibrate',
       feedbackDesc: 'Know your real MBTI? Share it anonymously to help us calibrate the quiz and character mapping.',
       feedbackMbtiLabel: 'My real MBTI',
@@ -1464,6 +1523,16 @@ export const messages = {
       feedbackSubmitting: 'Submitting...',
       feedbackDone: 'Thanks! Your feedback will help us calibrate the quiz and character mapping.',
       feedbackError: 'Submission failed, please try again later',
+      liveStats: {
+        title: 'Live Stats',
+        sameCharacter: '{count} people got the same character as you',
+        sameArchetype: '{count} people share your archetype',
+        sitePercent: 'This result accounts for {percent}% of all records',
+        characterRank: 'Character popularity #{rank}',
+        archetypeRank: 'Archetype popularity #{rank}',
+        totalSubmissions: '{count} tests taken so far',
+        updateHint: 'Stats update every 15 minutes · Since 2026.4.18 18:00',
+      },
       dimensions: {
         E_I: ['Extraverted', 'Introverted'],
         S_N: ['Sensing', 'Intuitive'],
@@ -1491,10 +1560,10 @@ export const messages = {
         subtitle: 'Quiet, but sees clearly',
         narrativeRole: 'Strategist / Calm narrator',
         oneLiners: [
-            '你像把情緒收進薄冰裡的人，外界很難輕易讀懂你。',
-            '比起貿然下場，你更喜歡把所有的底牌和破綻都看個透徹。',
-            '你不信沸騰的熱血，你只信最精準的時機和絕對的理智。',
-            '喧囂總是別人的，而你握著破局的最後一把鑰匙。'
+            'You tuck your emotions beneath a thin layer of ice — hard for anyone to read.',
+            'Rather than rush in, you prefer to study every hidden card and crack first.',
+            'You don\'t trust boiling passion; you trust the most precise timing and absolute reason.',
+            'The noise is always someone else\'s, while you hold the last key to breaking the deadlock.'
           ],
         description: 'This is a low-expression, high-judgment archetype. You usually read the rules first, then the people, and only then decide whether to step in.',
         spotlight: 'When everyone misses the pattern, you are the one who connects the clues.',
@@ -1505,10 +1574,10 @@ export const messages = {
         subtitle: 'The one who carries the team',
         narrativeRole: 'Leader / Formation anchor',
         oneLiners: [
-            '你很難只是隨便看看，你會天然把責任和秩序接過來。',
-            '當風暴來臨時，你是所有人心裡最穩固的那面承重牆。',
-            '你不僅僅是在贏，你還要確保每個人都能活著走到終點。',
-            '哪怕傷痕累累，你依然會站在所有人面前擋住下一次衝擊。'
+            'You can\'t just stand by — you instinctively take on responsibility and order.',
+            'When the storm hits, you are the load-bearing wall everyone leans on inside.',
+            'You\'re not just winning — you\'re making sure everyone makes it to the finish line alive.',
+            'Battered and bruised, you\'ll still step in front of everyone to block the next blow.'
           ],
         description: 'This is a high-order, high-drive support archetype. In a group, you act like a stabilizing frame: able to hold pressure and step up when consequences need to be carried.',
         spotlight: 'You may not be the loudest person, but you are often the one still standing at the end.',
@@ -1519,10 +1588,10 @@ export const messages = {
         subtitle: 'Always finding a new angle',
         narrativeRole: 'Deuteragonist / Wildcard',
         oneLiners: [
-            '你不一定按常規出牌，但你總能把劇情轉出新角度。',
-            '當你覺得無聊時，就是規則開始崩盤、好戲重新開場的瞬間。',
-            '你從不走正門，但你總能在絕境中最快找到那扇隱密的窗。',
-            '你的節奏是一個迷，而你的對手永遠只能慢你一拍。'
+            'You don\'t always play by the rules, but you always twist the plot in a new direction.',
+            'The moment you get bored is when the rules collapse and the real show begins.',
+            'You never use the front door, yet you always find that hidden window fastest when cornered.',
+            'Your rhythm is a mystery, and your opponents are always one beat behind.'
           ],
         description: 'This is a high-expression, high-mobility archetype. You are sensitive to change, dislike being locked into one role, and are good at creating openings through flexibility.',
         spotlight: 'When the rules start trapping people, you look for the gap.',
@@ -1533,10 +1602,10 @@ export const messages = {
         subtitle: 'The one who stitches the cracks back together',
         narrativeRole: 'Healer / Emotional relay',
         oneLiners: [
-            '你不是最耀眼的，但你總能給人最堅實的依靠。',
-            '當世界鋒芒畢露時，你用最柔軟的方式接住了所有的下墜。',
-            '你不需要震耳欲聾的出場，你的存在本身就是一種深長的呼吸。',
-            '別人關心他們飛得多高，而你關心他們傷得深不深。'
+            'You may not be the brightest in the room, but you always provide the most solid support.',
+            'When the world shows its sharpest edges, you catch every fall in the softest way.',
+            'You don\'t need a thunderous entrance — your presence itself is a long, deep breath.',
+            'Others care how high they fly; you care how deep their wounds run.'
           ],
         description: 'This is a high-warmth, high-support archetype. You are sensitive to fragility in relationships and often help restore connection, soothe emotion, and hold people together.',
         spotlight: 'You tend to reach out at exactly the moment someone is about to fall.',
@@ -1547,10 +1616,10 @@ export const messages = {
         subtitle: 'The one laying the board in the dark',
         narrativeRole: 'Backroom operator / Hidden advisor',
         oneLiners: [
-            '你會先考慮全局，再決定自己要站在什麼位置。',
-            '大家都以為局勢是被推著走，只有你知道棋盤早就擺好了。',
-            '你不需要站在舞台中央，因為舞台本身就在你的計算之內。',
-            '當別人為贏下一局而歡呼時，你已經看過了之後的十步棋。'
+            'You survey the whole board first, then decide where to place yourself.',
+            'Everyone thinks events are just unfolding — only you know the board was set long ago.',
+            'You don\'t need center stage, because the stage itself is already within your calculations.',
+            'While others cheer for winning a single round, you have already seen ten moves ahead.'
           ],
         description: 'This is a high-judgment, high-presence archetype. You are good at extracting structure from complexity, staying quiet early on, and changing the situation once you act.',
         spotlight: 'Others think events are unfolding on their own, while you already saw the board taking shape.',
@@ -1561,10 +1630,10 @@ export const messages = {
         subtitle: 'The one who detonates the plot',
         narrativeRole: 'Twist trigger / Scene igniter',
         oneLiners: [
-            '你一出現，氣氛就會開始變得不可預測。',
-            '你討厭一眼望到頭的劇本，你是為了讓故事翻盤而存在的。',
-            '別跟規則講道理，把平淡的局點炸才是你的主場。',
-            '比起完美的勝利，你更喜歡看局勢失控時綻放出的火花。'
+            'The moment you show up, the atmosphere starts becoming unpredictable.',
+            'You hate a script you can see the end of — you exist to flip the story.',
+            'Don\'t reason with the rules — blowing up a dull spot is your true home turf.',
+            'You\'d rather watch the sparks fly when the situation spirals than claim a perfect victory.'
           ],
         description: 'This is a high-drive, high-volatility archetype. You dislike flat momentum and often disrupt stable situations to create new sparks, which makes you both risky and dramatic.',
         spotlight: 'You are not here to preserve the scene. You are here to make the story move.',
@@ -1575,10 +1644,10 @@ export const messages = {
         subtitle: 'The one standing quietly at the boundary',
         narrativeRole: 'Guardian / Barrier keeper',
         oneLiners: [
-            '你不是衝到前面最亮的那一個，但你會一直守著重要的人和事。',
-            '當所有光芒褪去，你是最後那道不可逾越的底線。',
-            '主角負責向前奔跑，而你負責確保他們有處可歸。',
-            '世界去追逐高光，而你站在這裡，就是不滅的結界。'
+            'You\'re not the brightest one rushing to the front, but you\'ll always guard what matters.',
+            'When every light fades, you are the last uncrossable line of defense.',
+            'The protagonist runs forward; you make sure they still have somewhere to return.',
+            'The world chases the spotlight — you stand here, an unbreakable barrier.'
           ],
         description: 'This is a low-expression, high-order, high-stability archetype. You do not seek the spotlight, but when needed you step in quietly and remain there like moonlight.',
         spotlight: 'You are more like a steady background glow than a flash that lights up the whole room at once.',
@@ -1844,6 +1913,7 @@ export const messages = {
       count: 'Matches',
       percent: 'Share',
     },
+    startNote: 'Statistics have been recorded since April 18, 2026 at 18:00',
     footer: {
       note: 'Data shown is anonymized aggregate statistics. Not a scientific personality assessment. For entertainment purposes only.',
       updateFreq: 'Data updates every 15 minutes',
@@ -1860,9 +1930,11 @@ export const messages = {
         quiz: 'テスト開始',
         intro: 'タイプ解説',
         characters: 'キャラ一覧',
+        stats: '統計',
         about: 'プロジェクト',
         result: '最近の結果',
         cta: '今すぐ診断',
+        community: 'コミュニティ',
       },
       footer: {
         sections: { test: 'テスト', project: 'プロジェクト', reminders: '注意事項', status: '現在の状態', openSource: 'オープンソース', friendlyLinks: 'リンク', authorSocial: '作者のSNS' },
@@ -1958,6 +2030,14 @@ export const messages = {
       ctaTitle: '自分がどのキャラコードに当たるか知りたい？',
       ctaButton: 'テスト開始 / 再診断 →',
       statsLink: '全世界の性格分布を見る →',
+      communityTitle: 'コミュニティ',
+      communityCards: [
+        { title: 'キャラ提名', desc: '追加してほしいキャラを教えて', icon: 'nominate' },
+        { title: 'バグ報告', desc: '不具合や不正確な結果を報告', icon: 'bug' },
+        { title: '更新情報', desc: 'ACGTI の最新アップデート', icon: 'announce' },
+        { title: '結果を語る', desc: 'テスト結果について語り合おう', icon: 'share' },
+      ],
+      communityButton: 'ディスカッションに参加',
     },
     intro: {
       eyebrow: 'テスト概要',
@@ -2068,6 +2148,9 @@ export const messages = {
       ossButton: '⭐ を付ける',
       ossHint: '新キャラ案や、問題設計・既存キャラ・結果文案の改善案があれば、',
       ossIssue: 'Issue',
+      discussionTitle: 'この結果について語りたい？',
+      discussionCopy: '結果に納得できない？新しいキャラを提名したい？ディスカッションでみんなと語り合おう。',
+      discussionButton: 'コミュニティで共有',
       feedbackTitle: 'キャリブレーションにご協力を',
       feedbackDesc: '本当のMBTIタイプをご存知ですか？匿名でフィードバックしていただくと、問題とキャラマッピングの調整に役立ちます。',
       feedbackMbtiLabel: '私の本当のMBTI',
@@ -2088,6 +2171,16 @@ export const messages = {
       feedbackSubmitting: '送信中...',
       feedbackDone: 'ありがとうございます！フィードバックは問題とキャラマッピングの調整に活用されます。',
       feedbackError: '送信に失敗しました。後でもう一度お試しください',
+      liveStats: {
+        title: 'サイト統計',
+        sameCharacter: '{count} 人があなたと同じキャラを獲得しました',
+        sameArchetype: '{count} 人があなたと同じアーキタイプに属しています',
+        sitePercent: '全記録の {percent}% を占めています',
+        characterRank: 'キャラ人気ランキング #{rank}',
+        archetypeRank: 'アーキタイプ人気ランキング #{rank}',
+        totalSubmissions: '累計 {count} 回のテスト',
+        updateHint: '統計は15分ごとに更新されます · 起始 2026.4.18 18:00',
+      },
       dimensions: {
         E_I: ['外向', '内向'],
         S_N: ['感覚', '直観'],
@@ -2115,10 +2208,10 @@ export const messages = {
         subtitle: '静かだけど、よく見えている人',
         narrativeRole: '軍師 / 冷静なナレーター',
         oneLiners: [
-            '你像把情緒收進薄冰裡的人，外界很難輕易讀懂你。',
-            '比起貿然下場，你更喜歡把所有的底牌和破綻都看個透徹。',
-            '你不信沸騰的熱血，你只信最精準的時機和絕對的理智。',
-            '喧囂總是別人的，而你握著破局的最後一把鑰匙。'
+            'あなたは感情を薄氷の下にしまい込む人で、外からはなかなか読めません。',
+            'むやみに飛び込むより、すべての手札と弱点を徹底的に見極める方を選びます。',
+            '沸騰する情熱は信じない。信じるのは最も正確なタイミングと絶対的な理性だけ。',
+            '騒がしさはいつも他人のもの、而你は局面を開く最後の鍵を握っています。'
           ],
         description: '低表現・高判断の原型です。まずルールを見て、次に人を見て、それから介入するかを決める傾向があります。',
         spotlight: 'みんなが見落としているとき、あなたは重要な手がかりをつなぎ合わせます。',
@@ -2129,10 +2222,10 @@ export const messages = {
         subtitle: 'チームを肩で支える人',
         narrativeRole: 'リーダー / 隊列の軸',
         oneLiners: [
-            '你很難只是隨便看看，你會天然把責任和秩序接過來。',
-            '當風暴來臨時，你是所有人心裡最穩固的那面承重牆。',
-            '你不僅僅是在贏，你還要確保每個人都能活著走到終點。',
-            '哪怕傷痕累累，你依然會站在所有人面前擋住下一次衝擊。'
+            'ただ傍観することはできず、自然と責任と秩序を引き受けます。',
+            '嵐が来たとき、みんなが心の中で頼りにする最も頑丈な耐力壁はあなたです。',
+            'ただ勝つだけでなく、全員が生きてゴールにたどり着くことを確信します。',
+            '傷だらけになっても、全員の前に立って次の衝撃を挡み続けます。'
           ],
         description: '高秩序・高推進の支柱型原型です。チームの中で安定した骨組みのように働き、圧力に耐え、要所では責任を背負います。',
         spotlight: 'いちばん騒がしい人ではなくても、最後まで立っているのはあなたです。',
@@ -2143,10 +2236,10 @@ export const messages = {
         subtitle: 'いつも局面をひねって変える人',
         narrativeRole: 'サブ主人公 / 局面打開役',
         oneLiners: [
-            '你不一定按常規出牌，但你總能把劇情轉出新角度。',
-            '當你覺得無聊時，就是規則開始崩盤、好戲重新開場的瞬間。',
-            '你從不走正門，但你總能在絕境中最快找到那扇隱密的窗。',
-            '你的節奏是一個迷，而你的對手永遠只能慢你一拍。'
+            '常識通りに cards を出さないかもしれないが、いつもストーリーを新しい角度にひねります。',
+            'あなたが退屈し始めた瞬間、ルールが崩壊し、本当のショーが始まります。',
+            '正面玄関は使わない、でも絶体絶命のとき、隠された窓を一番早く見つけるのはあなた。',
+            'あなたのリズムは謎で、対戦相手はいつも一拍遅れるしかありません。'
           ],
         description: '高表現・高機動の原型です。変化に敏感で、一つの役割に固定されるのを嫌い、柔軟さで転機を作るのが得意です。',
         spotlight: 'ルールが人を詰まらせ始めたとき、あなたは隙間を探します。',
@@ -2157,10 +2250,10 @@ export const messages = {
         subtitle: 'ひび割れを少しずつ縫い直す人',
         narrativeRole: '回復役 / 感情の中継者',
         oneLiners: [
-            '你不是最耀眼的，但你總能給人最堅實的依靠。',
-            '當世界鋒芒畢露時，你用最柔軟的方式接住了所有的下墜。',
-            '你不需要震耳欲聾的出場，你的存在本身就是一種深長的呼吸。',
-            '別人關心他們飛得多高，而你關心他們傷得深不深。'
+            '一番目立つ存在ではないかもしれないが、いつも最も確かな支えになります。',
+            '世界が最も鋭い刃を向ける时、あなたは最も柔らかい方法ですべての落下を受け止めます。',
+            '轟くような登場は不要、あなたの存在そのものが深く長い呼吸です。',
+            '他人はどれだけ高く飛べるかを気にするが、あなたは傷がどれだけ深いかを気にします。'
           ],
         description: '高温度・高支援の原型です。関係の中の脆さに敏感で、感情を和らげ、つながりを保ち、人を回復させる役に向いています。',
         spotlight: '誰かが落ちそうになるその瞬間、ちょうど手を差し伸べられる人です。',
@@ -2171,10 +2264,10 @@ export const messages = {
         subtitle: '暗がりで盤面を整える人',
         narrativeRole: '裏方操作者 / 黒幕参謀',
         oneLiners: [
-            '你會先考慮全局，再決定自己要站在什麼位置。',
-            '大家都以為局勢是被推著走，只有你知道棋盤早就擺好了。',
-            '你不需要站在舞台中央，因為舞台本身就在你的計算之內。',
-            '當別人為贏下一局而歡呼時，你已經看過了之後的十步棋。'
+            '全体を見渡してから、自分の立つ位置を決めます。',
+            'みんなは事態が自然に動いていると思っている、盤面がとっくに準備されていたことを知っているのはあなただけ。',
+            'センターの舞台に立つ必要はない、舞台そのものがもうあなたの計算の中にあるから。',
+            '他の人が一回の勝利に歓声を上げている間に、あなたはすでに十手先まで見ています。'
           ],
         description: '高判断・高気配の原型です。複雑な状況から構造を抜き出すのが得意で、すぐには表に出なくても、一度動けば戦局に大きく影響します。',
         spotlight: 'みんなは流れに押されていると思っていても、盤面ができていたことを知っているのはあなただけです。',
@@ -2185,10 +2278,10 @@ export const messages = {
         subtitle: '物語を爆発させる人',
         narrativeRole: '転換トリガー / 爆発製造機',
         oneLiners: [
-            '你一出現，氣氛就會開始變得不可預測。',
-            '你討厭一眼望到頭的劇本，你是為了讓故事翻盤而存在的。',
-            '別跟規則講道理，把平淡的局點炸才是你的主場。',
-            '比起完美的勝利，你更喜歡看局勢失控時綻放出的火花。'
+            'あなたが現れた瞬間、空気が予測不可能になり始めます。',
+            '結末が見える台本は嫌いです、あなたは物語をひっくり返すために存在しています。',
+            'ルールに道理を説くより、平坦な局面を爆撃するのがあなたの本来の home ground。',
+            '完璧な勝利より、状況が制御を失った時に弾ける火花の方が好きです。'
           ],
         description: '高推進・高不安定の原型です。平坦な展開を好まず、安定した状況をかき混ぜて新しい火花を生み出します。',
         spotlight: 'あなたは場を安定させるためではなく、物語を動かすために存在します。',
@@ -2199,10 +2292,10 @@ export const messages = {
         subtitle: '境界に静かに立つ人',
         narrativeRole: '護衛役 / 結界保持者',
         oneLiners: [
-            '你不是衝到前面最亮的那一個，但你會一直守著重要的人和事。',
-            '當所有光芒褪去，你是最後那道不可逾越的底線。',
-            '主位負責向前奔跑，而你負責確保他們有處可歸。',
-            '世界去追逐高光，而你站在這裡，就是不滅的結界。'
+            '一番前に突進む最も明るい存在ではないかもしれないが、大切な人と物事をずっと守り続けます。',
+            'すべての光が消えたとき、最後に立ちはだかる越えられない境界線はあなたです。',
+            '主人公は前へ走る役、あなたは彼らに帰る場所があることを確保する役です。',
+            '世界はスポットライトを追いかける、あなたはここに立つ、それが消えない barrier です。'
           ],
         description: '低表現・高秩序・高安定の原型です。目立とうとはしませんが、必要なときには静かに前へ出て、月光のようにそこに在り続けます。',
         spotlight: '一瞬で全体を照らす稲妻というより、消えない背景光のような存在です。',
@@ -2468,6 +2561,7 @@ export const messages = {
       count: 'マッチ数',
       percent: '割合',
     },
+    startNote: '統計データは 2026.4.18 18:00 から記録されています',
     footer: {
       note: 'データは匿名統計集計です。科学的な性格診断ではありません。娯楽目的のみ。',
       updateFreq: 'データは15分ごとに更新されます',

@@ -159,6 +159,7 @@ const authorSocialLinks: AuthorSocialLink[] = [
         <RouterLink to="/characters">{{ t('app.nav.characters') }}</RouterLink>
         <RouterLink to="/stats">{{ t('app.nav.stats') || 'Stats' }}</RouterLink>
         <RouterLink to="/about">{{ t('app.nav.about') }}</RouterLink>
+        <a href="https://github.com/tianxingleo/ACGTI/discussions" target="_blank" rel="noopener noreferrer" class="nav-external-link">{{ t('app.nav.community') }}</a>
         <RouterLink to="/result">{{ t('app.nav.result') }}</RouterLink>
         <RouterLink to="/quiz" class="button button-primary nav-cta">{{ t('app.nav.cta') }}</RouterLink>
       </nav>

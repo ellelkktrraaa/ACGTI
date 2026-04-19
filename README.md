@@ -39,7 +39,7 @@ ACG Type Indicator
 
 - **MBTI 四维判定**：基于 E/I、S/N、T/F、J/P 四大维度构建严谨的底层框架。
 - **8 种专属原型**：发光主角位 · 冰面观察者 · 誓约队长 · 灵巧回旋者 · 温柔修复者 · 影面策士 · 混沌火花 · 月下守护者。
-- **105 位角色库**：当前包含 105 位角色，涵盖 60+ 部热门作品，包括 BanG Dream!（Ave Mujica / MyGO）、孤独摇滚！、鸣潮、明日方舟、轻音少女、我推的孩子、Re:从零开始的异世界生活、败犬女主太多了！、辉夜大小姐想让我告白、青春猪头少年、魔法少女小圆、某科学的超电磁炮、名侦探柯南、EVA、东方Project、VOCALOID、原神、崩坏：星穹铁道、紫罗兰永恒花园、四月是你的谎言、葬送的芙丽莲、间谍过家家、刀剑神域、Fate/stay night、电锯人、少女乐队的呐喊等，持续扩充中。
+- **110 位角色库**：当前包含 110 位角色，涵盖 60+ 部热门作品，包括 BanG Dream!（Ave Mujica / MyGO）、孤独摇滚！、鸣潮、明日方舟、轻音少女、我推的孩子、Re:从零开始的异世界生活、败犬女主太多了！、辉夜大小姐想让我告白、青春猪头少年、魔法少女小圆、某科学的超电磁炮、名侦探柯南、EVA、东方Project、VOCALOID、原神、崩坏：星穹铁道、紫罗兰永恒花园、四月是你的谎言、葬送的芙丽莲、间谍过家家、刀剑神域、Fate/stay night、电锯人、少女乐队的呐喊等，持续扩充中。
 - **可视化交互**：16personalities 风格的交互式倾向滑块，直观展现你的思维倾向。
 - **一键分享**：精美的结果图报表，支持一键导出 PNG 海报分享给同好。
 - **轻量全栈**：测试结果在本地浏览器完成计算；结果页会匿名上报最终命中角色与原型到后端，用于全站统计、题目校准与角色映射优化；不要求注册，不收集邮箱等直接身份信息。
@@ -108,6 +108,7 @@ src/
 │   ├── QuizPage.vue     # 答题页
 │   ├── ResultPage.vue   # 结果展示页
 │   ├── CharactersPage.vue # 角色图鉴页
+│   ├── StatsPage.vue    # 统计与排行榜页
 │   └── AboutPage.vue    # 关于页
 ├── types/
 │   └── quiz.ts          # TypeScript 类型定义
@@ -116,6 +117,7 @@ src/
 │   ├── characterVisuals.ts    # 角色视觉数据注水
 │   ├── characterProbability.ts # 角色命中概率计算
 │   ├── statsReporter.ts       # 结果匿名上报
+│   ├── runtimeApi.ts    # 运行时 API 调用工具
 │   ├── adsense.ts       # Google AdSense 配置
 │   └── storage.ts       # localStorage 工具
 ├── router/
@@ -127,8 +129,9 @@ src/
 functions/                # Cloudflare Pages Functions（后端 API）
 ├── api/
 │   ├── _shared.ts       # D1 绑定与公共类型
-│   ├── submit.ts        # 结果匿名上报
-│   ├── feedback.ts      # 用户 MBTI 反馈
+│   ├── config.ts        # 运行时配置（Turnstile 等）
+│   ├── submit.ts        # 结果匿名上报（聚合自增 + 抽样明细）
+│   ├── feedback.ts      # 用户 MBTI 反馈（含预测 MBTI）
 │   ├── ping.ts          # 健康检查
 │   └── stats/           # 统计查询接口
 │       ├── overview.ts
@@ -136,7 +139,14 @@ functions/                # Cloudflare Pages Functions（后端 API）
 │       └── characters.ts
 
 migrations/               # Cloudflare D1 数据库迁移
-└── 0001_init.sql
+├── 0001_init.sql
+├── 0002_rate_limit.sql
+├── 0003_simplify_answers.sql
+├── 0004_stats_snapshot.sql
+├── 0005_restore_submission_answers.sql
+├── 0006_add_feedback_answers.sql
+├── 0007_aggregate_counts.sql
+└── 0008_feedback_add_predicted.sql
 ```
 
 </details>
@@ -148,7 +158,7 @@ migrations/               # Cloudflare D1 数据库迁移
 |:-----|:-----|
 | `src/data/questions.json` | 39 道情境式题目 — 维度、原型权重、场景标签 |
 | `src/data/archetypes.json` | 8 个角色原型 — 名称、描述、亮点、短板 |
-| `src/data/characters.json` | 105 个角色条目（含隐藏角色） — 角色代码、MBTI 映射、标签、六维向量 |
+| `src/data/characters.json` | 110 个角色条目（含隐藏角色） — 角色代码、MBTI 映射、标签、六维向量 |
 | `src/data/characterVisuals.json` | 角色视觉配置 — 立绘、色彩、主题 |
 | `src/data/characterProbabilities.json` | 角色命中概率 — 基于人群统计的先验分布 |
 
@@ -224,15 +234,21 @@ npm run dev:pages
 
 - Preview 环境使用独立的 `acgti-stats-preview`
 - Production 环境使用独立的 `acgti-stats-prod`
-- 两边都先执行 `migrations/0001_init.sql`、`migrations/0002_rate_limit.sql`、`migrations/0003_simplify_answers.sql`、`migrations/0004_stats_snapshot.sql`、`migrations/0005_restore_submission_answers.sql`
+- 两边都先执行 `migrations/0001_init.sql`、`migrations/0002_rate_limit.sql`、`migrations/0003_simplify_answers.sql`、`migrations/0004_stats_snapshot.sql`、`migrations/0005_restore_submission_answers.sql`、`migrations/0006_add_feedback_answers.sql`、`migrations/0007_aggregate_counts.sql`、`migrations/0008_feedback_add_predicted.sql`
 
-如果需要按题查看提交明细，可查询 `submission_answers` 表：
+如果需要按题查看提交明细，可查询 `submission_answers` 表（抽样写入，非全量）：
 
 ```sql
 SELECT submission_id, question_id, answer_value
 FROM submission_answers
 ORDER BY submission_id DESC, question_id ASC
 LIMIT 200;
+```
+
+聚合统计存储在 `aggregate_counts` 表中，按角色/原型维度自增计数：
+
+```sql
+SELECT * FROM aggregate_counts ORDER BY count DESC LIMIT 50;
 ```
 
 ## 🤝 贡献
