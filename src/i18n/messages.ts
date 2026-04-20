@@ -63,12 +63,7 @@ export const messages = {
           sowieeeCreditBefore: '感谢台湾网友 ',
           sowieeeCreditAfter: ' 协助修正 zh-TW 文案',
         },
-        social: {
-          home: '首页',
-          quiz: '测试',
-          characters: '角色',
-          about: '说明',
-        },
+        social: { home: '首页', quiz: '测试', intro: '类型', characters: '角色', about: '说明', sponsor: '赞助' },
         socialLinks: { xiaoheihe: '小黑盒', bilibili: '哔哩哔哩', xiaohongshu: '小红书', github: 'GitHub' },
       },
       language: {
