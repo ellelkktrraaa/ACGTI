@@ -164,7 +164,7 @@ async function calculateArchetypeStatsFallback(db: D1Database, total: number) {
 }
 
 /**
- * 计算角色排行榜（top 100，含占比）
+ * 计算角色排行榜（全部角色，含占比）
  * 优先从聚合表读取
  */
 async function calculateCharacterStats(db: D1Database, total: number) {
@@ -174,7 +174,7 @@ async function calculateCharacterStats(db: D1Database, total: number) {
         `SELECT character_code AS code, cnt
          FROM character_counts
          ORDER BY cnt DESC
-         LIMIT 100`
+         LIMIT 200`
       )
       .all<{ code: string; cnt: number }>()
 
@@ -198,7 +198,7 @@ async function calculateCharacterStatsFallback(db: D1Database, total: number) {
        FROM submissions
        GROUP BY character_code
        ORDER BY cnt DESC
-       LIMIT 100`
+       LIMIT 200`
     )
     .all<{ character_code: string; cnt: number }>()
 

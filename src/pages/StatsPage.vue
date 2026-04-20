@@ -135,8 +135,14 @@ function formatTime(iso: string | null): string {
   return d.toLocaleString(locale.value === 'zh-CN' || locale.value === 'zh-TW' ? 'zh-CN' : locale.value)
 }
 
-// Only show top 20 characters on the page
-const topCharacters = computed(() => characters.value.slice(0, 20))
+// Character list with progressive loading
+const characterDisplayCount = ref(20)
+const topCharacters = computed(() => characters.value.slice(0, characterDisplayCount.value))
+const hasMoreCharacters = computed(() => characterDisplayCount.value < characters.value.length)
+
+function loadMoreCharacters() {
+  characterDisplayCount.value = Math.min(characterDisplayCount.value + 20, characters.value.length)
+}
 
 onMounted(async () => {
   try {
@@ -260,10 +266,15 @@ onMounted(async () => {
               </div>
             </component>
           </div>
+
+          <div v-if="hasMoreCharacters" class="load-more-wrapper">
+            <button class="load-more-btn" @click="loadMoreCharacters">
+              {{ t('stats.characters.loadMore') }}
+            </button>
+            <p class="load-more-hint">{{ t('stats.characters.showing', { current: topCharacters.length, total: characters.length }) }}</p>
+          </div>
         </div>
       </section>
-
-      <!-- Archetype rankings -->
       <section class="stats-section" v-reveal>
         <div class="container">
           <h2 class="section-title">{{ t('stats.archetypes.title') }}</h2>
@@ -302,7 +313,7 @@ onMounted(async () => {
         </div>
       </section>
 
-      <!-- Footer note -->
+      <!-- Archetype rankings -->
       <section class="stats-footer" v-reveal>
         <div class="container">
           <p class="footer-note">{{ t('stats.footer.note') }}</p>
@@ -504,6 +515,37 @@ onMounted(async () => {
   margin-top: 0.4rem;
   display: flex;
   justify-content: flex-end;
+}
+
+/* Load more */
+.load-more-wrapper {
+  text-align: center;
+  margin-top: 2rem;
+}
+.load-more-btn {
+  display: inline-block;
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fff;
+  background: #3ba17c;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+.load-more-btn:hover {
+  background: #2e8a67;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(59, 161, 124, 0.3);
+}
+.load-more-btn:active {
+  transform: translateY(0);
+}
+.load-more-hint {
+  margin: 0.75rem 0 0;
+  font-size: 0.85rem;
+  color: #88939e;
 }
 
 /* Footer */
