@@ -614,12 +614,37 @@ const feedbackMbtiComplete = computed(() =>
   feedbackEi.value && feedbackSn.value && feedbackTf.value && feedbackJp.value
 )
 
-const feedbackCanSubmit = computed(() =>
-  !!feedbackMbtiComplete.value && feedbackConfidence.value > 0 && !feedbackSubmitting.value
-)
+const showFeedbackField =  computed(() => {
+  const record = quiz.state.latestRecord
+  const answerCount = Array.isArray(record?.answers)
+    ? record.answers.filter((v: number) => Number.isFinite(v) && v >= -3 && v <= 3).length
+    : 0
+
+  return (
+    !!feedbackMbtiComplete.value &&
+    feedbackConfidence.value > 0 &&
+    !feedbackSubmitting.value &&
+    answerCount >= quiz.questions.value.length
+  )
+})
+
+const feedbackCanSubmit = showFeedbackField;
+
 
 async function handleFeedbackSubmit() {
   if (!feedbackMbtiComplete.value) return
+
+  // 没有完整答案不允许提交反馈呢喵
+  const record = quiz.state.latestRecord
+  const answerCount = Array.isArray(record?.answers)
+    ? record.answers.filter((v: number) => Number.isFinite(v) && v >= -3 && v <= 3).length
+    : 0
+
+  if (answerCount < quiz.questions.value.length) {
+    console.log('⏭️ Skip feedback submit: answers incomplete', { answerCount, expected: quiz.questions.value.length })
+    feedbackError.value = t('result.feedbackError', undefined, '需要完成测试后才能提交反馈')
+    return
+  }
 
   feedbackSubmitting.value = true
   feedbackError.value = ''
@@ -925,7 +950,7 @@ async function handleFeedbackSubmit() {
 </div>
 
         <!-- 用户反馈卡片 -->
-        <section class="feedback-section" v-reveal>
+        <section class="feedback-section" v-reveal v-show="showFeedbackField">
           <div class="section-title-wrap">
             <div class="section-index">?</div>
             <h2 class="section-title">{{ t('result.feedbackTitle', undefined, '帮助我们校准') }}</h2>
