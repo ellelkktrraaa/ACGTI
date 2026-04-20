@@ -1,7 +1,37 @@
 // 统计上报工具 — fire-and-forget，绝不阻碍页面加载
+
+/** 结果页真实统计数据 */
+export interface ResultStats {
+  totalSubmissions: number
+  sameCharacterCount: number
+  sameCharacterPercent: number
+  sameArchetypeCount: number
+  sameArchetypePercent: number
+  characterRank: number | null
+  archetypeRank: number | null
+}
+
+/**
+ * 获取结果页真实统计数据
+ * 静默失败返回 null，不阻碍页面
+ */
+export async function fetchResultStats(
+  characterCode: string,
+  archetypeCode: string,
+): Promise<ResultStats | null> {
+  try {
+    const params = new URLSearchParams({ character: characterCode, archetype: archetypeCode })
+    const res = await fetch(`/api/stats/result?${params.toString()}`)
+    if (!res.ok) return null
+    const json = await res.json()
+    return json.data ?? null
+  } catch {
+    return null
+  }
+}
 // 使用 sendBeacon 优先，fallback 到 fetch keepalive
 
-const APP_VERSION = '0.3.0'
+const APP_VERSION = '0.3.1-sn-jp1'
 
 export interface SubmitPayload {
   submissionId: string
@@ -15,8 +45,8 @@ export interface SubmitPayload {
     tf?: number
     jp?: number
   }
-  answers?: Array<{ questionId: string; answerValue: number }>
   durationMs?: number
+  answers?: Array<{ questionId: string; answerValue: number }>
 }
 
 export interface FeedbackPayload {
@@ -25,6 +55,11 @@ export interface FeedbackPayload {
   confidence: number
   note?: string
   appVersion: string
+  turnstileToken?: string
+  answers?: Array<{ questionId: string; answerValue: number }>
+  predictedMbti?: string
+  archetypeCode?: string
+  characterCode?: string
 }
 
 /**
@@ -34,11 +69,20 @@ export interface FeedbackPayload {
 export function reportResultInBackground(payload: Omit<SubmitPayload, 'appVersion'>) {
   const body = JSON.stringify({ ...payload, appVersion: APP_VERSION })
 
+  console.log('📤 Sending submit payload:', {
+    submissionId: payload.submissionId,
+    archetypeCode: payload.archetypeCode,
+    characterCode: payload.characterCode,
+    durationMs: payload.durationMs ?? null,
+    appVersion: APP_VERSION,
+  })
+
   setTimeout(() => {
     try {
       if (navigator.sendBeacon) {
         const blob = new Blob([body], { type: 'application/json' })
         const queued = navigator.sendBeacon('/api/submit', blob)
+        console.log('📨 sendBeacon queued:', queued)
         if (queued) return
       }
 
@@ -48,11 +92,13 @@ export function reportResultInBackground(payload: Omit<SubmitPayload, 'appVersio
         headers: { 'Content-Type': 'application/json' },
         body,
         keepalive: true,
-      }).catch(() => {
-        // 静默失败
+      }).then(res => {
+        console.log('📡 /api/submit response:', res.status, res.statusText)
+      }).catch((err) => {
+        console.error('❌ /api/submit error:', err)
       })
-    } catch {
-      // 静默失败
+    } catch (err) {
+      console.error('❌ reportResultInBackground error:', err)
     }
   }, 0)
 }
@@ -69,8 +115,12 @@ export async function submitFeedback(payload: Omit<FeedbackPayload, 'appVersion'
       body: JSON.stringify({ ...payload, appVersion: APP_VERSION }),
     })
     const data = await res.json()
+    if (res.status !== 200) {
+      console.error('❌ /api/feedback failed:', res.status, data)
+    }
     return data.ok === true
-  } catch {
+  } catch (err) {
+    console.error('❌ submitFeedback error:', err)
     return false
   }
 }

@@ -10,6 +10,7 @@ import type {
   QuestionArchetypeWeightId,
   QuizResult,
 } from '../types/quiz'
+import questionDimensionWeights from '../data/questionDimensionWeights.json' with { type: 'json' }
 import { getCharacterPopulationProbability } from './characterProbability.ts'
 
 const DIMENSION_LETTERS: Record<DimensionPair, [MBTILetter, MBTILetter]> = {
@@ -64,6 +65,8 @@ const ARCHETYPE_WEIGHT = 0.28
 const VECTOR_WEIGHT = 0.27
 const CHARACTER_SPECIFIC_WEIGHT = 0.2
 const CLOSE_MATCH_THRESHOLD = 0.025
+const ENABLE_DIMENSION_WEIGHT_OVERRIDE = true
+const DIMENSION_SCORE_WEIGHTS = questionDimensionWeights as Record<string, Partial<Record<DimensionPair, number>>>
 
 // 16personalities 风格的维度标签配置
 export const TRAIT_CONFIG = {
@@ -218,16 +221,25 @@ function buildAnswerProfile({
       return
     }
 
-    const { dimension, sign } = question
-    rawScores[dimension] += answer * sign
+    const dimensionWeights = ENABLE_DIMENSION_WEIGHT_OVERRIDE
+      ? (DIMENSION_SCORE_WEIGHTS[question.id] ?? { [question.dimension]: question.sign })
+      : { [question.dimension]: question.sign }
+    for (const pair in dimensionWeights) {
+      const dimension = pair as DimensionPair
+      const weight = dimensionWeights[dimension] ?? 0
+      if (weight === 0) {
+        continue
+      }
 
-    if (sign > 0) {
-      directionalMaxScores[dimension].positive += 3
-    } else {
-      directionalMaxScores[dimension].negative += 3
+      rawScores[dimension] += answer * weight
+      if (weight > 0) {
+        directionalMaxScores[dimension].positive += 3 * weight
+      } else {
+        directionalMaxScores[dimension].negative += 3 * Math.abs(weight)
+      }
     }
 
-    const normalizedWeights = normalizeQuestionWeights(question.weights ?? QUESTION_WEIGHT_FALLBACKS[dimension])
+    const normalizedWeights = normalizeQuestionWeights(question.weights ?? QUESTION_WEIGHT_FALLBACKS[question.dimension])
 
     for (const role of Object.keys(normalizedWeights) as QuestionArchetypeWeightId[]) {
       const value = normalizedWeights[role] ?? 0

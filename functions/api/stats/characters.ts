@@ -1,24 +1,54 @@
-// /api/stats/characters — 角色命中榜
+// /api/stats/characters — 从快照表读取角色命中榜
+// 快照表由 Cron Worker 每 15 分钟更新一次
+
+function isStatsSnapshotTableMissing(err: unknown): boolean {
+  const msg = err instanceof Error ? err.message : String(err)
+  return /no such table:\s*stats_snapshot/i.test(msg)
+}
 
 export async function onRequestGet(context: any) {
   const { DB } = context.env as { DB: D1Database }
 
   try {
-    const { results } = await DB.prepare(
-      `SELECT character_code, COUNT(*) AS cnt
-       FROM submissions
-       GROUP BY character_code
-       ORDER BY cnt DESC
-       LIMIT 100`
-    ).all<{ character_code: string; cnt: number }>()
+    const snapshot = await DB.prepare(
+      'SELECT value_json, updated_at FROM stats_snapshot WHERE key = ?'
+    ).bind('characters').first<{ value_json: string; updated_at: string }>()
 
-    return new Response(JSON.stringify({ characters: results }), {
+    if (!snapshot) {
+      return new Response(JSON.stringify({
+        data: { items: [] },
+        updatedAt: null,
+      }), {
+        headers: {
+          'Content-Type': 'application/json',
+          'Cache-Control': 'public, max-age=120',
+        },
+      })
+    }
+
+    const data = JSON.parse(snapshot.value_json)
+    return new Response(JSON.stringify({
+      data,
+      updatedAt: snapshot.updated_at,
+    }), {
       headers: {
         'Content-Type': 'application/json',
         'Cache-Control': 'public, max-age=120',
       },
     })
   } catch (err) {
+    if (isStatsSnapshotTableMissing(err)) {
+      return new Response(JSON.stringify({
+        data: { items: [] },
+        updatedAt: null,
+      }), {
+        headers: {
+          'Content-Type': 'application/json',
+          'Cache-Control': 'public, max-age=120',
+        },
+      })
+    }
+
     console.error('Stats characters error:', err)
     return new Response(JSON.stringify({ error: 'internal' }), {
       status: 500,

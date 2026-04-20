@@ -28,7 +28,9 @@ CREATE TABLE IF NOT EXISTS mbti_feedback (
   app_version TEXT NOT NULL,
   self_mbti TEXT NOT NULL,
   confidence INTEGER NOT NULL,
-  note TEXT
+  note TEXT,
+  answers_json TEXT,
+  answer_count INTEGER
 );
 
 -- 索引：加速按时间、原型、角色聚合查询

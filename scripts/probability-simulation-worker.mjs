@@ -1,9 +1,10 @@
 import { parentPort, workerData } from 'node:worker_threads'
 
-import { calculateCharacterProbabilityWeights, calculateQuizResult } from '../src/utils/quizEngine.ts'
+import { createFastProbabilitySimulator } from './probability-simulation-fast-engine.mjs'
 import questions from '../src/data/questions.json' with { type: 'json' }
 import archetypes from '../src/data/archetypes.json' with { type: 'json' }
 import characters from '../src/data/characters.json' with { type: 'json' }
+import questionDimensionWeights from '../src/data/questionDimensionWeights.json' with { type: 'json' }
 
 const LCG_A = 1664525
 const LCG_C = 1013904223
@@ -62,43 +63,34 @@ const { startIndex, runs, mainSeed, questionsPerRun } = workerData
 const initialState = getNthState(mainSeed, startIndex * questionsPerRun)
 let rngState = initialState
 
-const winnerCounts = new Map(characters.map((character) => [character.id, 0]))
-const probabilityWeights = new Map(characters.map((character) => [character.id, 0]))
+const simulator = createFastProbabilitySimulator({
+  questions,
+  archetypes,
+  characters,
+  questionDimensionWeights,
+})
+const characterIds = simulator.characterIds
+const winnerCounts = new Array(characterIds.length).fill(0)
+const probabilityWeights = new Array(characterIds.length).fill(0)
+const answers = new Array(questionsPerRun)
 
 for (let i = 0; i < runs; i++) {
-  const answers = []
-  for (let q = 0; q < questionsPerRun; q++) {
+  for (let q = 0; q < questionsPerRun; q += 1) {
     rngState = (rngState * LCG_A + LCG_C) >>> 0
-    answers.push(answerScale[Math.floor((rngState / LCG_M) * answerScale.length)])
+    answers[q] = answerScale[Math.floor((rngState / LCG_M) * answerScale.length)]
   }
 
-  const result = calculateQuizResult({
-    answers,
-    questions,
-    archetypes,
-    characters,
-  })
-  const winnerId = result.featuredCharacter?.id
-  if (winnerId) {
-    winnerCounts.set(winnerId, (winnerCounts.get(winnerId) ?? 0) + 1)
+  const result = simulator.run(answers)
+  if (result.winnerIndex >= 0) {
+    winnerCounts[result.winnerIndex] += 1
   }
 
-  const weights = calculateCharacterProbabilityWeights({
-    answers,
-    questions,
-    archetypes,
-    characters,
-  })
-
-  for (const item of weights) {
-    probabilityWeights.set(
-      item.characterId,
-      (probabilityWeights.get(item.characterId) ?? 0) + item.weight,
-    )
+  for (let index = 0; index < characterIds.length; index += 1) {
+    probabilityWeights[index] += result.weights[index]
   }
 }
 
 parentPort.postMessage({
-  winnerCounts: Array.from(winnerCounts.entries()),
-  probabilityWeights: Array.from(probabilityWeights.entries()),
+  winnerCounts,
+  probabilityWeights,
 })

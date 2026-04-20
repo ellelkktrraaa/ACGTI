@@ -20,12 +20,12 @@
     ],
     "note": "你以为她是歌姬，其实她是二次元公务员——演唱会排期比社畜加班还密，葱色双马尾一晃，弹幕自动刷「世最可」，哪怕你根本没听清歌词。属于那种「我不认识她，但我刷过她的表情包」的典中典。",
     "vector": {
-      "expression": 3,
-      "temperature": 2,
+      "expression": 0.59,
+      "temperature": 0.39,
       "judgement": 0,
       "order": 0,
-      "agency": 3,
-      "aura": 2
+      "agency": 0.59,
+      "aura": 0.39
     },
     "signature": {
       "uniqueAxes": {
@@ -40,7 +40,8 @@
       "label": "圈层印象映射",
       "confidence": "low",
       "summary": "主要依据社区常见形象、二创传播与企划衍生印象，非官方唯一人格结论。"
-    }
+    },
+    "matchWeight": 1.0599
   },
   {
     "id": "ayanami-rei",
@@ -59,12 +60,12 @@
     ],
     "note": "全剧台词加起来不如你一天刷的贴吧多，但人气能杀进历史前三。她站在那里就是「高冷」的词典释义——你甚至不敢问路，怕她回你一句「どうでもいい」（关我屁事）。",
     "vector": {
-      "expression": -3,
-      "temperature": -2,
-      "judgement": 2,
-      "order": 1,
-      "agency": 1,
-      "aura": 3
+      "expression": -0.57,
+      "temperature": -0.38,
+      "judgement": 0.38,
+      "order": 0.19,
+      "agency": 0.19,
+      "aura": 0.57
     },
     "signature": {
       "uniqueAxes": {
@@ -72,7 +73,8 @@
         "temperature": -2,
         "aura": 3
       }
-    }
+    },
+    "matchWeight": 1.0026
   },
   {
     "id": "asuka-langley",
@@ -91,12 +93,12 @@
     ],
     "note": "嘴上「你算什么」翻译过来是「快来懂我」。她骂人时你血压飙升，她破防时你截图发群——属于那种「出场自带吵架BGM」的典中典。建议搭配弹幕「明日香又又又破防了」食用。",
     "vector": {
-      "expression": 3,
-      "temperature": 1,
-      "judgement": -1,
-      "order": -1,
-      "agency": 3,
-      "aura": 3
+      "expression": 0.55,
+      "temperature": 0.18,
+      "judgement": -0.18,
+      "order": -0.18,
+      "agency": 0.55,
+      "aura": 0.55
     },
     "signature": {
       "uniqueAxes": {
@@ -104,7 +106,8 @@
         "agency": 3,
         "aura": 3
       }
-    }
+    },
+    "matchWeight": 1.0165
   },
   {
     "id": "edogawa-conan",
@@ -123,13 +126,14 @@
     ],
     "note": "别问犯人是谁，先查他机票行程单。他还没上小学，已经看透人性+让全日本犯罪率地图变热力图。名言：「真相只有一个，但案发现场永远有两个」。建议联动「走近科学」栏目组。",
     "vector": {
-      "expression": -1,
-      "temperature": -2,
-      "judgement": 3,
-      "order": 2,
-      "agency": 2,
-      "aura": 2
-    }
+      "expression": -0.2,
+      "temperature": -0.39,
+      "judgement": 0.59,
+      "order": 0.39,
+      "agency": 0.39,
+      "aura": 0.39
+    },
+    "matchWeight": 0.85
   },
   {
     "id": "hakurei-reimu",
@@ -151,12 +155,12 @@
     ],
     "note": "神社穷得养蚊子，但她人气养活了整个东方圈。你以为她在摆烂，其实她只是把「赢」字写在了懒狗皮下面。名言：「没钱？那就把惹事的揍一顿」。属于「穷得理直气壮」的典范。",
     "vector": {
-      "expression": 1,
-      "temperature": 1,
-      "judgement": 1,
+      "expression": 0.25,
+      "temperature": 0.25,
+      "judgement": 0.25,
       "order": 0,
-      "agency": 3,
-      "aura": 2
+      "agency": 0.75,
+      "aura": 0.5
     },
     "signature": {
       "uniqueAxes": {
@@ -196,7 +200,8 @@
           "weight": 1.7
         }
       ]
-    }
+    },
+    "matchWeight": 1.0502
   },
   {
     "id": "gotoh-hitori",
@@ -215,12 +220,12 @@
     ],
     "note": "在网路上她是吉他上帝，在现实中她是垃圾桶后面的霉菌。她不是内向，她是把「我先死一下」发展成了完整的表演体系——建议申遗。弹幕常用语：「波奇，你还是找个地缝钻进去吧」。",
     "vector": {
-      "expression": -2,
-      "temperature": 1,
+      "expression": -0.76,
+      "temperature": 0.38,
       "judgement": 0,
       "order": 0,
-      "agency": 1,
-      "aura": 1
+      "agency": 0.38,
+      "aura": 0.38
     },
     "signature": {
       "uniqueAxes": {
@@ -228,7 +233,8 @@
         "temperature": 1,
         "aura": 1
       }
-    }
+    },
+    "matchWeight": 1.0912
   },
   {
     "id": "fujiwara-chika",
@@ -247,12 +253,12 @@
     ],
     "note": "你以为她是吉祥物，结果她是搅屎棍。她一开口，整部番的走向就会往离谱的方向狂飙。她一跳舞，整个B站都要跟着扭——属于「粉毛切开都是黑的」反面教材（她是粉毛切开是混沌）。",
     "vector": {
-      "expression": 3,
-      "temperature": 2,
+      "expression": 0.6,
+      "temperature": 0.4,
       "judgement": 0,
-      "order": -2,
-      "agency": 2,
-      "aura": 2
+      "order": -0.4,
+      "agency": 0.4,
+      "aura": 0.4
     },
     "signature": {
       "uniqueAxes": {
@@ -260,7 +266,8 @@
         "order": -2,
         "temperature": 2
       }
-    }
+    },
+    "matchWeight": 1.0386
   },
   {
     "id": "cirno",
@@ -278,13 +285,14 @@
     ],
     "note": "算术题没对过，但打架没怂过。她最大的魅力是：明明每次都被秒，但永远保持「本小姐最强」的自信笑容——属于笨蛋界的天花板，萌就完事了。东方圈唯一指定「⑨」表情包供应商。",
     "vector": {
-      "expression": 3,
-      "temperature": 2,
-      "judgement": -2,
-      "order": -2,
-      "agency": 2,
-      "aura": 2
-    }
+      "expression": 0.56,
+      "temperature": 0.37,
+      "judgement": -0.37,
+      "order": -0.37,
+      "agency": 0.37,
+      "aura": 0.37
+    },
+    "matchWeight": 0.8757
   },
   {
     "id": "misaka-mikoto",
@@ -302,12 +310,12 @@
     ],
     "note": "别人吵架靠嘴，她吵架靠三倍音速硬币。嘴上「我才不管」，行动上已经冲到最前面扛伤害——属于「嘴上傲，身体诚」的经典款女主。建议搭配BGM《Only My Railgun》食用，效果更佳。",
     "vector": {
-      "expression": 2,
-      "temperature": 1,
-      "judgement": 1,
-      "order": 1,
-      "agency": 3,
-      "aura": 2
+      "expression": 0.45,
+      "temperature": 0.22,
+      "judgement": 0.22,
+      "order": 0.22,
+      "agency": 0.67,
+      "aura": 0.45
     },
     "signature": {
       "uniqueAxes": {
@@ -315,7 +323,8 @@
         "expression": 2,
         "order": 1
       }
-    }
+    },
+    "matchWeight": 1.0761
   },
   {
     "id": "kaname-madoka",
@@ -325,7 +334,6 @@
     "matchCodeFlex": [
       "INFP"
     ],
-    "matchWeight": 1.05,
     "code": "MADK",
     "title": "粉毛神明·世界观补丁",
     "archetypeId": "gentle-healer",
@@ -338,11 +346,11 @@
     "note": "前期以为她是需要保护的软妹，后期发现她直接给自己写了新规则。她不是成长，她是操作系统升级——从「魔法少女」到「宇宙补丁」，一键重启。建议观看时备好纸巾和速效救心丸。",
     "vector": {
       "expression": 0,
-      "temperature": 3,
-      "judgement": 2,
-      "order": 1,
-      "agency": 2,
-      "aura": 3
+      "temperature": 0.58,
+      "judgement": 0.38,
+      "order": 0.19,
+      "agency": 0.38,
+      "aura": 0.58
     },
     "signature": {
       "uniqueAxes": {
@@ -383,7 +391,8 @@
           "weight": 1.4
         }
       ]
-    }
+    },
+    "matchWeight": 1.0674
   },
   {
     "id": "furina",
@@ -401,12 +410,12 @@
     ],
     "note": "你以为她是高调Diva，后来发现她是独自演了五百年独角戏的苦逼打工人。她最狠的不是演技，是明明快碎了还要端着红酒杯说「一切都在我计划之中」。建议颁发「原神最佳表演奖」和「最惨打工人奖」。",
     "vector": {
-      "expression": 3,
-      "temperature": 2,
-      "judgement": 1,
-      "order": 1,
-      "agency": 2,
-      "aura": 3
+      "expression": 0.57,
+      "temperature": 0.38,
+      "judgement": 0.19,
+      "order": 0.19,
+      "agency": 0.38,
+      "aura": 0.57
     },
     "signature": {
       "uniqueAxes": {
@@ -441,7 +450,8 @@
           "weight": 1.7
         }
       ]
-    }
+    },
+    "matchWeight": 1.0769
   },
   {
     "id": "takamatsu-tomori",
@@ -459,12 +469,12 @@
     ],
     "note": "你不是在说话，你是在往空气里投掷散文诗。你最大的特点不是脆弱，是脆弱得特别有文学性——别人哭是伤心，你哭是艺术行为。MyGO团内指定「情感ATM」，取款请轻按。",
     "vector": {
-      "expression": -1,
-      "temperature": 2,
-      "judgement": 1,
+      "expression": -0.32,
+      "temperature": 0.63,
+      "judgement": 0.32,
       "order": 0,
       "agency": 0,
-      "aura": 2
+      "aura": 0.63
     },
     "signature": {
       "uniqueAxes": {
@@ -489,7 +499,8 @@
           "weight": 1.4
         }
       ]
-    }
+    },
+    "matchWeight": 1.0482
   },
   {
     "id": "chihaya-anon",
@@ -507,12 +518,12 @@
     ],
     "note": "你的人生策略是「先混进去再说」。表面上圆滑，实际上经常因为冲太快把自己冲进修罗场——但没关系，你会用新的社牛把旧坑填上。属于「社牛但容易翻车」的典型。",
     "vector": {
-      "expression": 3,
-      "temperature": 2,
+      "expression": 0.61,
+      "temperature": 0.41,
       "judgement": 0,
-      "order": -1,
-      "agency": 3,
-      "aura": 1
+      "order": -0.2,
+      "agency": 0.61,
+      "aura": 0.2
     },
     "signature": {
       "uniqueAxes": {
@@ -520,7 +531,8 @@
         "agency": 3,
         "temperature": 2
       }
-    }
+    },
+    "matchWeight": 1.0431
   },
   {
     "id": "yo-rana",
@@ -538,12 +550,12 @@
     ],
     "note": "别人组乐队靠沟通，你组乐队靠「出现」。你不是难懂，你只是懒得向这个世界解释——弹就完了，哪那么多废话。建议饲养时投喂荞麦面，不要强行撸猫。",
     "vector": {
-      "expression": -2,
-      "temperature": -1,
-      "judgement": 2,
-      "order": -1,
-      "agency": 2,
-      "aura": 2
+      "expression": -0.47,
+      "temperature": -0.24,
+      "judgement": 0.47,
+      "order": -0.24,
+      "agency": 0.47,
+      "aura": 0.47
     },
     "signature": {
       "uniqueAxes": {
@@ -551,7 +563,8 @@
         "order": -1,
         "agency": 2
       }
-    }
+    },
+    "matchWeight": 1.0023
   },
   {
     "id": "nagasaki-soyo",
@@ -570,11 +583,11 @@
     "note": "你看起来最会照顾人，其实最会把话说得让人后劲很大。她没骂你，但你已经跪在键盘前反思人生——属于「笑面虎中的战术大师」。建议交往前先买好保险。",
     "vector": {
       "expression": 0,
-      "temperature": 1,
-      "judgement": 3,
-      "order": 2,
-      "agency": 1,
-      "aura": 2
+      "temperature": 0.23,
+      "judgement": 0.69,
+      "order": 0.46,
+      "agency": 0.23,
+      "aura": 0.46
     },
     "signature": {
       "uniqueAxes": {
@@ -599,7 +612,8 @@
           "weight": 1.2
         }
       ]
-    }
+    },
+    "matchWeight": 1.0357
   },
   {
     "id": "shiina-taki",
@@ -617,13 +631,14 @@
     ],
     "note": "你的人设关键词叫「别惹我，但我其实会管你」。外表是攻击性，内核是责任感，只是表达方式比较像炸药包——炸完还帮你收拾残局。建议常备灭火器。",
     "vector": {
-      "expression": 2,
-      "temperature": 1,
-      "judgement": 2,
-      "order": 3,
-      "agency": 2,
-      "aura": 2
-    }
+      "expression": 0.39,
+      "temperature": 0.2,
+      "judgement": 0.39,
+      "order": 0.59,
+      "agency": 0.39,
+      "aura": 0.39
+    },
+    "matchWeight": 0.9803
   },
   {
     "id": "togawa-sakiko",
@@ -641,12 +656,12 @@
     ],
     "note": "你不是控制欲强，你只是觉得大家离了你都要出事。精神像在开董事会+在悬崖边跑马拉松——名言：「别问为什么，因为我就是规则」。建议远离，除非你想体验每天被Deadline追着跑的感觉。",
     "vector": {
-      "expression": -1,
-      "temperature": -1,
-      "judgement": 3,
-      "order": 3,
-      "agency": 3,
-      "aura": 3
+      "expression": -0.16,
+      "temperature": -0.16,
+      "judgement": 0.49,
+      "order": 0.49,
+      "agency": 0.49,
+      "aura": 0.49
     },
     "signature": {
       "uniqueAxes": {
@@ -654,7 +669,8 @@
         "agency": 3,
         "aura": 3
       }
-    }
+    },
+    "matchWeight": 1.0605
   },
   {
     "id": "wakaba-mutsumi",
@@ -672,12 +688,12 @@
     ],
     "note": "你不是情绪少，你是情绪都藏在别人看不懂的地方。平时像背景板，却总在关键节点露出让人不安的执拗和迟钝感——属于「安静得过头，反而让人不敢移开视线」的类型。",
     "vector": {
-      "expression": -3,
-      "temperature": -2,
-      "judgement": 3,
-      "order": 2,
-      "agency": 2,
-      "aura": 3
+      "expression": -0.48,
+      "temperature": -0.32,
+      "judgement": 0.48,
+      "order": 0.32,
+      "agency": 0.32,
+      "aura": 0.48
     },
     "signature": {
       "uniqueAxes": {
@@ -702,7 +718,8 @@
           "weight": 1.2
         }
       ]
-    }
+    },
+    "matchWeight": 1.0197
   },
   {
     "id": "mortis",
@@ -721,12 +738,12 @@
     ],
     "note": "这不是单纯的安静，而是像把真实情绪锁进另一个舞台壳里。你给人的感觉更像一个随时会改写氛围的变量，克制、陌生，而且带着明确的攻击性轮廓。",
     "vector": {
-      "expression": -2,
-      "temperature": -2,
-      "judgement": 3,
-      "order": 1,
-      "agency": 3,
-      "aura": 3
+      "expression": -0.33,
+      "temperature": -0.33,
+      "judgement": 0.5,
+      "order": 0.17,
+      "agency": 0.5,
+      "aura": 0.5
     },
     "signature": {
       "uniqueAxes": {
@@ -751,7 +768,8 @@
           "weight": 1.2
         }
       ]
-    }
+    },
+    "matchWeight": 1.0319
   },
   {
     "id": "misumi-uika",
@@ -770,11 +788,11 @@
     "note": "你给人的第一印象是「应该很好相处」，但真正危险的地方在于：你自己也未必完全知道自己下一步会做什么——属于「温柔型不定时炸弹」。建议远离，除非你享受被炸的刺激。",
     "vector": {
       "expression": 0,
-      "temperature": 1,
-      "judgement": 1,
+      "temperature": 0.26,
+      "judgement": 0.26,
       "order": 0,
-      "agency": 2,
-      "aura": 3
+      "agency": 0.52,
+      "aura": 0.77
     },
     "signature": {
       "uniqueAxes": {
@@ -809,7 +827,8 @@
           "weight": 1.5
         }
       ]
-    }
+    },
+    "matchWeight": 1.1111
   },
   {
     "id": "yahata-umiri",
@@ -827,13 +846,14 @@
     ],
     "note": "你不制造drama，但你通常是drama里最能收场的人。别人还在情绪波动，你已经开始处理后果了——属于「沉默の清道夫，稳得一批」。建议有事找她，没事别烦她。",
     "vector": {
-      "expression": -2,
-      "temperature": -1,
-      "judgement": 3,
-      "order": 3,
-      "agency": 2,
-      "aura": 2
-    }
+      "expression": -0.36,
+      "temperature": -0.18,
+      "judgement": 0.54,
+      "order": 0.54,
+      "agency": 0.36,
+      "aura": 0.36
+    },
+    "matchWeight": 0.87
   },
   {
     "id": "uika-nyubara",
@@ -851,12 +871,12 @@
     ],
     "note": "你有一种「明明在发疯，但发得很会经营」的现代感。人设切换像开滤镜，情绪表达像在给自己的人生做运营——建议出书《如何把发疯变成流量密码》。",
     "vector": {
-      "expression": 3,
-      "temperature": 1,
+      "expression": 0.69,
+      "temperature": 0.23,
       "judgement": 0,
-      "order": -1,
-      "agency": 2,
-      "aura": 2
+      "order": -0.23,
+      "agency": 0.46,
+      "aura": 0.46
     },
     "signature": {
       "uniqueAxes": {
@@ -864,7 +884,8 @@
         "order": -1,
         "agency": 2
       }
-    }
+    },
+    "matchWeight": 1.0313
   },
   {
     "id": "jia-ran",
@@ -882,12 +903,12 @@
     ],
     "note": "你最大的能力不是可爱，是把可爱做成高频武器。别人卖萌是一种状态，你卖萌是一种生产力——她一开口，弹幕自动变成「然然我的然然」，哪怕她只是在念广告词。建议备好胰岛素，甜度超标。",
     "vector": {
-      "expression": 3,
-      "temperature": 3,
-      "judgement": -1,
-      "order": -1,
-      "agency": 2,
-      "aura": 2
+      "expression": 0.57,
+      "temperature": 0.57,
+      "judgement": -0.19,
+      "order": -0.19,
+      "agency": 0.38,
+      "aura": 0.38
     },
     "signature": {
       "uniqueAxes": {
@@ -895,7 +916,8 @@
         "temperature": 3,
         "order": -1
       }
-    }
+    },
+    "matchWeight": 1.089
   },
   {
     "id": "eis-taffy",
@@ -919,12 +941,12 @@
     ],
     "note": "你不是单纯话多，你是能把一句话拧成一整段节目效果。表面像在整活，实际上是在把节奏、反应和人设运营拧成一股绳，属于那种「直播一开，场子就自动开始乱中有序」的类型。",
     "vector": {
-      "expression": 3,
-      "temperature": 2,
+      "expression": 0.58,
+      "temperature": 0.38,
       "judgement": 0,
-      "order": -1,
-      "agency": 3,
-      "aura": 2
+      "order": -0.19,
+      "agency": 0.58,
+      "aura": 0.38
     },
     "signature": {
       "uniqueAxes": {
@@ -932,7 +954,8 @@
         "agency": 3,
         "temperature": 2
       }
-    }
+    },
+    "matchWeight": 0.9949
   },
   {
     "id": "neuro-sama",
@@ -955,12 +978,12 @@
     ],
     "note": "你不是在整活，而是在做概率学抽卡。披着人畜无害的软萌外皮，核心却是个连导播都捏一把汗的乱序发射器。一旦你开口，哪怕语气再自然，也能神不知鬼不觉地把场子带偏到太平洋去。",
     "vector": {
-      "expression": 3,
+      "expression": 0.58,
       "temperature": 0,
-      "judgement": 1,
-      "order": -2,
-      "agency": 3,
-      "aura": 2
+      "judgement": 0.19,
+      "order": -0.38,
+      "agency": 0.58,
+      "aura": 0.38
     },
     "signature": {
       "uniqueAxes": {
@@ -990,7 +1013,8 @@
           "weight": 1.4
         }
       ]
-    }
+    },
+    "matchWeight": 0.9734
   },
   {
     "id": "evil-neuro",
@@ -1012,12 +1036,12 @@
     ],
     "note": "你把攻击性、控场欲和乐子人属性完美融合成了一场反派演出。表面上句句带刺、极具压迫感，暗地里却又精准把控着没法彻底做坏人的别扭分寸——属于高级傲娇的变种形态。",
     "vector": {
-      "expression": 1,
-      "temperature": -1,
-      "judgement": 3,
-      "order": 2,
-      "agency": 3,
-      "aura": 3
+      "expression": 0.17,
+      "temperature": -0.17,
+      "judgement": 0.52,
+      "order": 0.35,
+      "agency": 0.52,
+      "aura": 0.52
     },
     "signature": {
       "uniqueAxes": {
@@ -1047,7 +1071,8 @@
           "weight": 1.5
         }
       ]
-    }
+    },
+    "matchWeight": 1.0622
   },
   {
     "id": "kagamine-rin",
@@ -1070,12 +1095,12 @@
     ],
     "note": "你以为她只是个会卖萌的元气少女，其实惹急了她能开着压路机从你脸上碾过去。她的活力不是用来治愈你的，是用来折腾你的——属于「只要我不尴尬，头疼的就是你」的典型。建议随身携带橘子保命。",
     "vector": {
-      "expression": 3,
-      "temperature": 1,
-      "judgement": -1,
-      "order": -2,
-      "agency": 3,
-      "aura": 2
+      "expression": 0.57,
+      "temperature": 0.19,
+      "judgement": -0.19,
+      "order": -0.38,
+      "agency": 0.57,
+      "aura": 0.38
     },
     "signature": {
       "uniqueAxes": {
@@ -1089,7 +1114,8 @@
       "label": "圈层印象映射",
       "confidence": "low",
       "summary": "主要依据社区常见形象、二创传播与企划衍生印象，非官方唯一人格结论。"
-    }
+    },
+    "matchWeight": 1.0099
   },
   {
     "id": "luo-tianyi",
@@ -1112,12 +1138,12 @@
     ],
     "note": "表面上是个能用歌声治愈人心的温柔仙女，背地里却是个能把剧组吃破产的超级大胃王。她最大的超能力不是飙高音，而是在干饭时展现出的惊人行动力。属于「只要吃饱了就什么都好说」的纯粹生物。",
     "vector": {
-      "expression": 1,
-      "temperature": 3,
-      "judgement": -1,
+      "expression": 0.25,
+      "temperature": 0.75,
+      "judgement": -0.25,
       "order": 0,
-      "agency": 1,
-      "aura": 2
+      "agency": 0.25,
+      "aura": 0.5
     },
     "signature": {
       "uniqueAxes": {
@@ -1125,7 +1151,8 @@
         "judgement": -1,
         "aura": 2
       }
-    }
+    },
+    "matchWeight": 1.0496
   },
   {
     "id": "runami-yachiyo",
@@ -1148,12 +1175,12 @@
     ],
     "note": "你像那种会把整个虚拟世界当家来养的人：表面是营业满分的顶流，实际是偷偷把每个路过的人都照顾到的赛博白月光。你有很强的表达欲和感染力，但真正稀有的地方，是你不是为了被看见才发光，而是因为你真的在意这个场子、在意这里的人，也在意大家能不能玩得开心。",
     "vector": {
-      "expression": 3,
-      "temperature": 3,
-      "judgement": 2,
-      "order": 2,
-      "agency": 3,
-      "aura": 3
+      "expression": 0.45,
+      "temperature": 0.45,
+      "judgement": 0.3,
+      "order": 0.3,
+      "agency": 0.45,
+      "aura": 0.45
     },
     "signature": {
       "uniqueAxes": {
@@ -1188,7 +1215,8 @@
           "weight": 1.4
         }
       ]
-    }
+    },
+    "matchWeight": 1.058
   },
   {
     "id": "murasame",
@@ -1211,12 +1239,12 @@
     ],
     "note": "你像那种平时会把长辈架子端得很足、关键时刻却比谁都容易脸红破防的人。嘴上总说自己见多识广，真碰上灵异和惊吓环节又会瞬间缩回安全区。属于“明明想当保护别人的神明，结果更需要别人护着”的类型。",
     "vector": {
-      "expression": 3,
-      "temperature": 2,
+      "expression": 0.64,
+      "temperature": 0.43,
       "judgement": 0,
-      "order": -1,
-      "agency": 2,
-      "aura": 2
+      "order": -0.21,
+      "agency": 0.43,
+      "aura": 0.43
     },
     "signature": {
       "uniqueAxes": {
@@ -1241,7 +1269,8 @@
           "weight": 1.1
         }
       ]
-    }
+    },
+    "matchWeight": 1.0174
   },
   {
     "id": "ayachi-nene",
@@ -1263,12 +1292,12 @@
     ],
     "note": "你给人的第一印象往往是体面、稳妥、待人周到，像那种再混乱都不会让场面失控的人。可一旦责任、秘密和情感开始叠加，你又会把压力悄悄往自己身上吞。属于“表面像会安抚别人，实际上最需要被温柔呵护”的类型。",
     "vector": {
-      "expression": 1,
-      "temperature": 3,
-      "judgement": 1,
-      "order": 2,
-      "agency": 1,
-      "aura": 1
+      "expression": 0.24,
+      "temperature": 0.73,
+      "judgement": 0.24,
+      "order": 0.49,
+      "agency": 0.24,
+      "aura": 0.24
     },
     "signature": {
       "uniqueAxes": {
@@ -1293,7 +1322,8 @@
           "weight": 1.1
         }
       ]
-    }
+    },
+    "matchWeight": 1.0037
   },
   {
     "id": "inaba-meguru",
@@ -1317,12 +1347,12 @@
     ],
     "note": "你看起来像那种一出场就能把气氛拉起来的现充学妹，笑得很自然，接话也很快，好像天生就知道怎么和所有人打成一片。但熟一点才会发现，你的外向更像一层练出来的壳：会活跃气氛，懂得装没事，也懂得把真正的孤独藏好。属于“第一眼像社交王者，第二眼发现其实是高攻低防独处玩家”的类型。",
     "vector": {
-      "expression": 3,
-      "temperature": 2,
+      "expression": 0.64,
+      "temperature": 0.43,
       "judgement": 0,
-      "order": -1,
-      "agency": 2,
-      "aura": 2
+      "order": -0.21,
+      "agency": 0.43,
+      "aura": 0.43
     },
     "signature": {
       "uniqueAxes": {
@@ -1347,7 +1377,8 @@
           "weight": 1.2
         }
       ]
-    }
+    },
+    "matchWeight": 1.0156
   },
   {
     "id": "tomotake-yoshino",
@@ -1369,12 +1400,12 @@
     ],
     "note": "你看起来像那种会把规矩、责任和秩序写进日程表的人，外在克制，内里却藏着很软的一面。平时越想维持端正稳重，越容易在熟人面前因为一点反差萌暴露真实情绪。属于“看着最不好接近，熟了反而最有温度”的类型。",
     "vector": {
-      "expression": -1,
-      "temperature": 1,
-      "judgement": 2,
-      "order": 3,
-      "agency": 2,
-      "aura": 2
+      "expression": -0.21,
+      "temperature": 0.21,
+      "judgement": 0.42,
+      "order": 0.63,
+      "agency": 0.42,
+      "aura": 0.42
     },
     "signature": {
       "uniqueAxes": {
@@ -1399,7 +1430,8 @@
           "weight": 1.15
         }
       ]
-    }
+    },
+    "matchWeight": 1.0051
   },
   {
     "id": "atri",
@@ -1422,12 +1454,12 @@
     ],
     "note": "你像那种会把元气、直率和陪伴欲全部摆到台面上的人，嘴上说自己高性能，实际最打动人的却是情绪里的真诚和不保留。哪怕在很坏的环境里，你也会努力把一点点热量分给身边的人。属于“看起来轻快明亮，底层却比谁都能扛”的类型。",
     "vector": {
-      "expression": 3,
-      "temperature": 3,
-      "judgement": -1,
-      "order": -2,
-      "agency": 2,
-      "aura": 2
+      "expression": 0.54,
+      "temperature": 0.54,
+      "judgement": -0.18,
+      "order": -0.36,
+      "agency": 0.36,
+      "aura": 0.36
     },
     "signature": {
       "uniqueAxes": {
@@ -1452,7 +1484,8 @@
           "weight": 1.35
         }
       ]
-    }
+    },
+    "matchWeight": 0.9641
   },
   {
     "id": "phrolova",
@@ -1461,7 +1494,6 @@
     "series": "鸣潮",
     "image": "/images/characters/弗洛洛.png",
     "matchCode": "INTJ",
-    "matchWeight": 0.975,
     "code": "PHRV",
     "title": "忧伤指挥家·把理想国写进丧钟的人",
     "archetypeId": "shadow-strategist",
@@ -1473,12 +1505,12 @@
     ],
     "note": "你给人的感觉不是普通高冷，而是那种会安静站在场中央、却让所有人自动收声的危险存在。表面上情绪很淡，实际内核全是被悲伤和执念拧出来的控制力，像是在重新给世界定调的人。",
     "vector": {
-      "expression": -2,
-      "temperature": -2,
-      "judgement": 3,
-      "order": 1,
-      "agency": 2,
-      "aura": 3
+      "expression": -0.36,
+      "temperature": -0.36,
+      "judgement": 0.54,
+      "order": 0.18,
+      "agency": 0.36,
+      "aura": 0.54
     },
     "signature": {
       "uniqueAxes": {
@@ -1513,7 +1545,8 @@
           "weight": 1.8
         }
       ]
-    }
+    },
+    "matchWeight": 1.0177
   },
   {
     "id": "kasugano-sora",
@@ -1537,12 +1570,12 @@
     ],
     "note": "平时是一副沉默寡言、带着黑兔布偶的病弱宅女模样，习惯用冷漠和带刺的语言掩饰内心的极度不安。她对外界的社交毫无兴趣，但在卸下所有心防后，那份不顾一切、几乎令人窒息的依赖感足以打破所有世俗的常规。属于「只要认定你，连世界都可以不要」的极端纯粹型。",
     "vector": {
-      "expression": -3,
-      "temperature": 1,
-      "judgement": -2,
-      "order": -3,
-      "agency": -2,
-      "aura": 2
+      "expression": -0.54,
+      "temperature": 0.18,
+      "judgement": -0.36,
+      "order": -0.54,
+      "agency": -0.36,
+      "aura": 0.36
     },
     "signature": {
       "uniqueAxes": {
@@ -1550,7 +1583,8 @@
         "order": -3,
         "agency": -2
       }
-    }
+    },
+    "matchWeight": 1.0137
   },
   {
     "id": "yanami-anna",
@@ -1573,12 +1607,12 @@
     ],
     "note": "你表面像那种随时都能把气氛带热的班级门面，实际上恋爱战绩已经被系统提前判负。能吃、能聊、能把难受先咽下去，嘴上还要装得像没事一样。属于“越是看起来活泼，越容易在夜里偷偷掉线”的类型。",
     "vector": {
-      "expression": 3,
-      "temperature": 2,
+      "expression": 0.64,
+      "temperature": 0.43,
       "judgement": 0,
-      "order": -1,
-      "agency": 2,
-      "aura": 2
+      "order": -0.21,
+      "agency": 0.43,
+      "aura": 0.43
     },
     "signature": {
       "uniqueAxes": {
@@ -1586,7 +1620,8 @@
         "temperature": 2,
         "order": -1
       }
-    }
+    },
+    "matchWeight": 1.0799
   },
   {
     "id": "nukumizu-kaju",
@@ -1610,11 +1645,11 @@
     "note": "你平时像那种已经把生活流程全部优化完毕的高性能妹妹模板，学习、家务、待人接物都像出厂校准过。但只要话题切到哥哥，整个人的情绪管理模块就会瞬间超频。属于“平时是完美UI，核心线程其实全绑在一个人身上”的类型。",
     "vector": {
       "expression": 0,
-      "temperature": 2,
-      "judgement": 2,
-      "order": 3,
-      "agency": 2,
-      "aura": 2
+      "temperature": 0.4,
+      "judgement": 0.4,
+      "order": 0.6,
+      "agency": 0.4,
+      "aura": 0.4
     },
     "signature": {
       "uniqueAxes": {
@@ -1622,7 +1657,8 @@
         "judgement": 2,
         "temperature": 2
       }
-    }
+    },
+    "matchWeight": 1.0357
   },
   {
     "id": "elysia",
@@ -1645,12 +1681,12 @@
     ],
     "note": "表面上是个喜欢贴贴、满嘴甜言蜜语的粉色社牛，实际上把「爱所有人」当成了一生贯彻的信仰。她不是没有悲伤，只是选择把最绚丽无瑕的笑容留给世界——属于那种「一出场就自带粉色聚光灯」的神。建议备好纸巾，笑着笑着就让人破防了。",
     "vector": {
-      "expression": 3,
-      "temperature": 3,
-      "judgement": 1,
+      "expression": 0.53,
+      "temperature": 0.53,
+      "judgement": 0.18,
       "order": 0,
-      "agency": 2,
-      "aura": 3
+      "agency": 0.35,
+      "aura": 0.53
     },
     "signature": {
       "uniqueAxes": {
@@ -1658,7 +1694,8 @@
         "temperature": 3,
         "aura": 3
       }
-    }
+    },
+    "matchWeight": 1.0984
   },
   {
     "id": "haibara-ai",
@@ -1681,12 +1718,12 @@
     ],
     "note": "你以为她是冷血无情的科学家，其实她是全剧最清醒的吐槽担当。日常工作除了研究解药，就是用冰冷的语言给某位死神小学生踩刹车。她的冷幽默就像她发明的药一样致命——属于「不开口则已，一开口刀刀暴击」的典范。",
     "vector": {
-      "expression": -2,
-      "temperature": -1,
-      "judgement": 3,
-      "order": 2,
-      "agency": 1,
-      "aura": 2
+      "expression": -0.42,
+      "temperature": -0.21,
+      "judgement": 0.63,
+      "order": 0.42,
+      "agency": 0.21,
+      "aura": 0.42
     },
     "signature": {
       "uniqueAxes": {
@@ -1694,7 +1731,8 @@
         "judgement": 3,
         "temperature": -1
       }
-    }
+    },
+    "matchWeight": 0.9971
   },
   {
     "id": "violet-evergarden",
@@ -1718,12 +1756,12 @@
     ],
     "note": "你给人的第一感觉像一份被装订得过分整齐的说明书：安静、精确、几乎没有多余情绪。但真正稀有的地方在于，你不是没有感情，而是会把最重要的情感一点一点学会、背熟，再认真地交还给别人。属于“表面像冷金属，内里却在缓慢长出体温”的类型。",
     "vector": {
-      "expression": -2,
-      "temperature": 1,
-      "judgement": 3,
-      "order": 3,
-      "agency": 2,
-      "aura": 3
+      "expression": -0.33,
+      "temperature": 0.17,
+      "judgement": 0.5,
+      "order": 0.5,
+      "agency": 0.33,
+      "aura": 0.5
     },
     "signature": {
       "uniqueAxes": {
@@ -1748,7 +1786,8 @@
           "weight": 1.2
         }
       ]
-    }
+    },
+    "matchWeight": 0.9883
   },
   {
     "id": "elaina",
@@ -1772,12 +1811,12 @@
     ],
     "note": "你不是那种会强行把自己塞进所有剧情里的人，更像一路路过、一路观察、一路记录的高配旅人。外表礼貌克制，判断也很清醒，遇事不会轻易道德过载；但只要世界足够有趣，你的好奇心又会立刻上线。属于“看起来淡淡的，实际上对新鲜故事最没抵抗力”的类型。",
     "vector": {
-      "expression": 1,
+      "expression": 0.27,
       "temperature": 0,
-      "judgement": 2,
-      "order": -1,
-      "agency": 2,
-      "aura": 2
+      "judgement": 0.53,
+      "order": -0.27,
+      "agency": 0.53,
+      "aura": 0.53
     },
     "signature": {
       "uniqueAxes": {
@@ -1802,7 +1841,8 @@
           "weight": 1.1
         }
       ]
-    }
+    },
+    "matchWeight": 1.0024
   },
   {
     "id": "chitanda-eru",
@@ -1826,12 +1866,12 @@
     ],
     "note": "你平时气质很稳，像那种教养、礼貌、分寸感都在线的高配大小姐模板；但只要某件事触发了你的兴趣，整个人就会瞬间从“端庄模式”切进“追问到底模式”。你不是吵闹型主角推进器，而是那种用一句“我很好奇”就能把所有人拖进主线任务的人。",
     "vector": {
-      "expression": 2,
-      "temperature": 3,
+      "expression": 0.47,
+      "temperature": 0.71,
       "judgement": 0,
       "order": 0,
-      "agency": 1,
-      "aura": 2
+      "agency": 0.24,
+      "aura": 0.47
     },
     "signature": {
       "uniqueAxes": {
@@ -1856,7 +1896,8 @@
           "weight": 1.1
         }
       ]
-    }
+    },
+    "matchWeight": 1.0295
   },
   {
     "id": "tomori-nao",
@@ -1880,12 +1921,12 @@
     ],
     "note": "你平时像那种情绪显示面板默认关闭的学生会执法程序，说话淡、下手准、看起来很不好惹。但真正的核心不是冷，而是你已经习惯把判断、风险和责任先一步扛起来。属于“不是特别爱解释自己，但局势交给她确实会稳很多”的类型。",
     "vector": {
-      "expression": -1,
-      "temperature": -1,
-      "judgement": 3,
-      "order": 2,
-      "agency": 3,
-      "aura": 2
+      "expression": -0.19,
+      "temperature": -0.19,
+      "judgement": 0.57,
+      "order": 0.38,
+      "agency": 0.57,
+      "aura": 0.38
     },
     "signature": {
       "uniqueAxes": {
@@ -1910,7 +1951,8 @@
           "weight": 1.15
         }
       ]
-    }
+    },
+    "matchWeight": 1.0259
   },
   {
     "id": "nakano-azusa",
@@ -1932,12 +1974,12 @@
     ],
     "note": "轻音部里唯一的常识人和秩序守护者，平时总把“要好好练习”挂在嘴边，但只要学姐们递上一块蛋糕、套上猫耳，马上就会满脸通红地沦陷。属于典型的“嘴上说着不要，身体却很诚实”的认真型学妹，好欺负程度满分。",
     "vector": {
-      "expression": -1,
-      "temperature": 1,
-      "judgement": 2,
-      "order": 3,
-      "agency": 1,
-      "aura": 1
+      "expression": -0.24,
+      "temperature": 0.24,
+      "judgement": 0.49,
+      "order": 0.73,
+      "agency": 0.24,
+      "aura": 0.24
     },
     "signature": {
       "uniqueAxes": {
@@ -1945,7 +1987,8 @@
         "judgement": 2,
         "expression": -1
       }
-    }
+    },
+    "matchWeight": 1.0203
   },
   {
     "id": "furukawa-nagisa",
@@ -1967,12 +2010,12 @@
     ],
     "note": "看起来像个风一吹就会倒的软弱少女，缺乏自信到常常停滞不前。但实际上，她拥有一颗比谁都坚韧的心，一旦为了爱的人，哪怕面临绝望也能咬牙走下去。她那如春风般的温柔，拥有让人不知不觉落泪的魔力。",
     "vector": {
-      "expression": 1,
-      "temperature": 3,
-      "judgement": 1,
-      "order": 1,
-      "agency": -1,
-      "aura": 2
+      "expression": 0.24,
+      "temperature": 0.73,
+      "judgement": 0.24,
+      "order": 0.24,
+      "agency": -0.24,
+      "aura": 0.49
     },
     "signature": {
       "uniqueAxes": {
@@ -1980,7 +2023,8 @@
         "expression": 1,
         "agency": -1
       }
-    }
+    },
+    "matchWeight": 1.0399
   },
   {
     "id": "nishimiya-shoko",
@@ -2002,12 +2046,12 @@
     ],
     "note": "世界对她充满了不公与恶意，但她却依然选择用最温柔的微笑去拥抱一切。她总是习惯性把所有的错揽在自己身上，在无声的世界里一次次试图与他人和解。这种近乎卑微的善良，让人只想穿越屏幕去给她一个大大的拥抱。",
     "vector": {
-      "expression": -2,
-      "temperature": 3,
+      "expression": -0.46,
+      "temperature": 0.69,
       "judgement": 0,
-      "order": 1,
-      "agency": -2,
-      "aura": 1
+      "order": 0.23,
+      "agency": -0.46,
+      "aura": 0.23
     },
     "signature": {
       "uniqueAxes": {
@@ -2015,7 +2059,8 @@
         "expression": -2,
         "agency": -2
       }
-    }
+    },
+    "matchWeight": 0.9836
   },
   {
     "id": "kusanagi-nene",
@@ -2037,12 +2082,12 @@
     ],
     "note": "现实中是个严重社恐、看到生人就想找地缝钻进去的自闭少女；但只要给她一个手柄或键盘，马上化身为毒舌输出机，喷得对手找不着北。然而只要站上她真正热爱的舞台，那份极具穿透力的歌声又会耀眼得让人移不开视线。",
     "vector": {
-      "expression": -3,
-      "temperature": -1,
-      "judgement": 2,
-      "order": -1,
-      "agency": 1,
-      "aura": 1
+      "expression": -0.73,
+      "temperature": -0.24,
+      "judgement": 0.49,
+      "order": -0.24,
+      "agency": 0.24,
+      "aura": 0.24
     },
     "signature": {
       "uniqueAxes": {
@@ -2050,7 +2095,8 @@
         "judgement": 2,
         "temperature": -1
       }
-    }
+    },
+    "matchWeight": 1.0102
   },
   {
     "id": "akemi-homura",
@@ -2072,12 +2118,12 @@
     ],
     "note": "最初是个怯懦的麻花辫眼镜娘，为了拯救唯一的救赎，硬生生把自己逼成了一个冷酷无情的军火大佬。跨越无数次绝望的轮回，甚至不惜篡夺神明的力量，只为换取那个人平凡的幸福。她的爱沉重到令人窒息，却又伟大到令人震悚。",
     "vector": {
-      "expression": -2,
-      "temperature": -2,
-      "judgement": 3,
-      "order": 3,
-      "agency": 3,
-      "aura": 3
+      "expression": -0.3,
+      "temperature": -0.3,
+      "judgement": 0.45,
+      "order": 0.45,
+      "agency": 0.45,
+      "aura": 0.45
     },
     "signature": {
       "uniqueAxes": {
@@ -2085,7 +2131,8 @@
         "order": 3,
         "temperature": -2
       }
-    }
+    },
+    "matchWeight": 1.0167
   },
   {
     "id": "yuigahama-yui",
@@ -2108,12 +2155,12 @@
     ],
     "note": "你总是习惯性地迎合周围，生怕破坏哪怕一丝群体的平衡。别人以为你是天生的无脑乐天派，其实你只是把「读空气」练成了被动技能。在这群充满别扭怪的人际关系里，你那份有些笨拙的温柔是唯一的润滑剂——虽然代价往往是把委屈留给自己。",
     "vector": {
-      "expression": 2,
-      "temperature": 3,
+      "expression": 0.5,
+      "temperature": 0.75,
       "judgement": 0,
-      "order": 1,
-      "agency": 1,
-      "aura": 1
+      "order": 0.25,
+      "agency": 0.25,
+      "aura": 0.25
     },
     "signature": {
       "uniqueAxes": {
@@ -2121,7 +2168,8 @@
         "expression": 2,
         "judgement": 0
       }
-    }
+    },
+    "matchWeight": 1.0113
   },
   {
     "id": "suzumiya-haruhi",
@@ -2144,12 +2192,12 @@
     ],
     "note": "普通人在你眼里一无是处，你的雷达只接收外星人、未来人和超能力者的信号。你不是在寻找乐子，你是在强迫这个无聊的世界为你全速运转。这种「只要自己爽，世界毁灭也无所谓」的恐怖执行力，让你成为了最高级别的麻烦制造机。",
     "vector": {
-      "expression": 3,
-      "temperature": 1,
-      "judgement": -1,
-      "order": -3,
-      "agency": 3,
-      "aura": 3
+      "expression": 0.49,
+      "temperature": 0.16,
+      "judgement": -0.16,
+      "order": -0.49,
+      "agency": 0.49,
+      "aura": 0.49
     },
     "signature": {
       "uniqueAxes": {
@@ -2157,7 +2205,8 @@
         "order": -3,
         "aura": 3
       }
-    }
+    },
+    "matchWeight": 0.9797
   },
   {
     "id": "hoshino-ruby",
@@ -2179,12 +2228,12 @@
     ],
     "note": "带着前世的沉重执念和满级天赋，你天生就是要吃这碗聚光灯饭的人。表面上是个无脑元气笨蛋，内心却燃烧着让人畏惧的胜负欲。为了那个闪闪发光的梦想，你甚至愿意把整个人生包装成最华丽的谎言，在舞台上连命都可以不要。",
     "vector": {
-      "expression": 3,
-      "temperature": 2,
-      "judgement": 1,
-      "order": -1,
-      "agency": 3,
-      "aura": 3
+      "expression": 0.52,
+      "temperature": 0.35,
+      "judgement": 0.17,
+      "order": -0.17,
+      "agency": 0.52,
+      "aura": 0.52
     },
     "signature": {
       "uniqueAxes": {
@@ -2192,7 +2241,8 @@
         "agency": 3,
         "aura": 3
       }
-    }
+    },
+    "matchWeight": 1.0623
   },
   {
     "id": "miyazono-kaori",
@@ -2215,12 +2265,12 @@
     ],
     "note": "你就像一阵无法捕捉的春风，蛮横地闯入别人的黑白世界并强行涂上色彩。你不按规矩出牌，把每一次登台都当成生命的最后一次狂欢。你给所有人留下了最刻骨铭心的春天，自己却只愿意当一个任性的「骗子」。",
     "vector": {
-      "expression": 2,
-      "temperature": 3,
-      "judgement": -1,
-      "order": -2,
-      "agency": 2,
-      "aura": 2
+      "expression": 0.39,
+      "temperature": 0.59,
+      "judgement": -0.2,
+      "order": -0.39,
+      "agency": 0.39,
+      "aura": 0.39
     },
     "signature": {
       "uniqueAxes": {
@@ -2228,7 +2278,8 @@
         "order": -2,
         "judgement": -1
       }
-    }
+    },
+    "matchWeight": 1.0286
   },
   {
     "id": "awa-subaru",
@@ -2251,12 +2302,12 @@
     ],
     "note": "在一个全员带刺、动不动就爆炸的乐队里，你是唯一一个懂得用「演技」来维持局面的狡猾大人预备役。你太清楚怎么敷衍大人的期待，所以把所有的叛逆和不甘都砸碎在鼓点里。你不是没脾气，你只是知道什么时候该发疯，什么时候该装乖。",
     "vector": {
-      "expression": 1,
-      "temperature": 2,
-      "judgement": 1,
-      "order": 1,
-      "agency": 2,
-      "aura": 1
+      "expression": 0.29,
+      "temperature": 0.58,
+      "judgement": 0.29,
+      "order": 0.29,
+      "agency": 0.58,
+      "aura": 0.29
     },
     "signature": {
       "uniqueAxes": {
@@ -2264,7 +2315,8 @@
         "agency": 2,
         "order": 1
       }
-    }
+    },
+    "matchWeight": 1.0304
   },
   {
     "id": "frieren",
@@ -2288,12 +2340,12 @@
     ],
     "note": "你像那种对外总是显得情绪很淡、反应很慢的人，不是因为你真的漠不关心，而是你习惯先站得更远一点再看清一切。你擅长把判断和力量都留到最关键的时刻，却也会把那些别人看来毫无意义的小事默默珍藏起来。属于“日常像在发呆，关键时刻却重得惊人”的类型。",
     "vector": {
-      "expression": -2,
+      "expression": -0.46,
       "temperature": 0,
-      "judgement": 2,
-      "order": -1,
-      "agency": 1,
-      "aura": 3
+      "judgement": 0.46,
+      "order": -0.23,
+      "agency": 0.23,
+      "aura": 0.69
     },
     "signature": {
       "uniqueAxes": {
@@ -2301,7 +2353,8 @@
         "aura": 3,
         "order": -1
       }
-    }
+    },
+    "matchWeight": 1.0026
   },
   {
     "id": "ijichi-nijika",
@@ -2325,12 +2378,12 @@
     ],
     "note": "你是那种能把散掉的人重新拢回来的人。你给人的安全感不只来自热情，更来自你会主动照顾气氛、分担压力，并在所有人都快乱成一团时先一步把局面稳住。属于“看起来像阳角气氛组，实际上是团队续命核心”的类型。",
     "vector": {
-      "expression": 3,
-      "temperature": 3,
-      "judgement": 1,
-      "order": 1,
-      "agency": 3,
-      "aura": 2
+      "expression": 0.52,
+      "temperature": 0.52,
+      "judgement": 0.17,
+      "order": 0.17,
+      "agency": 0.52,
+      "aura": 0.35
     },
     "signature": {
       "uniqueAxes": {
@@ -2338,7 +2391,8 @@
         "temperature": 3,
         "agency": 3
       }
-    }
+    },
+    "matchWeight": 1.0614
   },
   {
     "id": "tachibana-kanade",
@@ -2361,12 +2415,12 @@
     ],
     "note": "你给人的第一印象往往是安静、冷硬、难以靠近，像那种会把规则执行到底的人。但真正的核心并不是冷漠，而是你早就习惯在不被理解的情况下继续守住自己该守的东西。属于“高冷只是外壳，温柔却一直在做事”的类型。",
     "vector": {
-      "expression": -3,
-      "temperature": -1,
-      "judgement": 3,
-      "order": 3,
-      "agency": 2,
-      "aura": 3
+      "expression": -0.47,
+      "temperature": -0.16,
+      "judgement": 0.47,
+      "order": 0.47,
+      "agency": 0.31,
+      "aura": 0.47
     },
     "signature": {
       "uniqueAxes": {
@@ -2374,7 +2428,8 @@
         "judgement": 3,
         "order": 3
       }
-    }
+    },
+    "matchWeight": 1.0453
   },
   {
     "id": "kaltsit",
@@ -2382,10 +2437,6 @@
     "series": "明日方舟",
     "image": "/images/characters/凯尔希.png",
     "matchCode": "INTJ",
-    "matchCodeFlex": [
-      "INFJ",
-      "ENTJ"
-    ],
     "code": "KALS",
     "title": "罗德岛基石·Mon3tr牌外置执行力",
     "archetypeId": "shadow-strategist",
@@ -2397,12 +2448,12 @@
     ],
     "note": "你不是单纯高冷，你只是已经把局势、风险、伤亡和后手全算过一遍了。表面像医务室里最不好惹的那位主任，开口不是命令就是医嘱，情绪稳定得像根本不会波动；但真到残局，她又会把责任、承诺和所有人的命一起扛起来。属于「嘴上像在给你下最后通牒，实际上已经把你从灭团线拽回来了」的类型。",
     "vector": {
-      "expression": -2,
-      "temperature": -1,
-      "judgement": 3,
-      "order": 3,
-      "agency": 3,
-      "aura": 3
+      "expression": -0.31,
+      "temperature": -0.16,
+      "judgement": 0.47,
+      "order": 0.47,
+      "agency": 0.47,
+      "aura": 0.47
     },
     "signature": {
       "uniqueAxes": {
@@ -2427,7 +2478,8 @@
           "weight": 1.2
         }
       ]
-    }
+    },
+    "matchWeight": 1.0323
   },
   {
     "id": "arima-kana",
@@ -2450,12 +2502,12 @@
     ],
     "note": "嘴上总是说着最刻薄的话，心里却比谁都渴望被注视。作为「十秒就能哭出来」的前天才童星，她把所有的自卑和不甘都化作了舞台上的胜负欲。其实只要你稍微多夸她两句，她的好感度就会像火箭一样窜上天——属于典型的「只要你推我，我就能为你闪闪发光」的究极傲娇。",
     "vector": {
-      "expression": 2,
-      "temperature": 1,
-      "judgement": 2,
-      "order": 1,
-      "agency": 2,
-      "aura": 2
+      "expression": 0.47,
+      "temperature": 0.24,
+      "judgement": 0.47,
+      "order": 0.24,
+      "agency": 0.47,
+      "aura": 0.47
     },
     "signature": {
       "uniqueAxes": {
@@ -2463,7 +2515,8 @@
         "judgement": 2,
         "agency": 2
       }
-    }
+    },
+    "matchWeight": 1.077
   },
   {
     "id": "nishikigi-chisato",
@@ -2486,12 +2539,12 @@
     ],
     "note": "你以为她只是个成天乐呵呵、喜欢到处贴贴的咖啡店看板娘，实际上她是能在枪林弹雨里跳舞的顶级特工。她最大的魅力在于，哪怕背负着沉重的宿命，依然选择用最明媚的笑容和橡胶弹去拥抱世界。和她在一起，你的生活绝对不会有无聊两个字，只有脱轨和狂飙。",
     "vector": {
-      "expression": 3,
-      "temperature": 3,
+      "expression": 0.47,
+      "temperature": 0.47,
       "judgement": 0,
-      "order": -2,
-      "agency": 3,
-      "aura": 3
+      "order": -0.32,
+      "agency": 0.47,
+      "aura": 0.47
     },
     "signature": {
       "uniqueAxes": {
@@ -2499,7 +2552,8 @@
         "temperature": 3,
         "aura": 3
       }
-    }
+    },
+    "matchWeight": 1.0426
   },
   {
     "id": "tanikaze-amane",
@@ -2522,12 +2576,12 @@
     ],
     "note": "在网络世界里，她是无所不知、满嘴抽象热词的冲浪巨佬；在现实中，她是个离开电脑就会迅速枯萎的社恐废柴。她的社交能量全靠看直播发弹幕来维持，如果你试图把她从房间里拖出去，她可能会当场融化。属于「电子海胆」的究极进化形态。",
     "vector": {
-      "expression": -2,
+      "expression": -0.6,
       "temperature": 0,
-      "judgement": 1,
-      "order": -2,
-      "agency": -1,
-      "aura": 1
+      "judgement": 0.3,
+      "order": -0.6,
+      "agency": -0.3,
+      "aura": 0.3
     },
     "signature": {
       "uniqueAxes": {
@@ -2535,7 +2589,8 @@
         "order": -2,
         "agency": -1
       }
-    }
+    },
+    "matchWeight": 1.1185
   },
   {
     "id": "myrtle",
@@ -2559,12 +2614,12 @@
     ],
     "note": "充满活力的杜林族女孩，自称统率第一大道及三条商店街的「大将军」。虽然身高只有131cm，但战场上的感染力和指挥水准让人刮目相看。来自地下世界的她，是少数不瞌睡的杜林族，对地上世界充满好奇。喜欢收集「宝物」，但是却连工牌都能弄丢。",
     "vector": {
-      "expression": 3,
-      "temperature": 2,
-      "judgement": 1,
+      "expression": 0.69,
+      "temperature": 0.46,
+      "judgement": 0.23,
       "order": 0,
-      "agency": 1,
-      "aura": 2
+      "agency": 0.23,
+      "aura": 0.46
     },
     "signature": {
       "uniqueAxes": {
@@ -2572,7 +2627,8 @@
         "temperature": 2,
         "aura": 2
       }
-    }
+    },
+    "matchWeight": 1.0823
   },
   {
     "id": "vertin",
@@ -2581,39 +2637,43 @@
     "addedAt": "2026-04-15",
     "image": "/images/characters/维尔汀.webp",
     "matchCode": "INTP",
-    "matchCodeFlex": ["INTJ", "ISTP"],
+    "matchCodeFlex": [
+      "INTJ",
+      "ISTP"
+    ],
     "code": "VRTN",
     "title": "暴雨中梭巡的司辰",
     "archetypeId": "icebound-observer",
     "tags": [
-        "时间管理大师",
-        "暴雨免疫体质",
-        "手提箱移动堡垒",
-        "万雌王",
-        "理智的叛逆者"
+      "时间管理大师",
+      "暴雨免疫体质",
+      "手提箱移动堡垒",
+      "万雌王",
+      "理智的叛逆者"
     ],
     "note": "从活泼少女到沉静的引路人隶属于圣洛夫基金会的“司辰”，不是最强的战士却是不可替代的“钥匙”，冷静沉稳的少女她没有多少可以相信的人。因为自有记忆起，我便很清楚自己是独自一人",
     "vector": {
-        "expression": -1,
-        "temperature": -1,
-        "judgement": 2,
-        "order": -1,
-        "agency": 3,
-        "aura": 2
+      "expression": -0.22,
+      "temperature": -0.22,
+      "judgement": 0.45,
+      "order": -0.22,
+      "agency": 0.67,
+      "aura": 0.45
     },
     "signature": {
-        "uniqueAxes": {
-            "judgement": 2,
-            "agency": 3,
-            "aura": 2
-        }
+      "uniqueAxes": {
+        "judgement": 2,
+        "agency": 3,
+        "aura": 2
+      }
     },
     "personaBasis": {
-        "type": "fandom-impression",
-        "label": "圈层印象映射",
-        "confidence": "low",
-        "summary": "基于游戏内角色设定、剧情表现及玩家社群常见讨论，非官方唯一人格结论。"
-    }
+      "type": "fandom-impression",
+      "label": "圈层印象映射",
+      "confidence": "low",
+      "summary": "基于游戏内角色设定、剧情表现及玩家社群常见讨论，非官方唯一人格结论。"
+    },
+    "matchWeight": 0.9675
   },
   {
     "id": "shirai-kuroko",
@@ -2621,7 +2681,10 @@
     "series": "某科学的超电磁炮",
     "addedAt": "2026-04-16",
     "matchCode": "ESTJ",
-    "matchCodeFlex": ["ESFJ", "ENTJ"],
+    "matchCodeFlex": [
+      "ESFJ",
+      "ENTJ"
+    ],
     "code": "KRKO",
     "title": "风纪执行位·公务模式与姐姐大人过热的叠加态",
     "archetypeId": "oathbound-captain",
@@ -2633,12 +2696,12 @@
     ],
     "note": "你以为她只是个每天高呼「姐姐大人」的痴汉，但其实她是常盘台唯一的 Level 4 空间移动能力者兼学园都市治安维护铁血风纪委员。她把「对姐姐大人过热」和「绝对的正义感」这两种截然相反的属性完美融合——工作时雷厉风行、办案果断，一旦切到姐姐大人频道就立刻系统超频。属于「公务模式和感情模式切换速度比空间移动还快」的典范。",
     "vector": {
-      "expression": 3,
-      "temperature": 2,
-      "judgement": 3,
-      "order": 3,
-      "agency": 3,
-      "aura": 2
+      "expression": 0.45,
+      "temperature": 0.3,
+      "judgement": 0.45,
+      "order": 0.45,
+      "agency": 0.45,
+      "aura": 0.3
     },
     "signature": {
       "uniqueAxes": {
@@ -2647,7 +2710,8 @@
         "agency": 3,
         "judgement": 3
       }
-    }
+    },
+    "matchWeight": 1.0817
   },
   {
     "id": "shinomiya-kaguya",
@@ -2670,12 +2734,12 @@
     ],
     "note": "表面上是完美无瑕的财阀大小姐、冷酷无情的计谋家，实际上是个连智能手机都不会用的纯情恋爱脑。她的人生格言是「先告白的人在恋爱中是输家」，然后为了让对方先开口，可以调动整个财阀的资源演一出大戏。属于「智商换情商」的典型。",
     "vector": {
-      "expression": -1,
+      "expression": -0.18,
       "temperature": 0,
-      "judgement": 3,
-      "order": 3,
-      "agency": 2,
-      "aura": 3
+      "judgement": 0.53,
+      "order": 0.53,
+      "agency": 0.35,
+      "aura": 0.53
     },
     "signature": {
       "uniqueAxes": {
@@ -2683,7 +2747,8 @@
         "order": 3,
         "expression": -1
       }
-    }
+    },
+    "matchWeight": 1.0384
   },
   {
     "id": "kato-megumi",
@@ -2706,19 +2771,20 @@
     ],
     "note": "初见时你甚至记不住她的脸，仿佛自带光学隐形迷彩。没有明显的喜怒哀乐，没有夸张的二次元属性，但就是能在所有人打得不可开交时，用最平淡的语气抛出最致命的吐槽。你以为她是路人，其实她是捏着剧本的唯一真神。",
     "vector": {
-      "expression": -2,
+      "expression": -0.5,
       "temperature": 0,
-      "judgement": 1,
-      "order": 1,
-      "agency": 1,
-      "aura": -3
+      "judgement": 0.25,
+      "order": 0.25,
+      "agency": 0.25,
+      "aura": -0.75
     },
     "signature": {
       "uniqueAxes": {
         "aura": -3,
         "expression": -2
       }
-    }
+    },
+    "matchWeight": 0.9621
   },
   {
     "id": "rem",
@@ -2741,11 +2807,11 @@
     "note": "平时是家务万能、温柔体贴的完美女仆，一旦你触发了她的信任开关，她连命都可以不要。不过友情提示：在取得信任之前，请小心她手里那把带着倒刺的流星锤。属于那种「只要你别作死，她就是人间天使」的奉献型人格。",
     "vector": {
       "expression": 0,
-      "temperature": 3,
-      "judgement": 2,
-      "order": 2,
-      "agency": 1,
-      "aura": 1
+      "temperature": 0.69,
+      "judgement": 0.46,
+      "order": 0.46,
+      "agency": 0.23,
+      "aura": 0.23
     },
     "signature": {
       "uniqueAxes": {
@@ -2753,7 +2819,8 @@
         "order": 2,
         "judgement": 2
       }
-    }
+    },
+    "matchWeight": 1.0389
   },
   {
     "id": "kita-ikuyo",
@@ -2776,12 +2843,12 @@
     ],
     "note": "只要她站在那里，周围就会自动生成闪瞎眼的「阳角滤镜」。交际能力点满，能在三秒内和任何人称兄道弟，堪称社恐患者的天然天敌与救赎。虽然有过买错贝斯就提桶跑路的黑历史，但只要她一笑，你就只能原谅她了。",
     "vector": {
-      "expression": 3,
-      "temperature": 3,
-      "judgement": -1,
-      "order": -1,
-      "agency": 3,
-      "aura": 3
+      "expression": 0.49,
+      "temperature": 0.49,
+      "judgement": -0.16,
+      "order": -0.16,
+      "agency": 0.49,
+      "aura": 0.49
     },
     "signature": {
       "uniqueAxes": {
@@ -2789,7 +2856,8 @@
         "temperature": 3,
         "aura": 3
       }
-    }
+    },
+    "matchWeight": 1.0642
   },
   {
     "id": "yamada-ryo",
@@ -2811,12 +2879,12 @@
     ],
     "note": "被叫作「怪人」会暗自窃喜的孤高贝斯手。人生哲学极度自我，有钱全砸在乐器上，没钱就拔路边的野草吃，甚至还能面不改色地骗队友的钱买零食。你以为她高冷深沉，其实她只是懒得遵守人类社会的常识。纯粹的、脱离了低级趣味的「屑」。",
     "vector": {
-      "expression": -2,
-      "temperature": -1,
-      "judgement": 1,
-      "order": -3,
+      "expression": -0.5,
+      "temperature": -0.25,
+      "judgement": 0.25,
+      "order": -0.75,
       "agency": 0,
-      "aura": 1
+      "aura": 0.25
     },
     "signature": {
       "uniqueAxes": {
@@ -2824,7 +2892,8 @@
         "expression": -2,
         "temperature": -1
       }
-    }
+    },
+    "matchWeight": 1.0135
   },
   {
     "id": "hirasawa-yui",
@@ -2845,12 +2914,12 @@
     ],
     "note": "你以为她是来组乐队的，其实她是来喝下午茶的。拥有满级音乐天赋却全点在了吃零食和给吉他穿衣服上。如果人生是一场考试，她连准考证都能忘带，但最后总能用莫名其妙的运气和感染力奇迹般地及格。",
     "vector": {
-      "expression": 3,
-      "temperature": 3,
-      "judgement": -2,
-      "order": -3,
-      "agency": 1,
-      "aura": 2
+      "expression": 0.5,
+      "temperature": 0.5,
+      "judgement": -0.33,
+      "order": -0.5,
+      "agency": 0.17,
+      "aura": 0.33
     },
     "signature": {
       "uniqueAxes": {
@@ -2858,7 +2927,8 @@
         "order": -3,
         "temperature": 3
       }
-    }
+    },
+    "matchWeight": 1.0627
   },
   {
     "id": "emilia",
@@ -2880,11 +2950,11 @@
     "note": "明明自己常常处于弱势，却还要笨拙地去照顾所有人。她的温柔里带着一种让人心疼的倔强，是个把「对不起」当成口头禅，把所有责任都往自己身上揽的老好人。让人忍不住想大喊一声：E.M.T！",
     "vector": {
       "expression": 0,
-      "temperature": 2,
-      "judgement": 1,
-      "order": 1,
-      "agency": 1,
-      "aura": 2
+      "temperature": 0.6,
+      "judgement": 0.3,
+      "order": 0.3,
+      "agency": 0.3,
+      "aura": 0.6
     },
     "signature": {
       "uniqueAxes": {
@@ -2892,7 +2962,8 @@
         "agency": 1,
         "aura": 2
       }
-    }
+    },
+    "matchWeight": 1.0997
   },
   {
     "id": "yukinoshita-yukino",
@@ -2913,12 +2984,12 @@
     ],
     "note": "像一把冷冰冰的手术刀，一开口就能精准切除你的自尊心。她不是讨厌你，她只是讨厌这个不完美的世界（以及不完美的你）。但在那层坚不可摧的冰甲和完美主义下，其实藏着一个连依赖别人都不会的笨蛋。",
     "vector": {
-      "expression": -2,
-      "temperature": -2,
-      "judgement": 3,
-      "order": 3,
-      "agency": 2,
-      "aura": 2
+      "expression": -0.34,
+      "temperature": -0.34,
+      "judgement": 0.51,
+      "order": 0.51,
+      "agency": 0.34,
+      "aura": 0.34
     },
     "signature": {
       "uniqueAxes": {
@@ -2926,7 +2997,8 @@
         "judgement": 3,
         "order": 3
       }
-    }
+    },
+    "matchWeight": 0.9895
   },
   {
     "id": "sakurajima-mai",
@@ -2947,12 +3019,12 @@
     ],
     "note": "你以为能撩到她，其实一直被她在智商和情商上疯狂拉扯。表面上是个高不可攀、行事果断的国民级女演员，背地里却能为了喜欢的人付出一切。她的爱就像她的毒舌一样，刀刀致命，又甜得让人上头。",
     "vector": {
-      "expression": 1,
-      "temperature": 1,
-      "judgement": 2,
-      "order": 2,
-      "agency": 3,
-      "aura": 3
+      "expression": 0.19,
+      "temperature": 0.19,
+      "judgement": 0.38,
+      "order": 0.38,
+      "agency": 0.57,
+      "aura": 0.57
     },
     "signature": {
       "uniqueAxes": {
@@ -2960,7 +3032,8 @@
         "aura": 3,
         "judgement": 2
       }
-    }
+    },
+    "matchWeight": 1.0837
   },
   {
     "id": "akiyama-mio",
@@ -2981,12 +3054,12 @@
     ],
     "note": "明明长着一张高冷御姐的脸，却能被一个鬼故事吓得魂飞魄散。作为团队里唯一的常识人，每天都在崩溃的边缘努力维持秩序。别看她平时那么严肃，她写的歌词可是能让猛男落泪的究极甜妹风。",
     "vector": {
-      "expression": -1,
-      "temperature": 1,
-      "judgement": 2,
-      "order": 3,
-      "agency": 1,
-      "aura": 1
+      "expression": -0.24,
+      "temperature": 0.24,
+      "judgement": 0.49,
+      "order": 0.73,
+      "agency": 0.24,
+      "aura": 0.24
     },
     "signature": {
       "uniqueAxes": {
@@ -2994,7 +3067,8 @@
         "expression": -1,
         "aura": 1
       }
-    }
+    },
+    "matchWeight": 1.0252
   },
   {
     "id": "takanashi-rikka",
@@ -3015,12 +3089,12 @@
     ],
     "note": "平时眼罩绷带齐上阵，满嘴「不可视境界线」，结果只要被轻轻敲一下头就会立马抱头蹲防。属于典型的「战斗全靠脑补，实战全靠抱大腿」。她虽然活在自己的设定里，却对感情有着最纯粹的执着。",
     "vector": {
-      "expression": 2,
-      "temperature": 1,
-      "judgement": -1,
-      "order": -2,
-      "agency": 2,
-      "aura": 2
+      "expression": 0.47,
+      "temperature": 0.24,
+      "judgement": -0.24,
+      "order": -0.47,
+      "agency": 0.47,
+      "aura": 0.47
     },
     "signature": {
       "uniqueAxes": {
@@ -3028,7 +3102,8 @@
         "order": -2,
         "judgement": -1
       }
-    }
+    },
+    "matchWeight": 1.0303
   },
   {
     "id": "kousaka-kirino",
@@ -3049,12 +3124,12 @@
     ],
     "note": "在外面是成绩运动全能的完美模特，在家里是会逼着老哥玩妹系游戏的究极宅女。她的傲娇不是加分项，而是本体——嘴上骂着「恶心」，实际心里可能已经在疯狂动摇。属于那种需要极大耐心才能攻略的“雷区舞者”。",
     "vector": {
-      "expression": 3,
-      "temperature": 1,
-      "judgement": 2,
-      "order": 2,
-      "agency": 3,
-      "aura": 2
+      "expression": 0.54,
+      "temperature": 0.18,
+      "judgement": 0.36,
+      "order": 0.36,
+      "agency": 0.54,
+      "aura": 0.36
     },
     "signature": {
       "uniqueAxes": {
@@ -3062,7 +3137,8 @@
         "agency": 3,
         "judgement": 2
       }
-    }
+    },
+    "matchWeight": 1.129
   },
   {
     "id": "amiya",
@@ -3083,12 +3159,12 @@
     ],
     "note": "表面上是乖巧可爱、随时提醒你不要休息的贴心小助理，实际上是背负着整个罗德岛命运的年轻领袖。她有着与年龄不符的沉稳与决断力，但只要你在身边，她又会露出少女那般依赖的笑容。",
     "vector": {
-      "expression": 1,
-      "temperature": 2,
-      "judgement": 2,
-      "order": 2,
-      "agency": 3,
-      "aura": 3
+      "expression": 0.18,
+      "temperature": 0.36,
+      "judgement": 0.36,
+      "order": 0.36,
+      "agency": 0.54,
+      "aura": 0.54
     },
     "signature": {
       "uniqueAxes": {
@@ -3096,7 +3172,8 @@
         "aura": 3,
         "temperature": 2
       }
-    }
+    },
+    "matchWeight": 1.0703
   },
   {
     "id": "phoebe",
@@ -3117,12 +3194,12 @@
     ],
     "note": "因为船难失去双亲，最终在隐海修会成为一名虔诚的圣职者。她将过去的创伤转化为对世界的温柔与悲悯，像静谧的海洋一般包容着所有的苦难。你看着她，就会觉得一切浮躁都能被治愈——属于标准的「灵魂避风港」。",
     "vector": {
-      "expression": -1,
-      "temperature": 3,
-      "judgement": 1,
-      "order": 2,
-      "agency": 1,
-      "aura": 2
+      "expression": -0.22,
+      "temperature": 0.67,
+      "judgement": 0.22,
+      "order": 0.45,
+      "agency": 0.22,
+      "aura": 0.45
     },
     "signature": {
       "uniqueAxes": {
@@ -3130,7 +3207,8 @@
         "order": 2,
         "expression": -1
       }
-    }
+    },
+    "matchWeight": 1.061
   },
   {
     "id": "kitashirakawa-tamako",
@@ -3151,12 +3229,12 @@
     ],
     "note": "满脑子都是年糕的商店街团宠，神经大条到连别人对自己的喜欢都察觉不到。她那种毫无防备的天然呆属性，能轻易把任何紧张的气氛化解成软糯的日常。名言大概是：没有什么事情是吃一口年糕解决不了的！",
     "vector": {
-      "expression": 2,
-      "temperature": 3,
+      "expression": 0.46,
+      "temperature": 0.69,
       "judgement": 0,
-      "order": 1,
-      "agency": 2,
-      "aura": 1
+      "order": 0.23,
+      "agency": 0.46,
+      "aura": 0.23
     },
     "signature": {
       "uniqueAxes": {
@@ -3164,7 +3242,8 @@
         "expression": 2,
         "aura": 1
       }
-    }
+    },
+    "matchWeight": 1.0635
   },
   {
     "id": "nakano-nino",
@@ -3187,12 +3266,12 @@
     ],
     "note": "一开始像只浑身带刺的刺猬，为了保护妹妹们甚至能直接给你端上一杯加料的水。但只要攻略成功，她的傲娇滤镜会瞬间粉碎，变成一辆完全没有刹车的恋爱暴走机车。属于“只要认定了你，哪怕撞南墙也要把你和墙一起撞倒”的究极直球选手。",
     "vector": {
-      "expression": 3,
-      "temperature": 2,
-      "judgement": 2,
-      "order": 1,
-      "agency": 3,
-      "aura": 2
+      "expression": 0.54,
+      "temperature": 0.36,
+      "judgement": 0.36,
+      "order": 0.18,
+      "agency": 0.54,
+      "aura": 0.36
     },
     "signature": {
       "uniqueAxes": {
@@ -3200,7 +3279,8 @@
         "agency": 3,
         "judgement": 2
       }
-    }
+    },
+    "matchWeight": 1.1069
   },
   {
     "id": "yor-forger",
@@ -3224,11 +3304,11 @@
     "note": "表面上是温婉可人、连切菜都能切到自己手的贤妻良母，背地里却是代号“荆棘公主”的顶尖杀手。她的脑回路跟她的物理战斗力一样异于常人，遇到解决不了的人际交往问题，第一反应往往是“是不是把他偷偷杀掉比较好”。",
     "vector": {
       "expression": 0,
-      "temperature": 2,
-      "judgement": -1,
-      "order": 1,
-      "agency": 2,
-      "aura": 3
+      "temperature": 0.46,
+      "judgement": -0.23,
+      "order": 0.23,
+      "agency": 0.46,
+      "aura": 0.69
     },
     "signature": {
       "uniqueAxes": {
@@ -3236,7 +3316,8 @@
         "temperature": 2,
         "judgement": -1
       }
-    }
+    },
+    "matchWeight": 1.0634
   },
   {
     "id": "sakagami-tomoyo",
@@ -3258,12 +3339,12 @@
     ],
     "note": "曾经是打遍小镇无敌手、能把人踢在半空中下不来的不良少女，现在却是认真负责、背负一切的学生会长。战斗力虽然爆表，但在喜欢的人面前却总是展现出笨拙又惹人怜爱的一面。是一个把“责任”和“爱”都死死扛在肩上的武帝。",
     "vector": {
-      "expression": 1,
-      "temperature": 1,
-      "judgement": 3,
-      "order": 3,
-      "agency": 3,
-      "aura": 2
+      "expression": 0.17,
+      "temperature": 0.17,
+      "judgement": 0.52,
+      "order": 0.52,
+      "agency": 0.52,
+      "aura": 0.35
     },
     "signature": {
       "uniqueAxes": {
@@ -3271,7 +3352,8 @@
         "order": 3,
         "agency": 3
       }
-    }
+    },
+    "matchWeight": 1.0764
   },
   {
     "id": "azusagawa-kaede",
@@ -3293,12 +3375,12 @@
     ],
     "note": "披着熊猫睡衣的重度家里蹲，把“哥哥”视为全世界的绝对中心。因为惧怕外界的视线而把自己锁在家里，但却愿意为了哥哥，用尽全身力气去完成“出门走两步”这种常人看来微不足道的小事。她的每一次鼓起勇气，都让人心疼到想给她买一车布丁。",
     "vector": {
-      "expression": -2,
-      "temperature": 2,
+      "expression": -0.67,
+      "temperature": 0.67,
       "judgement": 0,
       "order": 0,
       "agency": 0,
-      "aura": 1
+      "aura": 0.33
     },
     "signature": {
       "uniqueAxes": {
@@ -3306,7 +3388,8 @@
         "agency": 0,
         "temperature": 2
       }
-    }
+    },
+    "matchWeight": 1.0294
   },
   {
     "id": "aisaka-taiga",
@@ -3329,12 +3412,12 @@
     ],
     "note": "身高一米四出头，脾气却能掀翻屋顶的“掌中老虎”。随身携带木刀，具有强烈的攻击性，但生活自理能力基本为零。剥开那一层带刺且暴力的外壳，里面藏着的其实是一个极度渴望被爱、笨拙到连自己心意都搞不清楚的小女孩。",
     "vector": {
-      "expression": 2,
-      "temperature": 1,
-      "judgement": -1,
-      "order": -2,
-      "agency": 2,
-      "aura": 2
+      "expression": 0.47,
+      "temperature": 0.24,
+      "judgement": -0.24,
+      "order": -0.47,
+      "agency": 0.47,
+      "aura": 0.47
     },
     "signature": {
       "uniqueAxes": {
@@ -3342,7 +3425,8 @@
         "order": -2,
         "judgement": -1
       }
-    }
+    },
+    "matchWeight": 1.0218
   },
   {
     "id": "oyama-mahiro",
@@ -3364,12 +3448,12 @@
     ],
     "note": "你以为她是个天真可爱的初中生，其实躯壳里装了个无可救药的死宅。从最开始的疯狂抗拒，到后来的“女孩子真香”，她用亲身经历展示了什么叫极度被动的人格。每天的终极目标只是想缩在房间里打游戏，却总是被命运（和亲妹妹）安排得明明白白。",
     "vector": {
-      "expression": -1,
-      "temperature": 1,
-      "judgement": -2,
-      "order": -2,
-      "agency": -3,
-      "aura": 1
+      "expression": -0.22,
+      "temperature": 0.22,
+      "judgement": -0.45,
+      "order": -0.45,
+      "agency": -0.67,
+      "aura": 0.22
     },
     "signature": {
       "uniqueAxes": {
@@ -3377,7 +3461,8 @@
         "order": -2,
         "judgement": -2
       }
-    }
+    },
+    "matchWeight": 1.0172
   },
   {
     "id": "tokai-teio",
@@ -3398,12 +3483,12 @@
     ],
     "note": "永远充满活力，做梦都想成为像“皇帝”一样无败的三冠赛马娘。就算遭遇了足以终结职业生涯的粉碎性骨折，也能在所有人都不看好的绝境中奇迹复活。属于那种“只要她还在场上奔跑，你就会忍不住被她的光芒感染并大声欢呼”的耀眼存在。",
     "vector": {
-      "expression": 3,
-      "temperature": 2,
-      "judgement": 1,
-      "order": -1,
-      "agency": 3,
-      "aura": 3
+      "expression": 0.52,
+      "temperature": 0.35,
+      "judgement": 0.17,
+      "order": -0.17,
+      "agency": 0.52,
+      "aura": 0.52
     },
     "signature": {
       "uniqueAxes": {
@@ -3411,7 +3496,8 @@
         "agency": 3,
         "aura": 3
       }
-    }
+    },
+    "matchWeight": 1.0623
   },
   {
     "id": "eyjafjalla",
@@ -3432,12 +3518,12 @@
     ],
     "note": "柔弱乖巧的学妹外表下，藏着能瞬间融化整个战场的毁灭性火山魔法。尽管身体正被矿石病一点点夺走听力与视力，她依然执着于探寻父母留下的火山研究。每次战斗结束后那声甜甜的“前辈”，是对抗这片废土残酷世界最好的止痛药。",
     "vector": {
-      "expression": -1,
-      "temperature": 3,
-      "judgement": 2,
-      "order": 2,
-      "agency": 2,
-      "aura": 2
+      "expression": -0.2,
+      "temperature": 0.59,
+      "judgement": 0.39,
+      "order": 0.39,
+      "agency": 0.39,
+      "aura": 0.39
     },
     "signature": {
       "uniqueAxes": {
@@ -3445,7 +3531,8 @@
         "judgement": 2,
         "order": 2
       }
-    }
+    },
+    "matchWeight": 1.0696
   },
   {
     "id": "shorekeeper",
@@ -3466,12 +3553,12 @@
     ],
     "note": "诞生于数据的星海，原本只是个毫无感情、负责维系世界运转的观测者，却因为你的存在而长出了名为“私心”的灵魂。她能把整个世界的命运与概率算得清清楚楚，但她所有的神性与计算，最终都只为保护你这一件事而服务。",
     "vector": {
-      "expression": -2,
+      "expression": -0.37,
       "temperature": 0,
-      "judgement": 3,
-      "order": 2,
-      "agency": 2,
-      "aura": 3
+      "judgement": 0.55,
+      "order": 0.37,
+      "agency": 0.37,
+      "aura": 0.55
     },
     "signature": {
       "uniqueAxes": {
@@ -3479,7 +3566,8 @@
         "judgement": 3,
         "aura": 3
       }
-    }
+    },
+    "matchWeight": 1.0388
   },
   {
     "id": "doro",
@@ -3501,12 +3589,12 @@
     ],
     "note": "明明本体是高贵的朝圣者桃乐丝，却被网友抽象成了这只眼神呆滞、极具精神污染的四足生物。你永远不知道她那空洞的微笑背后在盘算什么，但只要她一出现，整个频道的智商都会被拉低。建议不要直视她的眼睛。",
     "vector": {
-      "expression": 3,
+      "expression": 0.47,
       "temperature": 0,
-      "judgement": -3,
-      "order": -3,
-      "agency": 2,
-      "aura": 3
+      "judgement": -0.47,
+      "order": -0.47,
+      "agency": 0.32,
+      "aura": 0.47
     },
     "signature": {
       "uniqueAxes": {
@@ -3514,7 +3602,8 @@
         "order": -3,
         "judgement": -3
       }
-    }
+    },
+    "matchWeight": 1.0065
   },
   {
     "id": "firefly",
@@ -3538,11 +3627,11 @@
     "note": "你表面像那种说话轻、动作轻、情绪也轻的人，仿佛风一吹就会散。但真正遇到必须做决定的时刻，你反而会非常坚定，甚至带一点把自己也一起押上去的决绝。属于“看起来最脆，实际最能扛”的类型。",
     "vector": {
       "expression": 0,
-      "temperature": 2,
-      "judgement": 2,
-      "order": 1,
-      "agency": 2,
-      "aura": 3
+      "temperature": 0.43,
+      "judgement": 0.43,
+      "order": 0.21,
+      "agency": 0.43,
+      "aura": 0.64
     },
     "signature": {
       "uniqueAxes": {
@@ -3550,7 +3639,8 @@
         "agency": 2,
         "aura": 3
       }
-    }
+    },
+    "matchWeight": 1.072
   },
   {
     "id": "matikanetannhauser",
@@ -3573,19 +3663,20 @@
     ],
     "note": "你身上有一种很难严肃起来的快乐污染力。哪怕本来只是普通地出现一下，也会因为脑回路太有节目效果，莫名把整个场子的气氛带歪。属于“不是传统意义上的靠谱，但一定是最难忘的那个”的类型。",
     "vector": {
-      "expression": 3,
-      "temperature": 3,
-      "judgement": -1,
-      "order": -1,
-      "agency": 1,
-      "aura": 2
+      "expression": 0.6,
+      "temperature": 0.6,
+      "judgement": -0.2,
+      "order": -0.2,
+      "agency": 0.2,
+      "aura": 0.4
     },
     "signature": {
       "uniqueAxes": {
         "expression": 3,
         "temperature": 3
       }
-    }
+    },
+    "matchWeight": 1.0148
   },
   {
     "id": "cartethyia",
@@ -3608,12 +3699,12 @@
     ],
     "note": "你不是那种会高调表达自己的人，很多情绪都会被你压进更大的目标里。别人看到的是平静、庄严和距离感，真正熟一点才会发现，那层安静下面其实是非常沉的责任心。属于“越像圣女，越说明她已经准备好付代价”的类型。",
     "vector": {
-      "expression": -1,
-      "temperature": 1,
-      "judgement": 3,
-      "order": 2,
-      "agency": 2,
-      "aura": 3
+      "expression": -0.19,
+      "temperature": 0.19,
+      "judgement": 0.57,
+      "order": 0.38,
+      "agency": 0.38,
+      "aura": 0.57
     },
     "signature": {
       "uniqueAxes": {
@@ -3621,7 +3712,8 @@
         "order": 2,
         "aura": 3
       }
-    }
+    },
+    "matchWeight": 1.0566
   },
   {
     "id": "azuma-seren",
@@ -3643,12 +3735,12 @@
     ],
     "note": "你给人的感觉像那种立绘一出来全场都以为会很仙、很稳、很像高空悬浮系角色，结果一开口就把频道拐进奇怪笑点的人。你不是没有美型滤镜，只是那层滤镜经常会被更强的怪话感、活人感和反差感抢镜。属于“设定写得像月下贵族，实际演出像抽象发动机”的类型。",
     "vector": {
-      "expression": 3,
-      "temperature": 1,
+      "expression": 0.61,
+      "temperature": 0.2,
       "judgement": 0,
-      "order": -1,
-      "agency": 2,
-      "aura": 3
+      "order": -0.2,
+      "agency": 0.41,
+      "aura": 0.61
     },
     "signature": {
       "uniqueAxes": {
@@ -3678,7 +3770,8 @@
       "label": "圈层印象映射",
       "confidence": "low",
       "summary": "主要依据公开设定、直播区常见印象与反差型人设认知映射，非官方唯一人格结论。"
-    }
+    },
+    "matchWeight": 1.0161
   },
   {
     "id": "izumi-konata",
@@ -3701,12 +3794,12 @@
     ],
     "note": "你像那种在现实里未必最勤快，但在自己熟悉的梗区、番区和游戏区里会瞬间切到高速模式的人。你不是传统社牛，更像熟人局里的高机动吐槽役，反应快、梗密度高、还很会把任何话题三步之内拐进二次元。属于“看着有点摆，其实只是把性能全点在喜欢的地方”的类型。",
     "vector": {
-      "expression": 2,
-      "temperature": 1,
+      "expression": 0.53,
+      "temperature": 0.27,
       "judgement": 0,
-      "order": -2,
-      "agency": 1,
-      "aura": 2
+      "order": -0.53,
+      "agency": 0.27,
+      "aura": 0.53
     },
     "signature": {
       "uniqueAxes": {
@@ -3736,7 +3829,8 @@
       "label": "作品角色印象",
       "confidence": "high",
       "summary": "主要依据作品中稳定呈现的御宅兴趣、高熟人区吐槽力与懒散但高反应的日常表现映射。"
-    }
+    },
+    "matchWeight": 0.9807
   },
   {
     "id": "reze",
@@ -3759,12 +3853,12 @@
     ],
     "note": "你给人的第一感觉往往很容易让人卸下防备：亲近、轻松、会接话，也很会制造那种“终于有人认真看见我了”的错觉。但你的内核并不适合被简单归类成恋爱向滤镜，很多温柔背后都带着任务、试探与风险，而最复杂的地方在于那份靠近又不是全假。属于“接近时像夏夜晚风，翻脸时像爆炸前最后一秒安静”的类型。",
     "vector": {
-      "expression": 2,
-      "temperature": 1,
-      "judgement": 1,
+      "expression": 0.41,
+      "temperature": 0.2,
+      "judgement": 0.2,
       "order": 0,
-      "agency": 3,
-      "aura": 3
+      "agency": 0.61,
+      "aura": 0.61
     },
     "signature": {
       "uniqueAxes": {
@@ -3794,7 +3888,8 @@
       "label": "作品剧情映射",
       "confidence": "high",
       "summary": "主要依据作品里“温柔接近、任务伪装、危险执行与有限真心并存”的稳定剧情张力映射。"
-    }
+    },
+    "matchWeight": 1.0431
   },
   {
     "id": "kaguya-chojikuu",
@@ -3818,11 +3913,11 @@
     "note": "你像那种存在感很高、却不会把情绪直接摊在脸上的人。你看起来离大家有点远，像悬在高处的虚拟偶像或神明 NPC，但实际上又一直在默默看着每个人怎么创作、怎么发光。属于“表面像高位冷感设定怪，底层其实很在意整个世界运转得够不够自由热闹”的类型。",
     "vector": {
       "expression": 0,
-      "temperature": 1,
-      "judgement": 2,
-      "order": 1,
-      "agency": 2,
-      "aura": 3
+      "temperature": 0.23,
+      "judgement": 0.46,
+      "order": 0.23,
+      "agency": 0.46,
+      "aura": 0.69
     },
     "signature": {
       "uniqueAxes": {
@@ -3853,7 +3948,8 @@
       "label": "官方设定映射",
       "confidence": "high",
       "summary": "主要依据官方角色页中“虚拟空间管理人、顶流主播、神秘 AI 与创作生态守望者”的稳定设定映射。"
-    }
+    },
+    "matchWeight": 1.0626
   },
   {
     "id": "bilibili-22",
@@ -3877,12 +3973,12 @@
     ],
     "note": "你属于那种会先冲上去帮忙、帮到一半再发现自己可能把场面搞得更热闹的人。你有很强的感染力，气氛低了会想拉起来，朋友出事了会先站出来，可执行过程有时又会拐进奇怪的方向。属于“虽然不一定最稳，但一定是全场最有活人感的那个”的类型。",
     "vector": {
-      "expression": 3,
-      "temperature": 3,
-      "judgement": 1,
+      "expression": 0.58,
+      "temperature": 0.58,
+      "judgement": 0.19,
       "order": 0,
-      "agency": 2,
-      "aura": 2
+      "agency": 0.38,
+      "aura": 0.38
     },
     "signature": {
       "uniqueAxes": {
@@ -3912,7 +4008,8 @@
       "label": "官方设定映射",
       "confidence": "high",
       "summary": "主要依据哔哩哔哩官方关于我们页面中“阳光热心、略冒失、姐姐位与播放器维护梗”的稳定设定映射。"
-    }
+    },
+    "matchWeight": 1.0487
   },
   {
     "id": "bilibili-33",
@@ -3936,12 +4033,12 @@
     ],
     "note": "你看起来像那种不会主动制造热闹、甚至还有点懒得解释的人，但系统一出问题就会有人下意识找你。你不一定最会安慰人，却经常是最能把事情真正修好的人。属于“表面低功耗三无，实则后台核心线程”的类型。",
     "vector": {
-      "expression": -2,
+      "expression": -0.45,
       "temperature": 0,
-      "judgement": 2,
-      "order": 2,
-      "agency": 2,
-      "aura": 2
+      "judgement": 0.45,
+      "order": 0.45,
+      "agency": 0.45,
+      "aura": 0.45
     },
     "signature": {
       "uniqueAxes": {
@@ -3972,7 +4069,8 @@
       "label": "官方设定映射",
       "confidence": "high",
       "summary": "主要依据哔哩哔哩官方关于我们页面中「沉默冷静、技术力强、略腹黑的程序员机娘」设定映射。"
-    }
+    },
+    "matchWeight": 0.96
   },
   {
     "id": "alya-kujou",
@@ -3996,12 +4094,12 @@
     ],
     "note": "看似是完美高冷、不容搭话的银发优等生，背地里却总是用俄语嘀咕些让人脸红心跳的娇羞台词。你给人的第一印象通常是不好接近、标准很高、像随时都在给周围人打分的类型。可一旦你开始把谁放进自己的「例外名单」，态度就会悄悄松动，嘴上还不承认。属于「表面高冷审判席，实际内心已经偷偷给你开后门」的类型。",
     "vector": {
-      "expression": -1,
-      "temperature": 1,
-      "judgement": 3,
-      "order": 2,
-      "agency": 2,
-      "aura": 2
+      "expression": -0.21,
+      "temperature": 0.21,
+      "judgement": 0.63,
+      "order": 0.42,
+      "agency": 0.42,
+      "aura": 0.42
     },
     "signature": {
       "uniqueAxes": {
@@ -4032,7 +4130,8 @@
       "label": "官方设定映射",
       "confidence": "high",
       "summary": "主要依据官方角色页「孤高のお姫様」、完美主义、努力家、負けず嫌い设定映射。"
-    }
+    },
+    "matchWeight": 1.0232
   },
   {
     "id": "kitagawa-marin",
@@ -4056,12 +4155,12 @@
     ],
     "note": "谁能拒绝一个把「喜欢」大声说出来，而且行动力爆表、拉着你一起疯狂出Cos的纯情辣妹呢？你是那种会把「喜欢」直接挂在脸上、看到别人认真做喜欢的事也会立刻两眼发光的人。你不只是外向，最厉害的是你会把身边人的热情一起点起来。属于「自己亮就算了，还会顺手把别人也带亮」的类型。",
     "vector": {
-      "expression": 3,
-      "temperature": 3,
+      "expression": 0.53,
+      "temperature": 0.53,
       "judgement": 0,
-      "order": -1,
-      "agency": 3,
-      "aura": 2
+      "order": -0.18,
+      "agency": 0.53,
+      "aura": 0.35
     },
     "signature": {
       "uniqueAxes": {
@@ -4092,7 +4191,8 @@
       "label": "官方设定映射",
       "confidence": "high",
       "summary": "主要依据动画官网「明るく裏表のない」、班级人气者、热爱动画游戏漫画并向往cosplay设定映射。"
-    }
+    },
+    "matchWeight": 1.0187
   },
   {
     "id": "zero-two",
@@ -4115,12 +4215,12 @@
     ],
     "note": "带着危险气息的粉发机甲驾驶员，一句「Darling」直接喊到人骨头里发酥。你身上有一种很强的「别靠太近但又让人忍不住想靠近」的危险感。你不是好接近的温柔挂，而是那种一旦认定一个目标或一个人，就会把所有情绪都烧过去的类型。属于「明知危险，但也想靠近的致命诱惑」。",
     "vector": {
-      "expression": 3,
-      "temperature": 2,
-      "judgement": -1,
-      "order": -2,
-      "agency": 3,
-      "aura": 3
+      "expression": 0.5,
+      "temperature": 0.33,
+      "judgement": -0.17,
+      "order": -0.33,
+      "agency": 0.5,
+      "aura": 0.5
     },
     "signature": {
       "uniqueAxes": {
@@ -4151,7 +4251,8 @@
       "label": "官方设定映射",
       "confidence": "high",
       "summary": "主要依据官站剧情中「头上有双角、带强烈危险气质」、称Hiro为Darling、后期与13部队并肩作战设定映射。"
-    }
+    },
+    "matchWeight": 0.9855
   },
   {
     "id": "kinomoto-sakura",
@@ -4175,12 +4276,12 @@
     ],
     "note": "初代萌王，她的那句「絶対、大丈夫だよ」堪称能治愈一切精神内耗的终极咒语。你最大的优点不是单纯开朗，而是总能带着一点天然和真诚把复杂的事也往前推。别人觉得麻烦时，你会先上手；别人害怕时，你反而会用很轻的方式把气氛托住。属于「像春天一样看着软，实际非常能打」的类型。",
     "vector": {
-      "expression": 3,
-      "temperature": 3,
-      "judgement": 1,
+      "expression": 0.58,
+      "temperature": 0.58,
+      "judgement": 0.19,
       "order": 0,
-      "agency": 2,
-      "aura": 2
+      "agency": 0.38,
+      "aura": 0.38
     },
     "signature": {
       "uniqueAxes": {
@@ -4210,7 +4311,8 @@
       "label": "官方设定映射",
       "confidence": "high",
       "summary": "主要依据官方站「元气がとりえ」的小学四年生、作为卡牌捕获者行动设定映射。"
-    }
+    },
+    "matchWeight": 0.9948
   },
   {
     "id": "tokisaki-kurumi",
@@ -4233,12 +4335,12 @@
     ],
     "note": "把「优雅」和「疯批」完美结合的病娇界天花板。你很会控制场面，也很会控制自己想给别人看到的样子。外表优雅、说话得体、甚至显得很有礼貌，但真正的核心从来不会随便交出去。属于「你以为她在暧昧，其实她可能已经把局势推到下一阶段了」的类型。",
     "vector": {
-      "expression": 1,
-      "temperature": -2,
-      "judgement": 3,
-      "order": 1,
-      "agency": 3,
-      "aura": 3
+      "expression": 0.17,
+      "temperature": -0.35,
+      "judgement": 0.52,
+      "order": 0.17,
+      "agency": 0.52,
+      "aura": 0.52
     },
     "signature": {
       "uniqueAxes": {
@@ -4269,7 +4371,8 @@
       "label": "官方设定映射",
       "confidence": "high",
       "summary": "主要依据《约战》官站「最悪の精霊」、危险且有大目的设定映射。"
-    }
+    },
+    "matchWeight": 1.0503
   },
   {
     "id": "yuuki-asuna",
@@ -4293,12 +4396,12 @@
     ],
     "note": "上能拔剑打前线砍翻BOSS，下能买菜做饭提供满分情绪价值。你不是那种只会安慰人的温柔派，你更像会一边安慰你一边把问题直接处理掉的人。你对重要的人很上心，也很难对陷入困境的人坐视不管。属于「气质很像白月光，做事方式却很像队伍主心骨」的类型。",
     "vector": {
-      "expression": 2,
-      "temperature": 2,
-      "judgement": 2,
-      "order": 2,
-      "agency": 3,
-      "aura": 2
+      "expression": 0.37,
+      "temperature": 0.37,
+      "judgement": 0.37,
+      "order": 0.37,
+      "agency": 0.56,
+      "aura": 0.37
     },
     "signature": {
       "uniqueAxes": {
@@ -4329,7 +4432,8 @@
       "label": "官方设定映射",
       "confidence": "high",
       "summary": "主要依据SAO官方站从最初悲观到决意战斗、后来被反复写成会主动去救Kirito的核心角色设定映射。"
-    }
+    },
+    "matchWeight": 1.0561
   },
   {
     "id": "artoria-pendragon",
@@ -4352,12 +4456,12 @@
     ],
     "note": "头顶呆毛的骑士王，平时是严肃古板、恪守骑士精神的君主，到了饭点则是能把卫宫家吃破产的无底洞。你看起来很稳，很难被轻易撼动，像那种会把原则和责任感都执行到近乎苛刻的人。你不是冷漠，只是太习惯先把自己放到最后。属于「哪怕心里有波动，表面也还是会先站成一把剑」的类型。",
     "vector": {
-      "expression": -1,
-      "temperature": 1,
-      "judgement": 3,
-      "order": 3,
-      "agency": 2,
-      "aura": 3
+      "expression": -0.17,
+      "temperature": 0.17,
+      "judgement": 0.52,
+      "order": 0.52,
+      "agency": 0.35,
+      "aura": 0.52
     },
     "signature": {
       "uniqueAxes": {
@@ -4388,7 +4492,8 @@
       "label": "官方设定映射",
       "confidence": "high",
       "summary": "主要依据Fate官站与士郎契约的最优从者、TYPE-MOON系资料中重视骑士道、公平对决的王设定映射。"
-    }
+    },
+    "matchWeight": 0.9681
   },
   {
     "id": "qb",
@@ -4398,7 +4503,8 @@
     "image": "/images/characters/丘比.webp",
     "matchCode": "INTJ",
     "matchCodeFlex": [
-      "INFJ", "INTP"
+      "INFJ",
+      "INTP"
     ],
     "code": "IQBT",
     "title": "孵化者·宇宙热寂的阻止者",
@@ -4411,12 +4517,12 @@
     ],
     "note": "外表是可爱的白色猫型生物，实则是来自外星的「孵化者」。没有感情，以绝对理性的功利主义行事。会实现少女的任何愿望，代价是成为魔法少女——但不会告诉你，绝望之后会变成魔女。从不撒谎，只是「省略了部分说明」。认为牺牲少数人拯救宇宙是合理的交换。名言：「你们人类为什么会对这种事情感到愤怒呢？」",
     "vector": {
-      "expression": -3,
-      "temperature": -3,
-      "judgement": 3,
-      "order": 3,
-      "agency": 3,
-      "aura": -3
+      "expression": -0.41,
+      "temperature": -0.41,
+      "judgement": 0.41,
+      "order": 0.41,
+      "agency": 0.41,
+      "aura": -0.41
     },
     "signature": {
       "uniqueAxes": {
@@ -4441,7 +4547,8 @@
           "weight": 1.3
         }
       ]
-    }
+    },
+    "matchWeight": 1.0252
   },
   {
     "id": "kushima-kamome",
@@ -4465,12 +4572,12 @@
     ],
     "note": "拉着大行李箱在岛上徘徊的神秘少女，手里拿着一张陈旧的藏宝图。性格自由奔放又带着成熟的气质，喜欢三角形的甜点。她说自己在寻找海盗船停泊的地方，但行李箱里到底装着什么，她绝对不会告诉任何人。那句「出发吧，再一次，向着那有海盗船的地方」背后，藏着一个关于友情与告别的夏日故事。",
     "vector": {
-      "expression": 2,
-      "temperature": 2,
-      "judgement": 1,
-      "order": -1,
-      "agency": 2,
-      "aura": 1
+      "expression": 0.52,
+      "temperature": 0.52,
+      "judgement": 0.26,
+      "order": -0.26,
+      "agency": 0.52,
+      "aura": 0.26
     },
     "signature": {
       "uniqueAxes": {
@@ -4495,7 +4602,8 @@
           "weight": 1.2
         }
       ]
-    }
+    },
+    "matchWeight": 0.9971
   },
   {
     "id": "makise-kurisu",
@@ -4521,10 +4629,10 @@
     "vector": {
       "expression": 0,
       "temperature": 0,
-      "judgement": 3,
-      "order": 2,
-      "agency": 3,
-      "aura": 2
+      "judgement": 0.59,
+      "order": 0.39,
+      "agency": 0.59,
+      "aura": 0.39
     },
     "signature": {
       "uniqueAxes": {
@@ -4555,7 +4663,8 @@
       "label": "作品剧情映射",
       "confidence": "high",
       "summary": "主要依据《命运石之门》中天才科学家身份、理性分析能力与隐藏的温柔一面映射。"
-    }
+    },
+    "matchWeight": 1.0481
   },
   {
     "id": "shiina-mayuri",
@@ -4579,12 +4688,12 @@
     ],
     "note": "她的存在本身就像一个温柔的锚点——不管世界线怎么变动、不管时间机器把一切搅得多乱，她都会笑着对你说一句「嘟嘟噜」。你不是那种会主动解决问题的人，但你有一种神奇的能力：只要你在，周围的人就会觉得「好像也没那么糟」。属于「看起来最柔弱，实际上撑住了整个团队精神状态」的类型。",
     "vector": {
-      "expression": 3,
-      "temperature": 3,
+      "expression": 0.61,
+      "temperature": 0.61,
       "judgement": 0,
-      "order": -1,
-      "agency": 1,
-      "aura": 2
+      "order": -0.2,
+      "agency": 0.2,
+      "aura": 0.41
     },
     "signature": {
       "uniqueAxes": {
@@ -4614,7 +4723,8 @@
       "label": "作品剧情映射",
       "confidence": "high",
       "summary": "主要依据《命运石之门》中作为精神支柱、温柔接纳一切的「命运天使」形象映射。"
-    }
+    },
+    "matchWeight": 0.9717
   },
   {
     "id": "amane-suzuha",
@@ -4638,12 +4748,12 @@
     ],
     "note": "从2036年骑着自行车穿越回来的人，比起「思考人生」更擅长直接动手改变它。你身上有一种很纯粹的执行力——认准了目标就会冲上去，坚定地奋斗到底。你不是那种会在意别人怎么看自己的人，但你对重要的事和重要的人有着近乎执拗的追求。属于「嘴上不说，但会用行动把整个世界扛起来」的类型。",
     "vector": {
-      "expression": 2,
-      "temperature": 1,
-      "judgement": 1,
+      "expression": 0.41,
+      "temperature": 0.2,
+      "judgement": 0.2,
       "order": 0,
-      "agency": 3,
-      "aura": 3
+      "agency": 0.61,
+      "aura": 0.61
     },
     "signature": {
       "uniqueAxes": {
@@ -4673,6 +4783,7 @@
       "label": "作品剧情映射",
       "confidence": "high",
       "summary": "主要依据《命运石之门》中来自未来的反抗军战士、高行动力与使命感并存的设定映射。"
-    }
+    },
+    "matchWeight": 1.0599
   }
 ]

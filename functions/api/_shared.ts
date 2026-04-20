@@ -42,10 +42,10 @@ export function isValidUuid(val: string): boolean {
  */
 export function validateAnswers(
   answers: unknown,
-  expectedCount: number,
+  expectedCount?: number,
 ): Array<{ questionId: string; answerValue: number }> | null {
   if (!Array.isArray(answers)) return null
-  if (answers.length !== expectedCount) return null
+  if (expectedCount !== undefined && answers.length !== expectedCount) return null
 
   const result: Array<{ questionId: string; answerValue: number }> = []
   for (const a of answers) {

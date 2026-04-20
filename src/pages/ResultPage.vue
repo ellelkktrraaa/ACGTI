@@ -5,6 +5,7 @@ import { useRoute, useRouter } from 'vue-router'
 import AdsenseSlot from '../components/AdsenseSlot.vue'
 import AppIcon from '../components/AppIcon.vue'
 import { useShare } from '../composables/useShare'
+import { useSeo } from '../composables/useSeo'
 import { useQuiz } from '../composables/useQuiz'
 import { socialIcons, type SocialIconBrand } from '../data/socialIcons'
 import { useI18n } from '../i18n'
@@ -12,7 +13,7 @@ import { getHiddenCharacterNote, getHiddenCharacterTags, getHiddenCharacterTitle
 import { getCharacterRarityMeta } from '../utils/characterRarity'
 import { formatCharacterProbability } from '../utils/characterProbability'
 import { normalizeMbtiCode } from '../utils/quizEngine'
-import { reportResultInBackground, submitFeedback } from '../utils/statsReporter'
+import { reportResultInBackground, submitFeedback, fetchResultStats, type ResultStats } from '../utils/statsReporter'
 
 // SharePoster 只在用户点击"导出图片"时才加载和挂载
 const SharePosterAsync = defineAsyncComponent(() => import('../components/SharePoster.vue'))
@@ -28,6 +29,28 @@ const posterRef = ref<{ rootEl: HTMLElement | null } | null>(null)
 const shouldMountPoster = ref(false)
 const { locale, t, tm } = useI18n()
 const resultAdSlot = String(import.meta.env.VITE_ADSENSE_SLOT_RESULT ?? '').trim()
+const liveStats = ref<ResultStats | null>(null)
+
+// 动态 SEO：根据测试结果更新页面标题
+const seoTitle = computed(() => {
+  if (result.value) {
+    const name = result.value.code || result.value.mbtiCode || ''
+    return `测试结果 ${name} - ACGTI`
+  }
+  return '你的测试结果 - ACGTI | 二次元角色原型测试'
+})
+useSeo({
+  title: seoTitle,
+  description: '查看你的 ACGTI 二次元角色原型测试结果，了解你的角色代码、MBTI 维度倾向和对应二次元角色原型解析。',
+  path: '/result',
+})
+
+function formatCount(n: number): string {
+  if (n >= 10000) {
+    return n.toLocaleString()
+  }
+  return String(n)
+}
 
 const heroQuote = computed(() => {
   if (!result.value) return ''
@@ -55,15 +78,51 @@ onMounted(async () => {
   quiz.resumeLastResult()
   applyDebugResultFromRoute()
 
+  // Turnstile temporarily disabled.
+  // await loadRuntimeTurnstileSiteKey()
+  // logTurnstileDiagnostics('result-page-mounted:after-runtime-load', {
+  //   finalKey: summarizeKeyForLog(turnstileSiteKey.value),
+  // })
+
   if (!result.value) {
     void router.replace('/quiz')
     return
   }
 
+  // 获取站内真实统计数据（fire-and-forget）
+  const charCode = result.value.code || result.value.mbtiCode || ''
+  const archCode = result.value.archetype?.id || ''
+  if (charCode || archCode) {
+    fetchResultStats(charCode, archCode).then((data) => {
+      if (data) liveStats.value = data
+    })
+  }
+
+  // Turnstile temporarily disabled.
+  // void mountTurnstileWidget()
+
   // 后台静默上报（fire-and-forget）
-  submissionId.value = crypto.randomUUID()
+  const record = quiz.state.latestRecord
+  const answerCount = Array.isArray(record?.answers)
+    ? record.answers.filter((v: number) => Number.isFinite(v) && v >= -3 && v <= 3).length
+    : 0
+
+  // 没有完整答案不上报（debug 结果、分享链接等场景）
+  if (answerCount < quiz.questions.value.length) {
+    console.log('⏭️ Skip submit: answers incomplete', { answerCount, expected: quiz.questions.value.length })
+    return
+  }
+
+  // 会话级去重：同一测试结果只上报一次
+  const reportKey = `acgti:reported:${record?.createdAt ?? 'unknown'}`
+  if (sessionStorage.getItem(reportKey)) {
+    console.log('⏭️ Skip submit: already reported in this session')
+    return
+  }
+
   const payload = buildSubmitPayload()
   if (payload) {
+    sessionStorage.setItem(reportKey, '1')
     reportResultInBackground(payload)
   }
 })
@@ -427,36 +486,118 @@ function viewMatchedCharacter(characterId: string) {
 }
 
 // ── 统计上报：结果确定后 fire-and-forget 上报 ──
-const submissionId = ref<string>('')
 
 function buildSubmitPayload() {
-  if (!result.value) return null
+  if (!result.value) {
+    console.error('❌ buildSubmitPayload: result.value is null')
+    return null
+  }
   const r = result.value
   const scores = r.scores
 
-  // 从 localStorage 拿 answers（useQuiz state 里存的）
-  const record = quiz.state.latestRecord
-  const rawAnswers = record?.answers ?? []
+  console.log('📋 Result object:', {
+    code: r.code,
+    mbtiCode: r.mbtiCode,
+    archetypeId: r.archetype.id,
+    scoresKeys: Object.keys(scores),
+  })
 
-  return {
-    submissionId: submissionId.value,
-    archetypeCode: r.archetype.id,
-    characterCode: r.code || r.mbtiCode,
-    predictedMbti: r.mbtiCode || undefined,
-    dimensionScores: {
-      ei: scores.E_I?.percentage ?? null,
-      sn: scores.S_N?.percentage ?? null,
-      tf: scores.T_F?.percentage ?? null,
-      jp: scores.J_P?.percentage ?? null,
-    },
-    answers: rawAnswers.length > 0
-      ? rawAnswers.map((val: number, idx: number) => ({
-          questionId: `q${idx + 1}`,
-          answerValue: val,
-        }))
-      : undefined,
-    durationMs: undefined,
+  const submissionIdValue = ensureSubmissionId()
+  const record = quiz.state.latestRecord
+
+  let durationMs = 30000 // 默认值 30 秒
+  if (record?.startedAt && record?.createdAt) {
+    const start = new Date(record.startedAt).getTime()
+    const end = new Date(record.createdAt).getTime()
+    const calculated = end - start
+    // 确保在后端接受的范围内：1000-3600000 ms
+    if (calculated >= 1000 && calculated <= 3600000) {
+      durationMs = calculated
+    }
   }
+
+  // 收集答案列表，供后端校验"是否真正完成测试"
+  const answerList = collectAnswerList()
+
+  const payload = {
+    submissionId: submissionIdValue,
+    archetypeCode: r.archetype?.id || 'unknown-archetype',
+    characterCode: r.code || r.mbtiCode || 'UNKN',
+    predictedMbti: r.mbtiCode && /^[EI][SN][TF][JP]$/i.test(r.mbtiCode) ? r.mbtiCode : undefined,
+    dimensionScores: {
+      ei: typeof scores.E_I?.percentage === 'number' ? Math.max(0, Math.min(100, scores.E_I.percentage)) : 50,
+      sn: typeof scores.S_N?.percentage === 'number' ? Math.max(0, Math.min(100, scores.S_N.percentage)) : 50,
+      tf: typeof scores.T_F?.percentage === 'number' ? Math.max(0, Math.min(100, scores.T_F.percentage)) : 50,
+      jp: typeof scores.J_P?.percentage === 'number' ? Math.max(0, Math.min(100, scores.J_P.percentage)) : 50,
+    },
+    durationMs,
+    answers: answerList,
+  }
+
+  console.log('✅ Payload validation:', {
+    submissionIdValid: /^[0-9a-f-]+$/.test(payload.submissionId),
+    archetypeCodeValid: /^[A-Za-z0-9_-]{1,32}$/.test(payload.archetypeCode),
+    characterCodeValid: /^[A-Za-z0-9_-]{1,32}$/.test(payload.characterCode),
+    durationMsValid: payload.durationMs >= 1000 && payload.durationMs <= 3600000,
+    dimensionScoresValid: Object.values(payload.dimensionScores).every(v => typeof v === 'number' && v >= 0 && v <= 100),
+  })
+
+  return payload
+}
+
+function collectAnswerList() {
+  const record = quiz.state.latestRecord
+  const recordAnswers = Array.isArray(record?.answers) ? record.answers : []
+  const stateAnswers = Array.isArray(quiz.state.answers) ? quiz.state.answers : []
+  const rawAnswers = recordAnswers.length > 0 ? recordAnswers : stateAnswers
+  const answerSource = recordAnswers.length > 0 ? 'latestRecord' : 'quiz.state'
+  const answerList = rawAnswers
+    .map((val: number, idx: number) => {
+      if (!Number.isFinite(val) || val < -3 || val > 3) {
+        return null
+      }
+      const questionId = quiz.questions.value[idx]?.id ?? `q${idx + 1}`
+      return {
+        questionId,
+        answerValue: Math.max(-2, Math.min(2, Math.round(val))),
+      }
+    })
+    .filter((item): item is { questionId: string; answerValue: number } => item !== null)
+
+  const questionCount = quiz.questions.value.length
+  console.log('📋 Feedback answer source:', {
+    answerSource,
+    questionCount,
+    recordAnswersCount: recordAnswers.length,
+    stateAnswersCount: stateAnswers.length,
+    answerCount: answerList.length,
+    answerPreview: answerList.slice(0, 3),
+  })
+
+  if (answerList.length !== questionCount) {
+    console.warn('⚠️ Feedback answers count mismatch:', {
+      questionCount,
+      answerCount: answerList.length,
+      missingCount: Math.max(0, questionCount - answerList.length),
+    })
+  }
+
+  return answerList
+}
+
+function ensureSubmissionId() {
+  // 优先使用 record 中存储的稳定 ID（方案三：开始测试时生成，一路沿用）
+  const record = quiz.state.latestRecord
+  if (record?.submissionId) {
+    return record.submissionId
+  }
+
+  // 旧记录可能没有 submissionId，生成一个并回写
+  const newId = crypto.randomUUID()
+  if (record) {
+    ;(record as any).submissionId = newId
+  }
+  return newId
 }
 
 // ── 用户反馈 ──
@@ -469,23 +610,32 @@ const feedbackNote = ref('')
 const feedbackSubmitting = ref(false)
 const feedbackDone = ref(false)
 const feedbackError = ref('')
-
 const feedbackMbtiComplete = computed(() =>
   feedbackEi.value && feedbackSn.value && feedbackTf.value && feedbackJp.value
 )
 
+const feedbackCanSubmit = computed(() =>
+  !!feedbackMbtiComplete.value && feedbackConfidence.value > 0 && !feedbackSubmitting.value
+)
+
 async function handleFeedbackSubmit() {
   if (!feedbackMbtiComplete.value) return
+
   feedbackSubmitting.value = true
   feedbackError.value = ''
 
   const selfMbti = feedbackEi.value + feedbackSn.value + feedbackTf.value + feedbackJp.value
+  const answers = collectAnswerList()
 
   const ok = await submitFeedback({
-    submissionId: submissionId.value,
+    submissionId: ensureSubmissionId(),
     selfMbti,
     confidence: feedbackConfidence.value,
     note: feedbackNote.value || undefined,
+    answers,
+    predictedMbti: result.value?.mbtiCode || undefined,
+    archetypeCode: result.value?.archetype?.id || undefined,
+    characterCode: result.value?.code || result.value?.mbtiCode || undefined,
   })
 
   feedbackSubmitting.value = false
@@ -523,29 +673,42 @@ async function handleFeedbackSubmit() {
           </div>
           <p class="hero-quote">{{ heroQuote }}</p>
 
-          <div class="hero-actions">
-            <button class="action-btn light" @click="copyText">
-              <AppIcon name="copy" />
-              {{ t('result.copy') }}
-            </button>
-            <button
-              class="action-btn hero-export-btn"
-              :disabled="share.isExporting.value"
-              :style="{ backgroundColor: resultThemeColor, color: '#fff' }"
-              @click="exportPosterImage"
-            >
-              <AppIcon name="spinner" v-if="share.isExporting.value" style="animation: spin 1s linear infinite" />
-              <AppIcon name="download" v-else />
-              {{ share.isExporting.value ? t('common.generating', undefined, '生成中...') : t('common.saveImage', undefined, '生成并分享次元身份卡') }}
-            </button>
-            <a href="https://github.com/tianxingleo/ACGTI" target="_blank" rel="noopener noreferrer" class="action-btn" style="background: rgba(255, 255, 255, 0.2); color: white; text-decoration: none; border: none;">
-              <svg style="width: 18px; height: 18px;" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-              GitHub Star
-            </a>
-            <button class="action-btn ghost" @click="retry">
-              <AppIcon name="refresh" />
-              {{ t('result.retry') }}
-            </button>
+          <div class="hero-actions-container">
+            <div class="hero-actions primary">
+              <button class="action-btn light" @click="copyText">
+                <AppIcon name="copy" />
+                {{ t('result.copy') }}
+              </button>
+              <button
+                class="action-btn hero-export-btn"
+                :disabled="share.isExporting.value"
+                :style="{ backgroundColor: resultThemeColor, color: '#fff' }"
+                @click="exportPosterImage"
+              >
+                <AppIcon name="spinner" v-if="share.isExporting.value" style="animation: spin 1s linear infinite" />
+                <AppIcon name="download" v-else />
+                {{ share.isExporting.value ? t('common.generating', undefined, '生成中...') : t('common.saveImage', undefined, '生成并分享次元身份卡') }}
+              </button>
+            </div>
+            
+            <div class="hero-actions secondary">
+              <button class="action-btn ghost" @click="retry">
+                <AppIcon name="refresh" />
+                {{ t('result.retry') }}
+              </button>
+              <button class="action-btn ghost" @click="router.push('/stats')">
+                <svg style="width: 18px; height: 18px;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                {{ t('app.nav.stats') }}
+              </button>
+              <RouterLink to="/sponsor" class="action-btn ghost" style="text-decoration: none;">
+                <svg style="width: 18px; height: 18px;" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                {{ t('result.sponsorHero') }}
+              </RouterLink>
+              <a href="https://github.com/tianxingleo/ACGTI" target="_blank" rel="noopener noreferrer" class="action-btn ghost" style="text-decoration: none;">
+                <svg style="width: 18px; height: 18px;" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                GitHub Star
+              </a>
+            </div>
           </div>
           <p v-if="share.feedback.value" class="hero-feedback">{{ share.feedback.value }}</p>
         </div>
@@ -585,6 +748,50 @@ async function handleFeedbackSubmit() {
           <div v-if="primaryCharacter?.personaBasis?.type === 'fandom-impression'" class="persona-basis-notice">
             <span class="persona-basis-badge">{{ t('result.personaBasisBadge') }}</span>
             <p class="persona-basis-summary">{{ t('result.personaBasisTip') }}</p>
+          </div>
+        </section>
+
+        <section class="live-stats-section" v-reveal>
+          <div class="section-title-wrap">
+            <div class="section-index">★</div>
+            <h2 class="section-title">{{ t('result.liveStats.title') }}</h2>
+          </div>
+          <div v-if="liveStats && (liveStats.sameCharacterCount > 0 || liveStats.sameArchetypeCount > 0)" class="live-stats-card">
+            <div class="live-stats-grid">
+              <div v-if="liveStats.sameCharacterCount > 0" class="live-stat-item">
+                <span class="live-stat-value">{{ formatCount(liveStats.sameCharacterCount) }}</span>
+                <span class="live-stat-label">{{ t('result.liveStats.sameCharacter', { count: formatCount(liveStats.sameCharacterCount) }) }}</span>
+              </div>
+              <div v-if="liveStats.sameArchetypeCount > 0" class="live-stat-item">
+                <span class="live-stat-value">{{ formatCount(liveStats.sameArchetypeCount) }}</span>
+                <span class="live-stat-label">{{ t('result.liveStats.sameArchetype', { count: formatCount(liveStats.sameArchetypeCount) }) }}</span>
+              </div>
+              <div v-if="liveStats.sameCharacterPercent > 0" class="live-stat-item">
+                <span class="live-stat-value">{{ liveStats.sameCharacterPercent }}%</span>
+                <span class="live-stat-label">{{ t('result.liveStats.sitePercent', { percent: liveStats.sameCharacterPercent }) }}</span>
+              </div>
+              <div v-if="liveStats.characterRank" class="live-stat-item live-stat-item--rank">
+                <span class="live-stat-value">#{{ liveStats.characterRank }}</span>
+                <span class="live-stat-label">{{ t('result.liveStats.characterRank', { rank: liveStats.characterRank }) }}</span>
+              </div>
+            </div>
+            <p class="live-stats-hint">{{ t('result.liveStats.updateHint') }}</p>
+          </div>
+          <div v-else class="live-stats-card live-stats-card--loading">
+            <div class="live-stats-grid">
+              <div class="live-stat-item live-stat-item--skeleton">
+                <span class="live-stat-value">--</span>
+                <span class="live-stat-label">{{ t('result.liveStats.sameCharacter', { count: '--' }) }}</span>
+              </div>
+              <div class="live-stat-item live-stat-item--skeleton">
+                <span class="live-stat-value">--</span>
+                <span class="live-stat-label">{{ t('result.liveStats.sameArchetype', { count: '--' }) }}</span>
+              </div>
+              <div class="live-stat-item live-stat-item--skeleton">
+                <span class="live-stat-value">--%</span>
+                <span class="live-stat-label">{{ t('result.liveStats.sitePercent', { percent: '--' }) }}</span>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -783,13 +990,30 @@ async function handleFeedbackSubmit() {
 
             <button
               class="feedback-submit-btn"
-              :disabled="!feedbackMbtiComplete || feedbackConfidence === 0 || feedbackSubmitting"
+              :disabled="!feedbackCanSubmit"
               @click="handleFeedbackSubmit"
             >
               {{ feedbackSubmitting ? t('result.feedbackSubmitting', undefined, '提交中...') : t('result.feedbackSubmit', undefined, '提交反馈') }}
             </button>
 
             <p v-if="feedbackError" class="feedback-error">{{ feedbackError }}</p>
+          </div>
+        </section>
+
+        <!-- Discussion CTA -->
+        <section class="discussion-section" v-reveal>
+          <div class="discussion-card">
+            <h3 class="discussion-title">{{ t('result.discussionTitle') }}</h3>
+            <p class="discussion-copy">{{ t('result.discussionCopy') }}</p>
+            <a
+              href="https://github.com/tianxingleo/ACGTI/discussions"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="discussion-button"
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 18px; height: 18px;"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+              {{ t('result.discussionButton') }}
+            </a>
           </div>
         </section>
 
@@ -810,7 +1034,23 @@ async function handleFeedbackSubmit() {
           <p class="profile-probability">{{ raritySummaryLabel }}</p>
           <p class="profile-probability">{{ rarityRankLabel }}</p>
           <p class="profile-probability">{{ probabilityLabel }}</p>
-          
+
+          <div v-if="liveStats && liveStats.sameCharacterCount > 0" class="sidebar-live-stats">
+            <div class="sidebar-live-stat">
+              <span class="sidebar-live-stat-dot"></span>
+              <span>{{ t('result.liveStats.sameCharacter', { count: formatCount(liveStats.sameCharacterCount) }) }}</span>
+            </div>
+            <div v-if="liveStats.sameArchetypeCount > 0" class="sidebar-live-stat">
+              <span class="sidebar-live-stat-dot"></span>
+              <span>{{ t('result.liveStats.sameArchetype', { count: formatCount(liveStats.sameArchetypeCount) }) }}</span>
+            </div>
+            <div v-if="liveStats.characterRank" class="sidebar-live-stat">
+              <span class="sidebar-live-stat-dot"></span>
+              <span>{{ t('result.liveStats.characterRank', { rank: liveStats.characterRank }) }}</span>
+            </div>
+            <p class="sidebar-live-hint">{{ t('result.liveStats.updateHint') }}</p>
+          </div>
+
           <div v-if="primaryCharacter && displayTags.length" class="sidebar-tags-wrap" style="margin-top: 16px;">
             <span v-for="tag in displayTags" :key="tag"># {{ tag }}</span>
           </div>
@@ -933,7 +1173,7 @@ async function handleFeedbackSubmit() {
   }
 
   .hero-copy {
-    margin-top: 30px;
+    margin-top: 0; /* Changed from 30px */
   }
 }
 
@@ -1063,11 +1303,22 @@ async function handleFeedbackSubmit() {
   opacity: 0.86;
 }
 
+.hero-actions-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 36px;
+}
+
 .hero-actions {
   display: flex;
-  gap: 16px;
+  gap: 12px;
   flex-wrap: wrap;
-  margin-top: 36px;
+}
+
+/* Let the secondary row wrap nicely on smaller screens and not be as prominent */
+.hero-actions.secondary {
+  gap: 10px;
 }
 
 .action-btn {
@@ -1084,6 +1335,11 @@ async function handleFeedbackSubmit() {
   box-shadow: var(--hero-pill-shadow);
   backdrop-filter: var(--hero-pill-backdrop);
   transition: transform 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease, border-color 0.18s ease;
+}
+
+.hero-actions.secondary .action-btn {
+  padding: 8px 14px;
+  font-size: 14px;
 }
 
 .action-btn:disabled {
@@ -2419,6 +2675,30 @@ async function handleFeedbackSubmit() {
   color: #b5bfc7;
 }
 
+.turnstile-block {
+  margin-bottom: 20px;
+}
+
+.turnstile-container {
+  min-height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 4px 0;
+}
+
+.turnstile-hint {
+  margin: 8px 0 0;
+  color: #8f9ba5;
+  font-size: 13px;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+.turnstile-hint--error {
+  color: #e26666;
+}
+
 .feedback-submit-btn {
   display: inline-flex;
   align-items: center;
@@ -2474,6 +2754,196 @@ async function handleFeedbackSubmit() {
   .feedback-card {
     padding: 16px;
     border-radius: 14px;
+  }
+}
+
+/* ── Live Stats ── */
+.live-stats-section {
+  margin-top: 32px;
+  scroll-margin-top: 88px;
+}
+
+.live-stats-card {
+  background: linear-gradient(180deg, #ffffff, #fbfdfb);
+  border: 1px solid #e8ecef;
+  border-radius: 18px;
+  padding: 24px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+
+.live-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.live-stat-item {
+  text-align: center;
+  padding: 16px 12px;
+  border-radius: 12px;
+  background: #f8f9fa;
+  border: 1px solid #edf0f2;
+}
+
+.live-stat-item--rank {
+  background: linear-gradient(135deg, #fffdf5 0%, #ffffff 100%);
+  border-color: #f0e2b0;
+}
+
+.live-stat-value {
+  display: block;
+  font-size: 28px;
+  font-weight: 800;
+  color: #33a474;
+  line-height: 1.2;
+}
+
+.live-stat-item--rank .live-stat-value {
+  color: #e4ae3a;
+}
+
+.live-stat-label {
+  display: block;
+  margin-top: 8px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #5f6b75;
+  font-weight: 600;
+}
+
+.live-stats-hint {
+  margin: 16px 0 0;
+  text-align: right;
+  font-size: 11px;
+  color: #9aa3ab;
+  font-weight: 500;
+}
+
+.live-stats-card--loading {
+  opacity: 0.6;
+}
+
+.live-stat-item--skeleton .live-stat-value {
+  color: #cdd4d9;
+}
+
+.sidebar-live-stats {
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid #eef0f2;
+  display: grid;
+  gap: 10px;
+}
+
+.sidebar-live-stat {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #5f6b75;
+  font-weight: 600;
+}
+
+.sidebar-live-stat-dot {
+  flex-shrink: 0;
+  width: 6px;
+  height: 6px;
+  margin-top: 6px;
+  border-radius: 50%;
+  background: #33a474;
+}
+
+.sidebar-live-hint {
+  margin: 4px 0 0;
+  font-size: 11px;
+  color: #9aa3ab;
+  font-weight: 500;
+}
+
+@media (max-width: 520px) {
+  .live-stats-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .live-stat-value {
+    font-size: 22px;
+  }
+
+  .live-stat-label {
+    font-size: 12px;
+  }
+
+  .live-stats-card {
+    padding: 16px;
+    border-radius: 14px;
+  }
+}
+
+/* ── Discussion CTA ── */
+.discussion-section {
+  margin-top: 32px;
+}
+
+.discussion-card {
+  background: linear-gradient(135deg, #f3fbf7 0%, #ffffff 100%);
+  border: 1px solid #d9ece4;
+  border-radius: 18px;
+  padding: 28px;
+  text-align: center;
+  box-shadow: 0 10px 22px rgba(59, 161, 124, 0.07);
+}
+
+.discussion-title {
+  margin: 0 0 8px;
+  font-size: 22px;
+  font-weight: 800;
+  color: #2f3a45;
+}
+
+.discussion-copy {
+  margin: 0 0 20px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #5f6b75;
+}
+
+.discussion-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 24px;
+  border-radius: 999px;
+  background: #3ba17c;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 8px 20px rgba(59, 161, 124, 0.22);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+}
+
+.discussion-button:hover {
+  background: #2e9469;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(59, 161, 124, 0.28);
+}
+
+@media (max-width: 520px) {
+  .discussion-card {
+    padding: 20px 16px;
+    border-radius: 14px;
+  }
+
+  .discussion-title {
+    font-size: 19px;
+  }
+
+  .discussion-copy {
+    font-size: 14px;
   }
 }
 </style>

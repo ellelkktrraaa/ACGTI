@@ -49,6 +49,19 @@
 
     <TestimonialsSection />
 
+    <!-- Stats / Leaderboard entry -->
+    <section class="feature feature-light text-center" style="padding-top: 4rem; padding-bottom: 4rem;" v-reveal>
+      <div class="container">
+        <p class="feature-copy" style="max-width: 500px; margin: 0 auto 1.5rem; color: #666;">
+          {{ t('home.statsLink').replace(' →', '') }}
+        </p>
+        <RouterLink to="/stats" class="btn btn-green" style="display: inline-flex; align-items: center; gap: 0.5rem;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 1.1rem; height: 1.1rem;"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
+          {{ t('home.statsLink') }}
+        </RouterLink>
+      </div>
+    </section>
+
     <section v-if="homeAdSlot" class="ad-section">
       <div class="container">
         <AdsenseSlot :slot="homeAdSlot" :label="t('app.common.sponsored')" />
@@ -71,6 +84,33 @@
       </div>
     </section>
 
+    <!-- Community Discussion Section -->
+    <section class="feature feature-light text-center community-section" style="padding-top: 4rem; padding-bottom: 4rem;" v-reveal>
+      <div class="container">
+        <p class="feature-tag tag-green">Community</p>
+        <h2 class="feature-title" style="margin-bottom: 0.5rem;">{{ t('home.communityTitle') }}</h2>
+        <div class="community-grid">
+          <a
+            v-for="(card, idx) in communityCards"
+            :key="idx"
+            href="https://github.com/tianxingleo/ACGTI/discussions"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="community-card"
+          >
+            <span class="community-card-icon" :class="`icon-${card.icon}`">
+              <svg v-if="card.icon === 'nominate'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg>
+              <svg v-else-if="card.icon === 'bug'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v4"/><path d="M16 2v4"/><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M2 12h4"/><path d="M18 12h4"/><path d="M6 18l-2 2"/><path d="M18 18l2 2"/></svg>
+              <svg v-else-if="card.icon === 'announce'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+              <svg v-else viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+            </span>
+            <h3 class="community-card-title">{{ card.title }}</h3>
+            <p class="community-card-desc">{{ card.desc }}</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
     <section class="cta">
       <div class="cta-top-wave"></div>
       <div class="container cta-inner">
@@ -89,10 +129,36 @@ import HeroSection from '../components/home/HeroSection.vue'
 import StatsSection from '../components/home/StatsSection.vue'
 import FeaturedStream from '../components/home/FeaturedStream.vue'
 import TestimonialsSection from '../components/home/TestimonialsSection.vue'
+import { computed } from 'vue'
 import { useI18n } from '../i18n'
+import { useSeo } from '../composables/useSeo'
+
+useSeo({
+  title: 'ACGTI 官网 - ACG Type Indicator | 二次元角色原型测试',
+  description: 'ACGTI 官网，ACG Type Indicator 二次元角色原型测试。回答 39 道情境式问题，获得唯一命中的角色代码，查看 MBTI 维度倾向与二次元角色原型解析。',
+  path: '/',
+  jsonLd: {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'ACGTI',
+    alternateName: 'ACG Type Indicator',
+    url: 'https://acgti.tianxingleo.top',
+    description: '以 MBTI 为基础的二次元角色原型测试',
+    potentialAction: {
+      '@type': 'TakeAction',
+      target: 'https://acgti.tianxingleo.top/quiz',
+      name: '开始测试',
+    },
+  },
+})
 
 const homeAdSlot = String(import.meta.env.VITE_ADSENSE_SLOT_HOME ?? '').trim()
-const { t } = useI18n()
+const { t, tm } = useI18n()
+
+const communityCards = computed(() => {
+  const raw = tm<Array<{ title: string; desc: string; icon: string }>>('home.communityCards')
+  return Array.isArray(raw) ? raw : []
+})
 </script>
 
 <style scoped>
@@ -104,6 +170,8 @@ const { t } = useI18n()
 .container {
   width: min(1200px, calc(100% - 2rem));
   margin: 0 auto;
+  position: relative;
+  z-index: 1;
 }
 
 .ad-section {
@@ -356,6 +424,103 @@ const { t } = useI18n()
 @media (max-width: 768px) {
   .cta {
     padding: 7rem 0;
+  }
+}
+
+.community-section {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+.community-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-top: 2rem;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.community-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 28px 16px 22px;
+  border-radius: 18px;
+  border: 1px solid #e8ecef;
+  background: linear-gradient(180deg, #ffffff, #fbfdfb);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.community-card:hover {
+  transform: translateY(-4px);
+  border-color: #b8ddd0;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+}
+
+.community-card-icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  margin-bottom: 4px;
+}
+
+.community-card-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.icon-nominate { background: #f3fbf7; color: #33a474; }
+.icon-bug { background: #fef5f5; color: #e26666; }
+.icon-announce { background: #fef9f0; color: #e4ae3a; }
+.icon-share { background: #f3f0f8; color: #88619a; }
+
+.community-card-title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  color: #2f3a45;
+}
+
+.community-card-desc {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #6c7780;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .community-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+
+  .community-card {
+    padding: 20px 12px 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .community-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .community-card-title {
+    font-size: 14px;
+  }
+
+  .community-card-desc {
+    font-size: 12px;
   }
 }
 </style>

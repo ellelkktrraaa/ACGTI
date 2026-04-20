@@ -58,9 +58,22 @@ __pycache__/
 .venv/
 venv/
 
+# Local analysis outputs
+analysis/README.md
+analysis/backup/
+analysis/reports/
+analysis/*.db
+analysis/*.sqlite
+analysis/*.sqlite3
+analysis/*.csv
+
 # Misc assets / archives
 *.png
 *.zip
 *.tar
 *.gz
 repomix-output.xml
+
+# Internal docs
+DEBUG_SUBMIT_400.md
+docs/排行榜优化方案.md

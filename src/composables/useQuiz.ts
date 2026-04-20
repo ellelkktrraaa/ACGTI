@@ -47,6 +47,7 @@ const emptyAnswers = () => Array.from({ length: questions.value.length }, () => 
 const state = reactive({
   currentIndex: 0,
   answers: emptyAnswers(),
+  startedAt: null as string | null,
   latestRecord: hydrateQuizRecord(loadLastRecord() as QuizRecord | null),
 })
 
@@ -62,12 +63,18 @@ const latestResult = computed(() => state.latestRecord?.result ?? null)
 
 function selectOption(optionIndex: number) {
   if (!isAnsweredValue(optionIndex)) return
+  if (!state.startedAt) {
+    state.startedAt = new Date().toISOString()
+  }
   state.answers[state.currentIndex] = optionIndex
 }
 
 function selectOptionAt(questionIndex: number, optionValue: number) {
   if (!isAnsweredValue(optionValue)) return
   if (questionIndex < 0 || questionIndex >= questions.value.length) return
+  if (!state.startedAt) {
+    state.startedAt = new Date().toISOString()
+  }
   state.answers[questionIndex] = optionValue
 }
 
@@ -92,6 +99,7 @@ function jumpToQuestion(index: number) {
 function resetQuiz(clearHistory = false) {
   state.currentIndex = 0
   state.answers = emptyAnswers()
+  state.startedAt = null
 
   if (clearHistory) {
     state.latestRecord = null
@@ -114,6 +122,8 @@ function finalizeQuiz(): QuizResult | null {
   const record: QuizRecord = {
     answers: [...state.answers],
     createdAt: new Date().toISOString(),
+    startedAt: state.startedAt || undefined,
+    submissionId: crypto.randomUUID(),
     result,
   }
 
