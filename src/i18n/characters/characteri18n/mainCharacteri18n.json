@@ -1,0 +1,611 @@
+
+[
+{
+  "hatsune-miku": {
+    "zh-CN": "初音未来",
+    "zh-TW": "初音未來",
+    "en": "Hatsune Miku",
+    "ja": "初音ミク"
+  },
+  "ayanami-rei": {
+    "zh-CN": "绫波丽",
+    "zh-TW": "綾波零",
+    "en": "Rei Ayanami",
+    "ja": "綾波レイ"
+  },
+  "asuka-langley": {
+    "zh-CN": "明日香",
+    "zh-TW": "明日香",
+    "en": "Asuka Langley",
+    "ja": "惣流・アスカ・ラングレー"
+  },
+  "edogawa-conan": {
+    "zh-CN": "江户川柯南",
+    "zh-TW": "江戶川柯南",
+    "en": "Conan Edogawa",
+    "ja": "江戸川コナン"
+  },
+  "hakurei-reimu": {
+    "zh-CN": "博丽灵梦",
+    "zh-TW": "博麗靈夢",
+    "en": "Reimu Hakurei",
+    "ja": "博麗霊夢"
+  },
+  "gotoh-hitori": {
+    "zh-CN": "后藤一里",
+    "zh-TW": "後藤一里",
+    "en": "Hitori Gotoh",
+    "ja": "後藤ひとり"
+  },
+  "fujiwara-chika": {
+    "zh-CN": "藤原千花",
+    "zh-TW": "藤原千花",
+    "en": "Chika Fujiwara",
+    "ja": "藤原千花"
+  },
+  "takanashi-rikka": {
+    "zh-CN": "小鸟游六花",
+    "zh-TW": "小鳥遊六花",
+    "en": "Rikka Takanashi",
+    "ja": "小鳥遊六花"
+  },
+  "kousaka-kirino": {
+    "zh-CN": "高坂桐乃",
+    "zh-TW": "高坂桐乃",
+    "en": "Kirino Kousaka",
+    "ja": "高坂桐乃"
+  },
+  "amiya": {
+    "zh-CN": "阿米娅",
+    "zh-TW": "阿米婭",
+    "en": "Amiya",
+    "ja": "アーミヤ"
+  },
+  "phoebe": {
+    "zh-CN": "菲比",
+    "zh-TW": "菲比",
+    "en": "Phoebe",
+    "ja": "フィービー"
+  },
+  "kitashirakawa-tamako": {
+    "zh-CN": "北白川玉子",
+    "zh-TW": "北白川玉子",
+    "en": "Tamako Kitashirakawa",
+    "ja": "北白川たまこ"
+  },
+  "nakano-nino": {
+    "zh-CN": "中野二乃",
+    "zh-TW": "中野二乃",
+    "en": "Nino Nakano",
+    "ja": "中野二乃"
+  },
+  "yor-forger": {
+    "zh-CN": "约尔·福杰",
+    "zh-TW": "約兒·佛傑",
+    "en": "Yor Forger",
+    "ja": "ヨル・フォージャー"
+  },
+  "sakagami-tomoyo": {
+    "zh-CN": "坂上智代",
+    "zh-TW": "坂上智代",
+    "en": "Tomoyo Sakagami",
+    "ja": "坂上智代"
+  },
+  "azusagawa-kaede": {
+    "zh-CN": "梓川枫",
+    "zh-TW": "梓川楓",
+    "en": "Kaede Azusagawa",
+    "ja": "梓川かえで"
+  },
+  "aisaka-taiga": {
+    "zh-CN": "逢坂大河",
+    "zh-TW": "逢坂大河",
+    "en": "Taiga Aisaka",
+    "ja": "逢坂大河"
+  },
+  "shinomiya-kaguya": {
+    "zh-CN": "四宫辉夜",
+    "zh-TW": "四宮輝夜",
+    "en": "Kaguya Shinomiya",
+    "ja": "四宮かぐや"
+  },
+  "kato-megumi": {
+    "zh-CN": "加藤惠",
+    "zh-TW": "加藤惠",
+    "en": "Megumi Kato",
+    "ja": "加藤恵"
+  },
+  "rem": {
+    "zh-CN": "蕾姆",
+    "zh-TW": "雷姆",
+    "en": "Rem",
+    "ja": "レム"
+  },
+  "kita-ikuyo": {
+    "zh-CN": "喜多郁代",
+    "zh-TW": "喜多郁代",
+    "en": "Ikuyo Kita",
+    "ja": "喜多郁代"
+  },
+  "yamada-ryo": {
+    "zh-CN": "山田凉",
+    "zh-TW": "山田涼",
+    "en": "Ryo Yamada",
+    "ja": "山田リョウ"
+  },
+  "hirasawa-yui": {
+    "zh-CN": "平泽唯",
+    "zh-TW": "平澤唯",
+    "en": "Yui Hirasawa",
+    "ja": "平沢唯"
+  },
+  "emilia": {
+    "zh-CN": "爱蜜莉雅",
+    "zh-TW": "愛蜜莉雅",
+    "en": "Emilia",
+    "ja": "エミリア"
+  },
+  "yukinoshita-yukino": {
+    "zh-CN": "雪之下雪乃",
+    "zh-TW": "雪之下雪乃",
+    "en": "Yukino Yukinoshita",
+    "ja": "雪ノ下雪乃"
+  },
+  "sakurajima-mai": {
+    "zh-CN": "樱岛麻衣",
+    "zh-TW": "櫻島麻衣",
+    "en": "Mai Sakurajima",
+    "ja": "桜島麻衣"
+  },
+  "akiyama-mio": {
+    "zh-CN": "秋山澪",
+    "zh-TW": "秋山澪",
+    "en": "Mio Akiyama",
+    "ja": "秋山澪"
+  },
+  "cirno": {
+    "zh-CN": "琪露诺",
+    "zh-TW": "琪露諾",
+    "en": "Cirno",
+    "ja": "チルノ"
+  },
+  "misaka-mikoto": {
+    "zh-CN": "御坂美琴",
+    "zh-TW": "御坂美琴",
+    "en": "Mikoto Misaka",
+    "ja": "御坂美琴"
+  },
+  "kaname-madoka": {
+    "zh-CN": "鹿目圆",
+    "zh-TW": "鹿目圓",
+    "en": "Madoka Kaname",
+    "ja": "鹿目まどか"
+  },
+  "furina": {
+    "zh-CN": "芙宁娜",
+    "zh-TW": "芙寧娜",
+    "en": "Furina",
+    "ja": "フリーナ"
+  },
+  "takamatsu-tomori": {
+    "zh-CN": "高松灯",
+    "zh-TW": "高松燈",
+    "en": "Tomori Takamatsu",
+    "ja": "高松燈"
+  },
+  "chihaya-anon": {
+    "zh-CN": "千早爱音",
+    "zh-TW": "千早愛音",
+    "en": "Anon Chihaya",
+    "ja": "千早愛音"
+  },
+  "yo-rana": {
+    "zh-CN": "要乐奈",
+    "zh-TW": "要樂奈",
+    "en": "Rana Kaname",
+    "ja": "要楽奈"
+  },
+  "nagasaki-soyo": {
+    "zh-CN": "长崎爽世",
+    "zh-TW": "長崎爽世",
+    "en": "Soyo Nagasaki",
+    "ja": "長崎そよ"
+  },
+  "shiina-taki": {
+    "zh-CN": "椎名立希",
+    "zh-TW": "椎名立希",
+    "en": "Taki Shiina",
+    "ja": "椎名立希"
+  },
+  "togawa-sakiko": {
+    "zh-CN": "丰川祥子",
+    "zh-TW": "豐川祥子",
+    "en": "Sakiko Togawa",
+    "ja": "豊川祥子"
+  },
+  "wakaba-mutsumi": {
+    "zh-CN": "若叶睦",
+    "zh-TW": "若葉睦",
+    "en": "Mutsumi Wakaba",
+    "ja": "若葉睦"
+  },
+  "mortis": {
+    "zh-CN": "Mortis",
+    "zh-TW": "Mortis",
+    "en": "Mortis",
+    "ja": "モーティス"
+  },
+  "misumi-uika": {
+    "zh-CN": "三角初华 / Doloris",
+    "zh-TW": "三角初華 / Doloris",
+    "en": "Uika Misumi / Doloris",
+    "ja": "三角初華 / Doloris"
+  },
+  "yahata-umiri": {
+    "zh-CN": "八幡海铃 / Timoris",
+    "zh-TW": "八幡海鈴 / Timoris",
+    "en": "Umiri Yahata / Timoris",
+    "ja": "八幡海鈴 / Timoris"
+  },
+  "uika-nyubara": {
+    "zh-CN": "祐天寺若麦 / Amoris",
+    "zh-TW": "祐天寺若麥 / Amoris",
+    "en": "Nyubara Uika / Amoris",
+    "ja": "祐天寺若麦 / Amoris"
+  },
+  "jia-ran": {
+    "zh-CN": "嘉然",
+    "zh-TW": "嘉然",
+    "en": "Diana",
+    "ja": "嘉然"
+  },
+  "eis-taffy": {
+    "zh-CN": "永雏塔菲",
+    "zh-TW": "永雛塔菲",
+    "en": "Eis Taffy",
+    "ja": "永雛タフィ"
+  },
+  "neuro-sama": {
+    "zh-CN": "Neuro-sama",
+    "zh-TW": "Neuro-sama",
+    "en": "Neuro-sama",
+    "ja": "Neuro-sama"
+  },
+  "evil-neuro": {
+    "zh-CN": "Evil Neuro",
+    "zh-TW": "Evil Neuro",
+    "en": "Evil Neuro",
+    "ja": "Evil Neuro"
+  },
+  "kagamine-rin": {
+    "zh-CN": "镜音铃",
+    "zh-TW": "鏡音鈴",
+    "en": "Kagamine Rin",
+    "ja": "鏡音リン"
+  },
+  "luo-tianyi": {
+    "zh-CN": "洛天依",
+    "zh-TW": "洛天依",
+    "en": "Luo Tianyi",
+    "ja": "洛天依"
+  },
+  "runami-yachiyo": {
+    "zh-CN": "月见八千代",
+    "zh-TW": "月見八千代",
+    "en": "Yachiyo Tsukimi",
+    "ja": "月見八千代"
+  },
+  "murasame": {
+    "zh-CN": "丛雨",
+    "zh-TW": "叢雨",
+    "en": "Murasame",
+    "ja": "ムラサメ"
+  },
+  "ayachi-nene": {
+    "zh-CN": "绫地宁宁",
+    "zh-TW": "綾地寧寧",
+    "en": "Nene Ayachi",
+    "ja": "綾地寧々"
+  },
+  "tomotake-yoshino": {
+    "zh-CN": "朝武芳乃",
+    "zh-TW": "朝武芳乃",
+    "en": "Yoshino Tomotake",
+    "ja": "朝武芳乃"
+  },
+  "atri": {
+    "zh-CN": "亚托莉",
+    "zh-TW": "亞托莉",
+    "en": "ATRI",
+    "ja": "アトリ"
+  },
+  "yanami-anna": {
+    "zh-CN": "八奈见杏菜",
+    "zh-TW": "八奈見杏菜",
+    "en": "Anna Yanami",
+    "ja": "八奈見杏菜"
+  },
+  "nukumizu-kaju": {
+    "zh-CN": "温水佳树",
+    "zh-TW": "溫水佳樹",
+    "en": "Kaju Nukumizu",
+    "ja": "温水佳樹"
+  },
+  "elysia": {
+    "zh-CN": "爱莉希雅",
+    "zh-TW": "愛莉希雅",
+    "en": "Elysia",
+    "ja": "エリシア"
+  },
+  "haibara-ai": {
+    "zh-CN": "灰原哀",
+    "zh-TW": "灰原哀",
+    "en": "Ai Haibara",
+    "ja": "灰原哀"
+  },
+  "violet-evergarden": {
+    "zh-CN": "薇尔莉特",
+    "zh-TW": "薇爾莉特",
+    "en": "Violet Evergarden",
+    "ja": "ヴァイオレット・エヴァーガーデン"
+  },
+  "elaina": {
+    "zh-CN": "伊蕾娜",
+    "zh-TW": "伊蕾娜",
+    "en": "Elaina",
+    "ja": "イレイナ"
+  },
+  "chitanda-eru": {
+    "zh-CN": "千反田爱瑠",
+    "zh-TW": "千反田愛瑠",
+    "en": "Eru Chitanda",
+    "ja": "千反田える"
+  },
+  "tomori-nao": {
+    "zh-CN": "友利奈绪",
+    "zh-TW": "友利奈緒",
+    "en": "Nao Tomori",
+    "ja": "友利奈緒"
+  },
+  "nakano-azusa": {
+    "zh-CN": "中野梓",
+    "zh-TW": "中野梓",
+    "en": "Azusa Nakano",
+    "ja": "中野梓"
+  },
+  "furukawa-nagisa": {
+    "zh-CN": "古河渚",
+    "zh-TW": "古河渚",
+    "en": "Nagisa Furukawa",
+    "ja": "古河渚"
+  },
+  "nishimiya-shoko": {
+    "zh-CN": "西宫硝子",
+    "zh-TW": "西宮硝子",
+    "en": "Shoko Nishimiya",
+    "ja": "西宮硝子"
+  },
+  "kusanagi-nene": {
+    "zh-CN": "草薙宁宁",
+    "zh-TW": "草薙寧寧",
+    "en": "Nene Kusanagi",
+    "ja": "草薙寧々"
+  },
+  "akemi-homura": {
+    "zh-CN": "晓美焰",
+    "zh-TW": "曉美焰",
+    "en": "Homura Akemi",
+    "ja": "暁美ほむら"
+  },
+  "yuigahama-yui": {
+    "zh-CN": "由比滨结衣",
+    "zh-TW": "由比濱結衣",
+    "en": "Yui Yuigahama",
+    "ja": "由比ヶ浜結衣"
+  },
+  "suzumiya-haruhi": {
+    "zh-CN": "凉宫春日",
+    "zh-TW": "涼宮春日",
+    "en": "Haruhi Suzumiya",
+    "ja": "涼宮ハルヒ"
+  },
+  "hoshino-ruby": {
+    "zh-CN": "星野露比",
+    "zh-TW": "星野露比",
+    "en": "Ruby Hoshino",
+    "ja": "ルビー"
+  },
+  "miyazono-kaori": {
+    "zh-CN": "宫园薰",
+    "zh-TW": "宮園薰",
+    "en": "Kaori Miyazono",
+    "ja": "宮園かをり"
+  },
+  "awa-subaru": {
+    "zh-CN": "安和昴",
+    "zh-TW": "安和昴",
+    "en": "Subaru Awa",
+    "ja": "安和すばる"
+  },
+  "frieren": {
+    "zh-CN": "芙丽莲",
+    "zh-TW": "芙莉蓮",
+    "en": "Frieren",
+    "ja": "フリーレン"
+  },
+  "ijichi-nijika": {
+    "zh-CN": "伊地知虹夏",
+    "zh-TW": "伊地知虹夏",
+    "en": "Nijika Ijichi",
+    "ja": "伊地知虹夏"
+  },
+  "tachibana-kanade": {
+    "zh-CN": "立华奏",
+    "zh-TW": "立華奏",
+    "en": "Kanade Tachibana",
+    "ja": "立華かなで"
+  },
+  "kaltsit": {
+    "zh-CN": "凯尔希",
+    "zh-TW": "凱爾希",
+    "en": "Kal'tsit",
+    "ja": "ケルシー"
+  },
+  "arima-kana": {
+    "zh-CN": "有马加奈",
+    "zh-TW": "有馬加奈",
+    "en": "Kana Arima",
+    "ja": "有馬かな"
+  },
+  "nishikigi-chisato": {
+    "zh-CN": "锦木千束",
+    "zh-TW": "錦木千束",
+    "en": "Chisato Nishikigi",
+    "ja": "錦木千束"
+  },
+  "tanikaze-amane": {
+    "zh-CN": "谷风天音",
+    "zh-TW": "谷風天音",
+    "en": "Amane Tanikaze",
+    "ja": "谷風天音"
+  },
+  "kasugano-sora": {
+    "zh-CN": "春日野穹",
+    "zh-TW": "春日野穹",
+    "en": "Sora Kasugano",
+    "ja": "春日野穹"
+  },
+  "myrtle": {
+    "zh-CN": "桃金娘",
+    "zh-TW": "桃金娘",
+    "en": "Myrtle",
+    "ja": "テンニンカ"
+  },
+  "vertin": {
+    "zh-CN": "维尔汀",
+    "zh-TW": "維爾汀",
+    "en": "Vertin",
+    "ja": "ヴェルティ"
+  },
+  "shirai-kuroko": {
+    "zh-CN": "白井黑子",
+    "zh-TW": "白井黑子",
+    "en": "Kuroko Shirai",
+    "ja": "白井黒子"
+  },
+  "oyama-mahiro": {
+    "zh-CN": "绪山真寻",
+    "zh-TW": "緒山真尋",
+    "en": "Mahiro Oyama",
+    "ja": "緒山まひろ"
+  },
+  "tokai-teio": {
+    "zh-CN": "东海帝皇",
+    "zh-TW": "東海帝皇",
+    "en": "Tokai Teio",
+    "ja": "トウカイテイオー"
+  },
+  "eyjafjalla": {
+    "zh-CN": "艾雅法拉",
+    "zh-TW": "艾雅法拉",
+    "en": "Eyjafjalla",
+    "ja": "エイヤフィヤトラ"
+  },
+  "shorekeeper": {
+    "zh-CN": "守岸人",
+    "zh-TW": "守岸人",
+    "en": "Shorekeeper",
+    "ja": "ショアキーパー"
+  },
+  "doro": {
+    "zh-CN": "doro",
+    "zh-TW": "doro",
+    "en": "doro",
+    "ja": "Doro"
+  },
+  "firefly": {
+    "zh-CN": "流萤",
+    "zh-TW": "流螢",
+    "en": "Firefly",
+    "ja": "ホタル"
+  },
+  "matikanetannhauser": {
+    "zh-CN": "待兼诗歌剧",
+    "zh-TW": "待兼詩歌劇",
+    "en": "Matikanetannhauser",
+    "ja": "マチカネタンホイザ"
+  },
+  "cartethyia": {
+    "zh-CN": "卡提希娅",
+    "zh-TW": "卡提希婭",
+    "en": "Cartethyia",
+    "ja": "カルテシア"
+  },
+  "azuma-seren": {
+    "zh-CN": "东雪莲",
+    "zh-TW": "東雪蓮",
+    "en": "Azuma Seren",
+    "ja": "東雪蓮"
+  },
+  "izumi-konata": {
+    "zh-CN": "泉此方",
+    "zh-TW": "泉此方",
+    "en": "Konata Izumi",
+    "ja": "泉こなた"
+  },
+  "reze": {
+    "zh-CN": "雷塞",
+    "zh-TW": "蕾潔",
+    "en": "Reze",
+    "ja": "レゼ"
+  },
+  "kaguya-chojikuu": {
+    "zh-CN": "辉夜",
+    "zh-TW": "輝夜",
+    "en": "Kaguya",
+    "ja": "輝夜"
+  },
+  "bilibili-22": {
+    "zh-CN": "22娘",
+    "zh-TW": "22娘",
+    "en": "22 Niang",
+    "ja": "22娘"
+  },
+  "bilibili-33": {
+    "zh-CN": "33娘",
+    "zh-TW": "33娘",
+    "en": "33 Niang",
+    "ja": "33娘"
+  },
+  "qb": {
+    "zh-CN": "丘比",
+    "zh-TW": "丘比",
+    "en": "Kyubey",
+    "ja": "キュゥべえ"
+  },
+  "kushima-kamome": {
+    "zh-CN": "久岛鸥",
+    "zh-TW": "久島鷗",
+    "en": "Kamome Kushima",
+    "ja": "久島鴎"
+  },
+  "makise-kurisu": {
+    "zh-CN": "牧濑红莉栖",
+    "zh-TW": "牧瀨紅莉棲",
+    "en": "Kurisu Makise",
+    "ja": "牧瀬紅莉栖"
+  },
+  "shiina-mayuri": {
+    "zh-CN": "椎名真由理",
+    "zh-TW": "椎名真由理",
+    "en": "Mayuri Shiina",
+    "ja": "椎名まゆり"
+  },
+  "amane-suzuha": {
+    "zh-CN": "阿万音铃羽",
+    "zh-TW": "阿萬音鈴羽",
+    "en": "Suzuha Amane",
+    "ja": "阿万音鈴羽"
+  }
+}
+]
